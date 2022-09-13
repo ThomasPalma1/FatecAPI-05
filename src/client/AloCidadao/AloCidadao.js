@@ -1,14 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
+import styleGlobal from './src/assets/styles/styleGlobal';
+import RegisterOccurrence from './src/components/RegisterOccurrence';
 
 const AloCidadao = () => {
   return (
-    <View>
-      <Text>
-        Alo Cidadão
-      </Text>
+    <View style={styleGlobal.container}>
+      <RegisterOccurrence/>
     </View>
   );
 }
-
 export default AloCidadao;
