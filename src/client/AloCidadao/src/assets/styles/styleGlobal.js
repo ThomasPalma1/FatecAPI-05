@@ -12,4 +12,17 @@ export default StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 75
   },
+  photo: {
+    width: 150,
+    height: 150,
+    alignItems: 'center',
+    borderRadius: 25,
+    margin: 10,
+    justifyContent: 'center'
+  },
+  containerPhoto: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  }
 });

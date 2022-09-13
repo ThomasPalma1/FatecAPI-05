@@ -19,7 +19,7 @@ export default function Button(props) {
             ]}
         >
             <Text>{props.icon}</Text>
-            <Text style={styles.text}>
+            <Text style={styles.buttonText}>
                 {props.title}
             </Text>
         </Pressable>
@@ -27,7 +27,7 @@ export default function Button(props) {
 }
 
 const styles = StyleSheet.create({
-    text: {
+    buttonText: {
         color: '#ffffff',
         fontSize: 20,
         margin: 10,
