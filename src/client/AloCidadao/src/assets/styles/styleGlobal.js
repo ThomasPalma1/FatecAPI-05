@@ -1,4 +1,9 @@
 import { StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import { RFValue } from "react-native-responsive-fontsize";
 
 export default StyleSheet.create({
   container: {
@@ -6,23 +11,28 @@ export default StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   image: {
-    marginTop: 10,
-    width: 105,
-    height: 105,
+    marginTop: hp(1),
+    width: wp(30),
+    height: hp(16),
     alignSelf: 'center',
-    borderRadius: 75
+    borderRadius: hp('21%'),
   },
   photo: {
-    width: 150,
-    height: 150,
+    height: hp(21),
+    width: wp(38),
     alignItems: 'center',
-    borderRadius: 25,
-    margin: 10,
+    borderRadius: hp(3),
+    margin: hp(1),
     justifyContent: 'center'
   },
   containerPhoto: {
-    display: 'flex',
-    justifyContent: 'center',
     flexDirection: 'row',
-  }
+  },
+  textMenu: {
+    fontFamily: 'Montserrat',
+    fontStyle: "normal",
+    fontSize:  RFValue(24),
+    alignItems: "center",
+    textAlign: "center",
+  },
 });

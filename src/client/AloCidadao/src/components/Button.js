@@ -4,6 +4,11 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
+import { RFValue } from "react-native-responsive-fontsize";
 
 
 export default function Button(props) {
@@ -29,17 +34,17 @@ export default function Button(props) {
 const styles = StyleSheet.create({
     buttonText: {
         color: '#ffffff',
-        fontSize: 20,
-        margin: 10,
+        fontSize: RFValue(20),
+        margin: hp(1),
         textAlign: 'center',
         display: 'flex',
     },
     button: {
-        width: 150,
-        height: 150,
+        height: hp(21),
+        width: wp(38),
         alignItems: 'center',
-        borderRadius: 25,
-        margin: 10,
+        borderRadius: hp(3),
+        margin: hp(1),
         justifyContent: 'flex-end'
     },
 })

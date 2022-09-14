@@ -1,9 +1,15 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image} from "react-native";
 import StepIndicator from "react-native-step-indicator";
 import Swiper from "react-native-swiper";
 import PhotoGallery from "./PhotoGallery";
 import styleGlobal from '../assets/styles/styleGlobal';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from 'react-native-responsive-screen';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 
 export default function RegisterOccurrence(props) {
@@ -57,6 +63,7 @@ export default function RegisterOccurrence(props) {
 
   const renderViewPagerPage = (data) => {
     return (
+      
       <View key={data} style={styles.page}>
         <Text>{data}</Text>
       </View>
@@ -64,36 +71,39 @@ export default function RegisterOccurrence(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <Image 
-        style={styleGlobal.image}
-        source={require('../assets/images/icon.png')}
-        resizeMode={"cover"}
+    
+      <View style={styles.container}>
+        <Image
+          style={styleGlobal.image}
+          source={require('../assets/images/icon.png')}
+          resizeMode={"cover"}
         />
-      <View style={styles.stepIndicator}>
-        <StepIndicator
-          stepCount={4}
-          customStyles={firstIndicatorStyles}
-          currentPosition={currentPage}
-          labels={['Enviar fotos', 'Descrição', 'Localização', 'Concluir']}
-          renderLabel={renderLabel}
-          onPress={onStepPress}
-        />
+        <Text style={styleGlobal.textMenu}>Tire uma foto do ocorrido ou selecione uma foto da galeria.</Text>
+        <View style={styles.stepIndicator}>
+          <StepIndicator
+            stepCount={4}
+            customStyles={firstIndicatorStyles}
+            currentPosition={currentPage}
+            labels={['Enviar fotos', 'Descrição', 'Localização', 'Concluir']}
+            renderLabel={renderLabel}
+            onPress={onStepPress}
+          />
+        </View>
+        <Swiper
+          style={{ flexGrow: 1 }}
+          loop={false}
+          index={currentPage}
+          showsPagination={false}
+          autoplay={false}
+          showsButtons={true}
+          onIndexChanged={(page) => {
+            setCurrentPage(page);
+          }}
+        >
+          {PAGES.map((page) => renderViewPagerPage(page))}
+        </Swiper>
       </View>
-      <Swiper
-        style={{ flexGrow: 1 }}
-        loop={false}
-        index={currentPage}
-        showsPagination={false}
-        autoplay={false}
-        showsButtons={true}
-        onIndexChanged={(page) => {
-          setCurrentPage(page);
-        }}
-      >
-        {PAGES.map((page) => renderViewPagerPage(page))}
-      </Swiper>
-    </View>
+   
   );
 }
 
@@ -103,24 +113,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   stepIndicator: {
-    marginVertical: 50,
+    marginVertical: hp(2),
   },
   page: {
-    flex: 2,
-    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
     alignItems: 'center',
-    backgroundColor: '#ECF7FF',
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'yellow',
+    borderTopLeftRadius: hp(4),
+    borderTopRightRadius: hp(4),
   },
   stepLabel: {
-    fontSize: 12,
+    fontSize: RFValue(12),
     textAlign: 'center',
     fontWeight: '500',
     color: '#5F97CB',
   },
   stepLabelSelected: {
-    fontSize: 12,
+    fontSize: RFValue(12),
     textAlign: 'center',
     fontWeight: '500',
     color: '#6FBAFF',

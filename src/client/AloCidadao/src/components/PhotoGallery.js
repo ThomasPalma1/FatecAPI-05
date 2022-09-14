@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
     Alert,
+    Dimensions,
     Image,
     View,
 } from 'react-native';
@@ -9,7 +10,7 @@ import Button from './Button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { PermissionsAndroid } from 'react-native';
 import styleGlobal from '../assets/styles/styleGlobal';
-import AntDesign from './AntDesign';
+import AntDesign from '../assets/icons/AntDesign';
 
 export default function PhotoGallery() {
     const [imageSelected, setimageSelected] = useState(null);
