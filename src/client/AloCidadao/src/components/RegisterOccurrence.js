@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: '#ecf7ff',
     borderTopLeftRadius: hp(4),
     borderTopRightRadius: hp(4),
   },

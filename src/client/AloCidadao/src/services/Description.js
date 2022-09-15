@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "",
     backgroundColor: '#ffffff',
-    borderRadius: 20
+    borderRadius: 20,
+    textAlignVertical: "top",
+    flexWrap: "wrap"
   },
 });
 
@@ -32,8 +34,8 @@ const UselessTextInput = () => {
 
   return (
     <SafeAreaView>
-      <TextInput style={styles.input} onChangeText={onChangeText} value={text} placeholder={"Título"} />
-      <TextInput style={styles.input1} onChangeText={onChangeText1} value={text1} keyboardType="default" multiline={true} numberOfLines={4} placeholder={"Descrição"} />
+      <TextInput style={styles.input} onChangeText={onChangeText} value={text} placeholder={"Título"} maxLength={30}/>
+      <TextInput style={styles.input1} onChangeText={onChangeText1} value={text1} placeholder={"Descrição"} multiline={true} numberOfLines={4} />
     </SafeAreaView>
   );
 };
