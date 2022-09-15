@@ -1,24 +1,38 @@
-import React, {useState} from "react";
-import { View, Text, Image, TextInput, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Switch, Text, TextInput, StyleSheet, ScrollView } from "react-native";
 
-const style = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: "rgb(46,226,250)",
-    paddingHorizontal: 20,
-    justifyContent: "center",
-  },
-  input:{
-    backgroundColor: "white",
-    padding: 15,
-    fontSize: 18,
-    marginTop: 7,
-    borderRadius: 5,
-    borderWidth: .7
-  }
+const styles = StyleSheet.create({
+    contText: {
+        fontWeight: "",
+        width: 350,
+        height:60,
+        backgroundColor: '#ffffff',
+        margin: 5,
+        borderRadius: 20
+    },
+    container: {
+        width: '100%',
+        marginBottom: 100
+      },
+    switch:{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 100,
+    },
+    
 })
 
 export default function Cep() {
+    const [isEditable, setisEditable] = useState(false);
+    const updateState = () => {
+        //setisEditable(!isEditable);
+        setBairro("");
+        setCep("");
+        setLocalidade("");
+        setLogradouro("");
+        setUF("");
+    };
     const [cep, setCep] = useState("");
     const [Logradouro, setLogradouro] = useState("");
     //const [Complemento, setComplemento] = useState("");
@@ -40,19 +54,28 @@ export default function Cep() {
     }
 
     return (
-        <View style={style.container}>
-            <TextInput style={style.input} placeholder="CEP"
+        <ScrollView style={styles.container}>
+            <View style={styles.switch}>
+                <Text style={{color: "red"}}>Localizar pelo Dispositivo Móvel</Text>
+                <Switch value={isEditable} onValueChange={setisEditable} onChange={updateState} trackColor={{ false: "#767577", true: "#81b0ff" }} thumbColor={isEditable ? "#f5dd4b" : "#f4f3f4"} />
+            </View>
+            <TextInput style={styles.contText}
+                editable={isEditable} placeholder={isEditable ? "CEP" : "CEP"}
                 onChangeText={text => {
                     if (text.length == 8) {
                         chamarCep(text);
                     }
                 }}
                 keyboardType="number-pad" />
-            <TextInput style={style.input} value={Logradouro} placeholder="Rua" />
+            <TextInput style={styles.contText}
+                editable={isEditable} placeholder={isEditable ? "Rua" : "Rua"} value={Logradouro} />
             {/*<TextInput style={style.input} value={Complemento} placeholder="Complemento" />*/}
-            <TextInput style={style.input} value={Bairro} placeholder="Bairro" />
-            <TextInput style={style.input} value={Localidade} placeholder="Localidade" />
-            <TextInput style={style.input} value={UF} placeholder="UF" />
-        </View>
+            <TextInput style={styles.contText}
+                editable={isEditable} placeholder={isEditable ? "Bairro" : "Bairro"} value={Bairro} />
+            <TextInput style={styles.contText}
+                editable={isEditable} placeholder={isEditable ? "Cidade" : "Cidade"} value={Localidade} />
+            <TextInput style={styles.contText}
+                editable={isEditable} placeholder={isEditable ? "UF" : "UF"} value={UF} />
+        </ScrollView>
     );
 }

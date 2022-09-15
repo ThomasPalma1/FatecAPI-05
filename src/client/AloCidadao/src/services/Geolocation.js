@@ -2,6 +2,23 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, PermissionsAndroid, Button, Platform } from "react-native";
 import Geolocation from "@react-native-community/geolocation";
 
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    alignItems: "center",
+  },
+  boldText: {
+  },
+  text:{
+
+  },
+  button:{
+    alignItems: 'center',
+    borderRadius: 25,
+    margin: 10,
+    justifyContent: 'flex-end'
+  },
+})
 
 export default function App() {
 
@@ -44,7 +61,7 @@ export default function App() {
         setCurrentLongitude(currentLongitude);
       },
       (error) => alert(error.message),
-      { enableHighAccuracy: true, timeout: 2000, maximumAge: 1000 }
+      { enableHighAccuracy: true, timeout: 20000000, maximumAge: 1000 }
     );
     const watchID = Geolocation.watchPosition((position) => {
       const currentLatitude = JSON.stringify(position.coords.latitude);
@@ -81,11 +98,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-
-  }
-})

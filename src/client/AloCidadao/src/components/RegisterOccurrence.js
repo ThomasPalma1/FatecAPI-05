@@ -9,13 +9,15 @@ import {
     heightPercentageToDP as hp,
   } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import Cep from "../services/Cep";
+import Description from "../services/Description";
 
 
 
 export default function RegisterOccurrence(props) {
   const [currentPage, setCurrentPage] = React.useState(0);
 
-  const PAGES = [<PhotoGallery />, "Page 2", "Page 3", "Page 4"];
+  const PAGES = [ <PhotoGallery/>, <Description/>, <Cep/>, "Page 4"];
 
   const firstIndicatorStyles = {
     stepIndicatorSize: 30,
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: '#ecf7ff',
     borderTopLeftRadius: hp(4),
     borderTopRightRadius: hp(4),
   },

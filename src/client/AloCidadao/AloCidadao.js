@@ -5,6 +5,8 @@ import RegisterOccurrence from './src/components/RegisterOccurrence';
 import Index from './src/components/Index';
 import SemConexao from './src/components/SemConexao';
 import NetInfo from "@react-native-community/netinfo"
+import Cep from './src/services/Cep';
+
 
 export default function  AloCidadao() {
   const [connState, setConnState] = useState(0);
@@ -30,7 +32,7 @@ export default function  AloCidadao() {
 
   return (
     <View style={styleGlobal.container}>
-      {connState.isConnected == true ?  <Index/>:<SemConexao/>}
+      {connState.isConnected == true ?  <RegisterOccurrence/>:<SemConexao/>}
      
     </View>
   );
