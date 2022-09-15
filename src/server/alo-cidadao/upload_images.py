@@ -25,15 +25,17 @@ def create():
         report_image = request.files['report_image']
 
         im = Image.open(report_image)
+        image_type = im.format
         output = BytesIO()
-        im.save(output, format=im.format)  # image extension
+        im.save(output, format=image_type)  # image extension
         output = output.getvalue()
         _id = grid.put(output)
 
-        mongo.db.report_images.insert_one({'grid_id': ObjectId(_id), 'filename': report_image.filename})
+        mongo.db.report_images.insert_one(
+            {'grid_id': ObjectId(_id), 'filename': report_image.filename, 'type': image_type})
 
-        return build_response("Done!", 200)
-    return build_response("Error!", 400)
+        return build_response({"message": "Done!"}, 200)
+    return build_response({"message": "Error!"}, 400)
 
 
 # the next route is for future testing only
@@ -44,4 +46,9 @@ def file_uploaded_to_database(id):
     image = grid.get(ObjectId(id))  # getting the image in binary
     base64_data = codecs.encode(image.read(), 'base64')  # converting received image to base64
     image = base64_data.decode('utf-8')
-    return build_response(image, 200)
+
+    image_data = mongo.db.report_images.find_one({'grid_id': ObjectId(id)})
+
+    # image_base_64 = "data:image/" + image_data['type'] + ";base64," + image
+
+    return build_response({"image": image}, 200)
