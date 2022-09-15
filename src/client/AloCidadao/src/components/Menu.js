@@ -18,7 +18,7 @@ export default function Menu({navigation}) {
         <View>
         <View style={styles.buttonStyleContainer}>
             <View>
-                <Button icon={<Icon name="assignment" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} onPress={()=> }>
+                <Button icon={<Icon name="assignment" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'}/>
             </View>
             <View>
                 <Button icon={<Icon2 name="user" size={80} color="white" />} color={"#6FBAFF"} title={'Meus Dados'}/>

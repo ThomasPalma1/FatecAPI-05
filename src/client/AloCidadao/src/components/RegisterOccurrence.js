@@ -10,7 +10,7 @@ import {
   } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Cep from "../services/Cep";
-import Description from "../services/Description";
+import Description from './Description';
 
 
 
@@ -80,7 +80,7 @@ export default function RegisterOccurrence(props) {
           source={require('../assets/images/icon.png')}
           resizeMode={"cover"}
         />
-        <Text style={styleGlobal.textMenu}>Tire uma foto do ocorrido ou selecione uma foto da galeria.</Text>
+        <Text style={styleGlobal.textMenu}>Preencha as informações com os dados do ocorrido</Text>
         <View style={styles.stepIndicator}>
           <StepIndicator
             stepCount={4}
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     alignSelf: 'center',
+    padding: hp(2),
     justifyContent: 'center',
     backgroundColor: '#ecf7ff',
     borderTopLeftRadius: hp(4),

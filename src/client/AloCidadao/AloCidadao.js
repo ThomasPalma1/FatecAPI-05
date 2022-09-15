@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
 import styleGlobal from './src/assets/styles/styleGlobal';
 import RegisterOccurrence from './src/components/RegisterOccurrence';
-import Index from './src/components/Index';
 import SemConexao from './src/components/SemConexao';
 import NetInfo from "@react-native-community/netinfo"
-import Cep from './src/services/Cep';
+
 
 
 export default function  AloCidadao() {

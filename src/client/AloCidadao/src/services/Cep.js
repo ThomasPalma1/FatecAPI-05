@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Switch, Text, TextInput, StyleSheet, ScrollView } from "react-native";
+import styleGlobal from "../assets/styles/styleGlobal";
 
 const styles = StyleSheet.create({
     contText: {
@@ -10,10 +11,6 @@ const styles = StyleSheet.create({
         margin: 5,
         borderRadius: 20
     },
-    container: {
-        width: '100%',
-        marginBottom: 100
-      },
     switch:{
         flex: 1,
         justifyContent: "center",
@@ -54,12 +51,12 @@ export default function Cep() {
     }
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView>
             <View style={styles.switch}>
-                <Text style={{color: "red"}}>Localizar pelo Dispositivo Móvel</Text>
+                <Text>Localizar pelo Dispositivo Móvel</Text>
                 <Switch value={isEditable} onValueChange={setisEditable} onChange={updateState} trackColor={{ false: "#767577", true: "#81b0ff" }} thumbColor={isEditable ? "#f5dd4b" : "#f4f3f4"} />
             </View>
-            <TextInput style={styles.contText}
+            <TextInput style={styleGlobal.input}
                 editable={isEditable} placeholder={isEditable ? "CEP" : "CEP"}
                 onChangeText={text => {
                     if (text.length == 8) {
@@ -67,14 +64,14 @@ export default function Cep() {
                     }
                 }}
                 keyboardType="number-pad" />
-            <TextInput style={styles.contText}
+            <TextInput style={styleGlobal.input}
                 editable={isEditable} placeholder={isEditable ? "Rua" : "Rua"} value={Logradouro} />
             {/*<TextInput style={style.input} value={Complemento} placeholder="Complemento" />*/}
-            <TextInput style={styles.contText}
+            <TextInput style={styleGlobal.input}
                 editable={isEditable} placeholder={isEditable ? "Bairro" : "Bairro"} value={Bairro} />
-            <TextInput style={styles.contText}
+            <TextInput style={styleGlobal.input}
                 editable={isEditable} placeholder={isEditable ? "Cidade" : "Cidade"} value={Localidade} />
-            <TextInput style={styles.contText}
+            <TextInput style={styleGlobal.input}
                 editable={isEditable} placeholder={isEditable ? "UF" : "UF"} value={UF} />
         </ScrollView>
     );

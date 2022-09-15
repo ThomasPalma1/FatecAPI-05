@@ -35,4 +35,20 @@ export default StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
   },
+  input: {
+    width: wp(80),
+    height: hp(5),
+    marginTop: hp(1),
+    marginBottom: hp(1),
+    borderWidth: 1,
+    padding: hp(1),
+    color: "black",
+    fontWeight: "",
+    backgroundColor: '#ffffff',
+    borderRadius: hp(3),
+  },
+  center: {
+    justifyContent: 'center',
+    alignContent: 'center',
+  }
 });
