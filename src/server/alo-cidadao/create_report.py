@@ -1,11 +1,11 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/flaskdb'
 db = SQLAlchemy(app)
+
 
 class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -26,6 +26,7 @@ class Report(db.Model):
     def __init__(self, titulo):
         self.titulo = titulo
 
+
 def format_report(report):
     return {
         "id": report.id,
@@ -41,13 +42,15 @@ def format_report(report):
         "descricaoLocal": report.descricaoLocal
     }
 
+
 @app.route('/')
 def hello():
     return 'Hello World!'
 
-@app.route('/reports', methods = ['POST'])
+
+@app.route('/reports', methods=['POST'])
 def create_event():
-    report = Report(titulo = request.json['titulo'])
+    report = Report(titulo=request.json['titulo'])
     report.descricao = request.json['descricao']
     report.anonimo = request.json['anonimo']
     report.latitude = request.json['latitude']
@@ -61,8 +64,9 @@ def create_event():
     db.session.commit()
     return format_report(report)
 
+
 # conseguir todos os reports
-@app.route('/reports', methods =['GET'])
+@app.route('/reports', methods=['GET'])
 def get_reports():
     reports = Report.query.order_by(Report.id.asc()).all()
     report_list = []
@@ -70,20 +74,23 @@ def get_reports():
         report_list.append(format_report(report))
     return {'reports': report_list}
 
+
 # conseguir apenas 1 report
-@app.route('/reports/<id>', methods = ['GET'])
+@app.route('/reports/<id>', methods=['GET'])
 def get_report(id):
     report = Report.query.filter_by(id=id).one()
     formatted_report = format_report(report)
     return {'report': formatted_report}
 
+
 # deletar um report
-@app.route('/reports/<id>', methods = ['DELETE'])
+@app.route('/reports/<id>', methods=['DELETE'])
 def delete_report(id):
-   report = Report.query.filter_by(id=id).one()
-   db.session.delete(report)
-   db.session.commit()
-   return f'Report (id: {id}) deleted!'
+    report = Report.query.filter_by(id=id).one()
+    db.session.delete(report)
+    db.session.commit()
+    return f'Report (id: {id}) deleted!'
+
 
 if __name__ == '__main__':
     db.create_all()
