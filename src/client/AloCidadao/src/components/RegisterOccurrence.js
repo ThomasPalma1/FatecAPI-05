@@ -8,18 +8,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { RFValue } from "react-native-responsive-fontsize";
 import Cep from "../services/Cep";
 import Description from './Description';
 
 
 
 export default function RegisterOccurrence(props) {
-  const [textTitle, onChangeTextTiltle] = useState(null);
-  const [textDescription, onChangeTextDescription] = useState(null);
+  const [textTitle, setTextTiltle] = useState(null);
+  const [textDescription, setTextDescription] = useState(null);
   const [imageSelected, setimageSelected] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const [isEditable, setisEditable] = useState(false);
+  const [isEditable, setisEditable] = useState(true);
   const [cep, setCep] = useState("");
   const [Logradouro, setLogradouro] = useState("");
   const [Bairro, setBairro] = useState("");
@@ -27,7 +27,6 @@ export default function RegisterOccurrence(props) {
   const [UF, setUF] = useState("");
 
   const updateState = () => {
-    //setisEditable(!isEditable);
     setBairro("");
     setCep("");
     setLocalidade("");
@@ -35,7 +34,11 @@ export default function RegisterOccurrence(props) {
     setUF("");
 };
 
-  const PAGES = [<PhotoGallery onChange={handleChange}/>, <Description />, <Cep />, "Page 4"];
+  const PAGES = [
+                  <PhotoGallery onChange={handleChange}/>, 
+                  <Description onChange={handleChangeDescription}/>,
+                   <Cep isEditable={isEditable} onChange={handleChangeLocation}/>
+                ];
 
   const firstIndicatorStyles = {
     stepIndicatorSize: 30,
@@ -83,7 +86,22 @@ export default function RegisterOccurrence(props) {
 
   function handleChange(newValue) {
     // here we get the new value
-    console.log(newValue);
+    setimageSelected(newValue);
+  }
+
+  function handleChangeDescription(title, description) {
+    // here we get the new value
+    setTextTiltle(title);
+    setTextDescription(description);
+  }
+
+  function handleChangeLocation(cep, rua, bairro, cidade, uf) {
+    // here we get the new value
+    setCep(cep);
+    setLogradouro(rua);
+    setBairro(bairro);
+    setLocalidade(cidade);
+    setUF(uf);
   }
 
   const getBodyContainer = () => {
@@ -126,10 +144,10 @@ export default function RegisterOccurrence(props) {
       {getBodyContainer()}
       <View style={styles.stepIndicator}>
         <StepIndicator
-          stepCount={4}
+          stepCount={3}
           customStyles={firstIndicatorStyles}
           currentPosition={currentPage}
-          labels={['Enviar fotos', 'Descrição', 'Localização', 'Concluir']}
+          labels={['Enviar fotos', 'Descrição', 'Localização']}
           renderLabel={renderLabel}
           onPress={onStepPress}
         />

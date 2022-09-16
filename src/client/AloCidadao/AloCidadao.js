@@ -13,17 +13,17 @@ const Stack = createStackNavigator()
 
 
 function  AloCidadao() {
-  const [connState, setConnState] = useState(0);
+  const [connState, setConnState] = useState(true);
 
   useEffect(() => {
     NetInfo.fetch().then(state => {
-      setConnState(state);
+      setConnState(state.isConnected);
       console.log("Tipo de conexão", state.type);
       console.log("Está conectado?", state.isConnected);
     });
 
     const unsubscribe = NetInfo.addEventListener(state => {
-      setConnState(state);
+      setConnState(state.isConnected);
       console.log("Tipo de conexão", state.type);
       console.log("Está conectado?", state.isConnected);
     });
@@ -36,7 +36,7 @@ function  AloCidadao() {
 
   return (
     <View style={styleGlobal.container}>
-      {connState.isConnected == true ? 
+      {connState == true ? 
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>

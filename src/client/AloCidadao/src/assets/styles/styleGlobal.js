@@ -34,6 +34,7 @@ export default StyleSheet.create({
     fontSize: RFValue(24),
     alignItems: "center",
     textAlign: "center",
+    color: 'black',
   },
   input: {
     width: wp(80),

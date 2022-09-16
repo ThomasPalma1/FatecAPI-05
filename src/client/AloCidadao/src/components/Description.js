@@ -21,9 +21,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const UselessTextInput = () => {
+const UselessTextInput = (props) => {
   const [textTitle, onChangeTextTiltle] = useState(null);
   const [textDescription, onChangeTextDescription] = useState(null);
+
+  
+
+  setTimeout(() => {
+    props.onChange(textTitle, textDescription);
+    }, 5000);
+// Here, we invoke the callback with the new value
 
   return (
     <SafeAreaView style={styleGlobal.center}>

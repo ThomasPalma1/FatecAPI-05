@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
     Alert,
-    Dimensions,
     Image,
     View,
 } from 'react-native';
@@ -51,7 +50,7 @@ export default function PhotoGallery(props) {
         if (result.assets) {
             setimageSelected(result.assets[0].uri);
             setTimeout(() => {
-                props.onChange(imageSelected);
+                props.onChange(result.assets[0].uri);
                 console.log(props)
                 }, 5000);
             // Here, we invoke the callback with the new value
