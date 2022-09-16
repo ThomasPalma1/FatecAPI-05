@@ -40,7 +40,7 @@ function  AloCidadao() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name = "Index" component={Menu}/>
+        <Stack.Screen name = "Menu" component={Menu}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
       </Stack.Navigator>
       :<SemConexao/>}  

@@ -1,6 +1,7 @@
 import React, { useState}from "react";
 import { StyleSheet, View, Text, Image, Switch } from "react-native";
 import StepIndicator from "react-native-step-indicator";
+import { useNavigation } from '@react-navigation/native';
 import Swiper from "react-native-swiper";
 import PhotoGallery from "./PhotoGallery";
 import styleGlobal from '../assets/styles/styleGlobal';
@@ -10,10 +11,13 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 import Cep from "../services/Cep";
 import Description from './Description';
+import ButtonBack from "./ButtonBack";
 
 
 
 export default function RegisterOccurrence(props) {
+  const navigation = useNavigation();
+
   const [textTitle, setTextTiltle] = useState(null);
   const [textDescription, setTextDescription] = useState(null);
   const [imageSelected, setimageSelected] = useState(null);
@@ -140,6 +144,7 @@ export default function RegisterOccurrence(props) {
   return (
 
     <View style={styles.container}>
+      <ButtonBack onPressFunction={() => navigation.navigate('Menu')}/>
       {getBodyContainer()}
       <View style={styles.stepIndicator}>
         <StepIndicator
