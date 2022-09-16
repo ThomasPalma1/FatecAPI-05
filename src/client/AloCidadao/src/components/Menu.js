@@ -15,7 +15,7 @@ export default function Menu() {
         <View>
         <View style={styles.buttonStyleContainer}>
             <View>
-                <Button onPressFunction = {() => navigation.navigate('RegisterOccurrence')} icon={<Icon name="assignment" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'}/>
+                <Button onPressFunction={() => navigation.navigate('RegisterOccurrence')} icon={<Icon name="assignment" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'}/>
             </View>
             <View>
                 <Button icon={<Icon2 name="user" size={80} color="white" />} color={"#6FBAFF"} title={'Meus Dados'}/>

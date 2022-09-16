@@ -12,7 +12,7 @@ import { PermissionsAndroid } from 'react-native';
 import styleGlobal from '../assets/styles/styleGlobal';
 import AntDesign from '../assets/icons/AntDesign';
 
-export default function PhotoGallery() {
+export default function PhotoGallery(props) {
     const [imageSelected, setimageSelected] = useState(null);
 
 
@@ -47,17 +47,26 @@ export default function PhotoGallery() {
 
         const result = await launchImageLibrary(options);
 
-        console.log(result);
 
         if (result.assets) {
-            console.log(result.assets);
-            setimageSelected(result.assets[0].uri)
+            setimageSelected(result.assets[0].uri);
+            setTimeout(() => {
+                props.onChange(imageSelected);
+                console.log(props)
+                }, 5000);
+            // Here, we invoke the callback with the new value
+           
             return
         }
-
+         
+        
         // tratar depois...
 
     }
+
+
+        
+    
 
     const pickImageFromCamera = async () => {
 
@@ -70,13 +79,13 @@ export default function PhotoGallery() {
         }
         const result = await launchCamera(options);
 
-        console.log(result);
 
         if (result.assets) {
-            console.log(result.assets);
             setimageSelected(result.assets[0].uri)
             return
         }
+        
+        
     }
 
     const getPhotoFrom = () => {
@@ -118,7 +127,7 @@ export default function PhotoGallery() {
             container = (
             <View>
                 <View>
-                    <Button icon={<Icon name="photo-camera" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Camera'} onPressFunction={requestCameraPermission} />
+                    <Button icon={<Icon name="photo-camera" size={80} color="white" />} color={"#6FBAFF"} title={'Camera'} onPressFunction={requestCameraPermission} />
                 </View>
                 <View>
                     <Button icon={<Icon name="photo" size={80} color="white" />} color={"#6FBAFF"} title={'Galeria'} onPressFunction={pickImageFromGalery} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
 });
 
 const UselessTextInput = () => {
-  const [textTitle, onChangeTextTiltle] = React.useState(null);
-  const [textDescription, onChangeTextDescription] = React.useState(null);
+  const [textTitle, onChangeTextTiltle] = useState(null);
+  const [textDescription, onChangeTextDescription] = useState(null);
 
   return (
     <SafeAreaView style={styleGlobal.center}>

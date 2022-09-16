@@ -31,7 +31,7 @@ export default StyleSheet.create({
   textMenu: {
     fontFamily: 'Montserrat',
     fontStyle: "normal",
-    fontSize:  RFValue(24),
+    fontSize: RFValue(24),
     alignItems: "center",
     textAlign: "center",
   },
@@ -50,5 +50,9 @@ export default StyleSheet.create({
   center: {
     justifyContent: 'center',
     alignContent: 'center',
-  }
+  },
+  switch: {
+    marginTop: hp(2),
+    alignItems: "center",
+  },
 });
