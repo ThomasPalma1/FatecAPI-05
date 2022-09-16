@@ -56,4 +56,11 @@ export default StyleSheet.create({
     marginTop: hp(2),
     alignItems: "center",
   },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: RFValue(20),
+    margin: hp(1),
+    textAlign: 'center',
+    display: 'flex',
+  },
 });

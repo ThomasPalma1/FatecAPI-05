@@ -4,10 +4,10 @@ import styleGlobal from './src/assets/styles/styleGlobal';
 import RegisterOccurrence from './src/components/RegisterOccurrence';
 import SemConexao from './src/components/SemConexao';
 import NetInfo from "@react-native-community/netinfo"
-import Index from './src/components/Index'
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Menu from "./src/components/Menu";
 
 const Stack = createStackNavigator()
 
@@ -40,7 +40,7 @@ function  AloCidadao() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name = "Index" component={Index}/>
+        <Stack.Screen name = "Index" component={Menu}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
       </Stack.Navigator>
       :<SemConexao/>}  

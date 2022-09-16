@@ -5,7 +5,6 @@ import Swiper from "react-native-swiper";
 import PhotoGallery from "./PhotoGallery";
 import styleGlobal from '../assets/styles/styleGlobal';
 import {
-  widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { RFValue } from "react-native-responsive-fontsize";

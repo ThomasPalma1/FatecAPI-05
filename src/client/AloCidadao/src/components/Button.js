@@ -8,7 +8,7 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
   } from 'react-native-responsive-screen';
-import { RFValue } from "react-native-responsive-fontsize";
+import styleGlobal from '../assets/styles/styleGlobal';
 
 
 export default function Button(props) {
@@ -24,7 +24,7 @@ export default function Button(props) {
             ]}
         >
             <Text>{props.icon}</Text>
-            <Text style={styles.buttonText}>
+            <Text style={styleGlobal.buttonText}>
                 {props.title}
             </Text>
         </Pressable>
@@ -32,13 +32,6 @@ export default function Button(props) {
 }
 
 const styles = StyleSheet.create({
-    buttonText: {
-        color: '#ffffff',
-        fontSize: RFValue(20),
-        margin: hp(1),
-        textAlign: 'center',
-        display: 'flex',
-    },
     button: {
         height: hp(21),
         width: wp(38),

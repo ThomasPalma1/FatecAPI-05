@@ -6,10 +6,10 @@ import {
 } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import Button from './Button';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { PermissionsAndroid } from 'react-native';
 import styleGlobal from '../assets/styles/styleGlobal';
-import AntDesign from '../assets/icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export default function PhotoGallery(props) {
     const [imageSelected, setimageSelected] = useState(null);
@@ -126,10 +126,10 @@ export default function PhotoGallery(props) {
             container = (
             <View>
                 <View>
-                    <Button icon={<Icon name="photo-camera" size={80} color="white" />} color={"#6FBAFF"} title={'Camera'} onPressFunction={requestCameraPermission} />
+                    <Button icon={<MaterialIcons name="photo-camera" size={80} color="white" />} color={"#6FBAFF"} title={'Camera'} onPressFunction={requestCameraPermission} />
                 </View>
                 <View>
-                    <Button icon={<Icon name="photo" size={80} color="white" />} color={"#6FBAFF"} title={'Galeria'} onPressFunction={pickImageFromGalery} />
+                    <Button icon={<MaterialIcons name="photo" size={80} color="white" />} color={"#6FBAFF"} title={'Galeria'} onPressFunction={pickImageFromGalery} />
                 </View>
             </View>
         )}
