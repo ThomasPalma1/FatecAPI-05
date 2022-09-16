@@ -1,16 +1,23 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, PermissionsAndroid, Button, Platform } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, PermissionsAndroid, Button, Platform, LogBox, FlatList } from "react-native";
 import Geolocation from "@react-native-community/geolocation";
+import MapView, { Marker } from 'react-native-maps';
+
+LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const styles = StyleSheet.create({
   container:{
     flex: 1,
     alignItems: "center",
+    width: '100%',
+    height: '100%',
   },
   boldText: {
+    color: 'black',
   },
   text:{
-
+    color: 'black',
   },
   button:{
     alignItems: 'center',
@@ -18,13 +25,20 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'flex-end'
   },
+  map: {
+    width: 300,
+    height: 300,
+  }
 })
 
 export default function App() {
 
-  const [currentLatitude, setCurrentLatitude] = useState("");
-  const [currentLongitude, setCurrentLongitude] = useState("");
   const [watchID, setWatchID] = useState(0);
+  const [location, setLocation] = useState(null);
+
+  useEffect(() => {
+    callLocation()
+  }, []);
 
   const callLocation = () => {
     if (Platform.OS === "ios") {
@@ -55,46 +69,45 @@ export default function App() {
   const getLocation = () => {
     Geolocation.getCurrentPosition(
       (position) => {
-        const currentLatitude = JSON.stringify(position.coords.latitude);
-        const currentLongitude = JSON.stringify(position.coords.longitude);
-        setCurrentLatitude(currentLatitude);
-        setCurrentLongitude(currentLongitude);
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.00922,
+          longitudeDelta: 0.00421
+        })
       },
       (error) => alert(error.message),
       { enableHighAccuracy: true, timeout: 20000000, maximumAge: 1000 }
     );
     const watchID = Geolocation.watchPosition((position) => {
-      const currentLatitude = JSON.stringify(position.coords.latitude);
-      const currentLongitude = JSON.stringify(position.coords.longitude);
-      setCurrentLatitude(currentLatitude);
-      setCurrentLongitude(currentLongitude);
+      setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        latitudeDelta: 0.00922,
+        longitudeDelta: 0.00421
+      })
     });
     setWatchID(watchID);
-    console.log(currentLatitude)
-    console.log(currentLongitude)
   }
-  const clearLocation = () => {
-    alert("monitoramento cancelado");
-    setCurrentLatitude("");
-    setCurrentLongitude("");
+
+  const getBodyContainer = () => {
+    let container = <></>
+
+    container=( <MapView
+      initialRegion={location}
+      showsUserLocation={true}
+      style={styles.map}
+      mapType="hybrid"
+    >
+    </MapView>)
+
+    console.log(location)
+    return container;
   }
-  return (
+
+ return (
     <View style={styles.container}>
-      <Text style={styles.boldText}>
-        Você está aqui !
-      </Text>
-      <Text style={styles.text}>
-        Latitude: {currentLatitude}
-      </Text>
-      <Text style={styles.text}>
-        Longitude: {currentLongitude}
-      </Text>
-      <View style={styles.button}>
-        <Button title="Obter Localização" onPress={callLocation} />
-      </View>
-      <View>
-        <Button title="Cancelar Monitoramento" onPress={clearLocation} />
-      </View>
+      {getBodyContainer()}
     </View>
   );
 }
