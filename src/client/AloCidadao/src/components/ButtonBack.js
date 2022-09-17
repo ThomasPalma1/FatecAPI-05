@@ -8,13 +8,13 @@ import {
     heightPercentageToDP as hp,
   } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import styleGlobal from '../assets/styles/styleGlobal';
 
 
 export default function ButtonBack(props) {
     return (
         <Pressable
-            onPress={props.onPressFunction}>
+            onPress={props.onPressFunction}
+            style={styles.button}>
             <Ionicons name="arrow-undo-outline" size={30} color="#6FBAFF" />
         </Pressable>
     )
@@ -23,7 +23,7 @@ export default function ButtonBack(props) {
 const styles = StyleSheet.create({
     button: {
         alignItems: 'flex-start',
-        marginTop: hp(1),
+        marginTop: hp(0.5),
         marginLeft: hp(1),
     },
 })

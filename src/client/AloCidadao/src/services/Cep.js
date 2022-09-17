@@ -4,24 +4,21 @@ import styleGlobal from "../assets/styles/styleGlobal";
 import ButtonPost from "../components/ButtonPost";
 import Geolocation from "@react-native-community/geolocation";
 import MapView, { Marker } from 'react-native-maps';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+
 LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
+
 const styles = StyleSheet.create({
-    contText: {
-        fontWeight: "",
-        width: 350,
-        height: 60,
-        backgroundColor: '#ffffff',
-        margin: 5,
-        borderRadius: 20
-    },
     container: {
-        flex: 1,
-        paddingTop: StatusBar.currentHeight,
+        flex: 2,
     }, 
     map: {
-        width: 300,
-        height: 300,
+        width: wp(80),
+        height: hp(60),
       }
 })
 
@@ -93,31 +90,34 @@ export default function Cep(props) {
       const getBodyContainer = () => {
         let container = <></>
         if(props.isEditable){
-            container=( <MapView
+            container=( 
+          <View style={{ borderRadius: 10, overflow: 'hidden', borderColor: 'black', borderWidth: 1 }}>
+            <MapView
                 initialRegion={location}
                 showsUserLocation={true}
-                style={styles.map}
+                style={styles.map} 
                 mapType="hybrid"
               >
-              </MapView>)
+              </MapView>
+          </View>)
           }else{
             container= (
             <ScrollView>
             <View>
-            <TextInput style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" placeholder={"CEP"} style={styleGlobal.input}
                 onChangeText={text => {
                     if (text.length == 8) {
                         chamarCep(text);
                     }
                 }}
                 keyboardType="number-pad" />
-            <TextInput style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
               placeholder={"Rua"} value={Logradouro} />
-            <TextInput style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
               placeholder={"Bairro"} value={Bairro} />
-            <TextInput style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
              placeholder={"Cidade"} value={Localidade} />
-            <TextInput style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
              placeholder={"UF"} value={UF} />
             <ButtonPost color={"#6FBAFF"} title={'Confirmar'} />
             </View>

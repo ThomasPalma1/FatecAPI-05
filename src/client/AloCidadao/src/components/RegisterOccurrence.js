@@ -114,7 +114,7 @@ export default function RegisterOccurrence(props) {
       container = (
         <View style={styleGlobal.switch}>
           <Text style={styleGlobal.textMenu}>Localização do ocorrido</Text>
-          <Text>Usar minha Localização</Text>
+          <Text style={{color: 'black'}}>Usar minha Localização</Text>
           <Switch value={isEditable} onValueChange={setisEditable} onChange={updateState} trackColor={{ false: "#6FBAFF", true: "#6FBAFF" }} thumbColor={isEditable ? "#5F97CB" : "#f4f3f4"} />
         </View>)
     } else {
@@ -187,7 +187,6 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     alignSelf: 'center',
-    padding: hp(2),
     justifyContent: 'center',
     backgroundColor: '#ecf7ff',
     borderTopLeftRadius: hp(4),
