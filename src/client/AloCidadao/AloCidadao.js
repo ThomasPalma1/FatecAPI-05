@@ -4,7 +4,7 @@ import styleGlobal from './src/assets/styles/styleGlobal';
 import RegisterOccurrence from './src/components/RegisterOccurrence';
 import SemConexao from './src/components/SemConexao';
 import NetInfo from "@react-native-community/netinfo"
-
+import ListOccurrence from './src/components/listOccurrence';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Menu from "./src/components/Menu";
@@ -37,6 +37,7 @@ function  AloCidadao() {
         headerShown: false
       }}>
         <Stack.Screen name = "Menu" component={Menu}/>
+        <Stack.Screen name= "ListOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
       </Stack.Navigator>
       :<SemConexao/>}  

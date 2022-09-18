@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {TextInput, StyleSheet, SafeAreaView, ScrollView, StatusBar, View, PermissionsAndroid, LogBox } from "react-native";
+import {TextInput, StyleSheet, SafeAreaView, ScrollView, StatusBar, View, PermissionsAndroid, LogBox, Alert } from "react-native";
 import styleGlobal from "../assets/styles/styleGlobal";
 import ButtonPost from "../components/ButtonPost";
 import Geolocation from "@react-native-community/geolocation";
@@ -35,7 +35,7 @@ export default function Cep(props) {
 
     const navigation = useNavigation();
 
-    const insertData = () =>{{
+   async function insertData(){
 
     if(props.isEditable){
       setLocation({
@@ -45,10 +45,11 @@ export default function Cep(props) {
         longitudeDelta: null
       })
     }
-    fetch('http://127.0.0.1:5000/reports', {
+    await fetch('http://192.168.1.104:5000/create', {
         method:'POST',
         headers: {
-          'Content-Type': 'apllication/json'
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           Localidade:Localidade,
@@ -62,16 +63,25 @@ export default function Cep(props) {
           logradouro:Logradouro,
           anonimo:props.isAnonymous
         })
-
      })
-     .then(resp => resp.json())
+     .then(function(res) {return res.json();})
+     .then( Alert.alert(
+      "Sucesso!",
+      "Sua ocorrência foi cadastrada com sucesso.",
+      [
+        { text: "OK", onPress: () => navigation.navigate('ListOccurrence') }
+      ]
+    )
+    
+    )
      .catch(function(error) {
-      console.log('There has been a problem with your fetch operation: ' + error.message);
-       // ADD THIS THROW error
+        console.log(error.message);
         throw error;
       });
-    }}
   
+  
+   }
+
 
     useEffect(() => {
       callLocation()

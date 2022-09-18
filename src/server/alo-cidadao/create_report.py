@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/flaskdb'
 db = SQLAlchemy(app)
 
 
@@ -50,7 +50,7 @@ def hello():
     return 'Hello World!'
 
 
-@app.route('/reports', methods=['POST'])
+@app.route('/create', methods=['POST'])
 def create_event():
     report = Report(titulo=request.json['titulo'])
     report.descricao = request.json['descricao']
@@ -62,7 +62,7 @@ def create_event():
     report.Localidade = request.json['Localidade']
     report.UF = request.json['UF']
     report.Bairro = request.json['Bairro']
-    report.descricaoLocal = request.json['descricaoLocal']
+    report.descricaoLocal = "teste"
     db.session.add(report)
     db.session.commit()
     return format_report(report)
@@ -79,7 +79,7 @@ def get_reports():
 
 
 # conseguir apenas 1 report
-@app.route('/reports/<id>', methods=['GET'])
+@app.route('/delete/<id>', methods=['GET'])
 def get_report(id):
     report = Report.query.filter_by(id=id).one()
     formatted_report = format_report(report)
@@ -97,4 +97,4 @@ def delete_report(id):
 
 if __name__ == '__main__':
     db.create_all()
-    app.run()
+    app.run(host='0.0.0.0', port=5000, debug=False)

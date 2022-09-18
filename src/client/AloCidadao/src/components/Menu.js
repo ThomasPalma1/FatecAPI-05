@@ -35,7 +35,7 @@ export default function Menu() {
                     <Button icon={<FontAwesome name="user" size={80} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
-                    <Button icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
+                    <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={80} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
                     <Button icon={<MaterialIcons name="construction" size={80} color="white" />} color={"#6FBAFF"} title={'Obras'} />
