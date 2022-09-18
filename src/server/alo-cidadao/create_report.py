@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/flaskdb'
 db = SQLAlchemy(app)
 
 
@@ -14,10 +14,11 @@ class Report(db.Model):
     anonimo = db.Column(db.Boolean)
     latitude = db.Column(db.String)
     longitude = db.Column(db.String)
+    logradouro = db.Column(db.String)
     cep = db.Column(db.String)
-    cidade = db.Column(db.String)
-    estado = db.Column(db.String)
-    bairro = db.Column(db.String)
+    Localidade = db.Column(db.String)
+    UF = db.Column(db.String)
+    Bairro = db.Column(db.String)
     descricaoLocal = db.Column(db.String)
 
     def __repr__(self):
@@ -35,10 +36,11 @@ def format_report(report):
         "anonimo": report.anonimo,
         "latitude": report.latitude,
         "longitude": report.longitude,
+        "logradouro": report.logradouro,
         "cep": report.cep,
-        "cidade": report.cidade,
-        "estado": report.estado,
-        "bairro": report.bairro,
+        "Localidade": report.Localidade,
+        "UF": report.UF,
+        "Bairro": report.Bairro,
         "descricaoLocal": report.descricaoLocal
     }
 
@@ -55,10 +57,11 @@ def create_event():
     report.anonimo = request.json['anonimo']
     report.latitude = request.json['latitude']
     report.longitude = request.json['longitude']
+    report.logradouro = request.json['logradouro']
     report.cep = request.json['cep']
-    report.cidade = request.json['cidade']
-    report.estado = request.json['estado']
-    report.bairro = request.json['bairro']
+    report.Localidade = request.json['Localidade']
+    report.UF = request.json['UF']
+    report.Bairro = request.json['Bairro']
     report.descricaoLocal = request.json['descricaoLocal']
     db.session.add(report)
     db.session.commit()
@@ -66,7 +69,7 @@ def create_event():
 
 
 # conseguir todos os reports
-@app.route('/reports', methods=['GET'])
+@app.route('/reports/get', methods=['GET'])
 def get_reports():
     reports = Report.query.order_by(Report.id.asc()).all()
     report_list = []

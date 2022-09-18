@@ -18,14 +18,10 @@ function  AloCidadao() {
   useEffect(() => {
     NetInfo.fetch().then(state => {
       setConnState(state.isConnected);
-      console.log("Tipo de conexão", state.type);
-      console.log("Está conectado?", state.isConnected);
     });
 
     const unsubscribe = NetInfo.addEventListener(state => {
       setConnState(state.isConnected);
-      console.log("Tipo de conexão", state.type);
-      console.log("Está conectado?", state.isConnected);
     });
 
     return () => {
@@ -40,7 +36,7 @@ function  AloCidadao() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name = "Index" component={Menu}/>
+        <Stack.Screen name = "Menu" component={Menu}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
       </Stack.Navigator>
       :<SemConexao/>}  

@@ -1,6 +1,7 @@
 import React, { useState}from "react";
 import { StyleSheet, View, Text, Image, Switch } from "react-native";
 import StepIndicator from "react-native-step-indicator";
+import { useNavigation } from '@react-navigation/native';
 import Swiper from "react-native-swiper";
 import PhotoGallery from "./PhotoGallery";
 import styleGlobal from '../assets/styles/styleGlobal';
@@ -10,10 +11,13 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 import Cep from "../services/Cep";
 import Description from './Description';
+import ButtonBack from "./ButtonBack";
 
 
 
 export default function RegisterOccurrence(props) {
+  const navigation = useNavigation();
+
   const [textTitle, setTextTiltle] = useState(null);
   const [textDescription, setTextDescription] = useState(null);
   const [imageSelected, setimageSelected] = useState(null);
@@ -24,6 +28,7 @@ export default function RegisterOccurrence(props) {
   const [Bairro, setBairro] = useState("");
   const [Localidade, setLocalidade] = useState("");
   const [UF, setUF] = useState("");
+  const [isAnonymous, SetIsAnonymous] = useState(false);
 
   const updateState = () => {
     setBairro("");
@@ -36,7 +41,7 @@ export default function RegisterOccurrence(props) {
   const PAGES = [
                   <PhotoGallery onChange={handleChange}/>, 
                   <Description onChange={handleChangeDescription}/>,
-                   <Cep isEditable={isEditable} onChange={handleChangeLocation}/>
+                   <Cep isAnonymous={isAnonymous} textTitle={textTitle} textDescription={textDescription} isEditable={isEditable} onChange={handleChangeLocation}/>
                 ];
 
   const firstIndicatorStyles = {
@@ -88,10 +93,11 @@ export default function RegisterOccurrence(props) {
     setimageSelected(newValue);
   }
 
-  function handleChangeDescription(title, description) {
+  function handleChangeDescription(title, description, isAnonymous) {
     // here we get the new value
     setTextTiltle(title);
     setTextDescription(description);
+    SetIsAnonymous(isAnonymous);
   }
 
   function handleChangeLocation(cep, rua, bairro, cidade, uf) {
@@ -110,7 +116,7 @@ export default function RegisterOccurrence(props) {
       container = (
         <View style={styleGlobal.switch}>
           <Text style={styleGlobal.textMenu}>Localização do ocorrido</Text>
-          <Text>Usar minha Localização</Text>
+          <Text style={{color: 'black'}}>Usar minha Localização</Text>
           <Switch value={isEditable} onValueChange={setisEditable} onChange={updateState} trackColor={{ false: "#6FBAFF", true: "#6FBAFF" }} thumbColor={isEditable ? "#5F97CB" : "#f4f3f4"} />
         </View>)
     } else {
@@ -140,6 +146,7 @@ export default function RegisterOccurrence(props) {
   return (
 
     <View style={styles.container}>
+      <ButtonBack onPressFunction={() => navigation.navigate('Menu')}/>
       {getBodyContainer()}
       <View style={styles.stepIndicator}>
         <StepIndicator
@@ -182,7 +189,6 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     alignSelf: 'center',
-    padding: hp(2),
     justifyContent: 'center',
     backgroundColor: '#ecf7ff',
     borderTopLeftRadius: hp(4),

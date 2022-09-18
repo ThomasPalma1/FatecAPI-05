@@ -11,7 +11,7 @@ export default StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   image: {
-    marginTop: hp(1),
+    marginTop: hp(0.5),
     width: wp(30),
     height: hp(16),
     alignSelf: 'center',
@@ -44,13 +44,15 @@ export default StyleSheet.create({
     borderWidth: 1,
     padding: hp(1),
     color: "black",
-    fontWeight: "",
     backgroundColor: '#ffffff',
     borderRadius: hp(3),
+    borderColor: "#6FBAFF",
+    placeholderTextColor: 'black',
+    fontSize: RFValue(14),
   },
   center: {
     justifyContent: 'center',
-    alignContent: 'center',
+    alignContent: 'flex-start',
   },
   switch: {
     marginTop: hp(2),
