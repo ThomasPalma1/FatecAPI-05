@@ -25,7 +25,7 @@
 
 A solução proposta por este aplicativo permite que o cidadão registre as solicitações com fotos, descrição e endereço/geolocalização, permitindo desta forma uma forma clara e acertiva do entendimento do registro.
 
-O cidadão também consegue visualizar todas as solicitações registradas e visualizar suas solcitações em específico.
+O cidadão também consegue visualizar todas as solicitações registradas e visualizar suas solicitações em específico.
 
 Além das solicitações, é possível visualizar obras em execução e não se surpreender com obras e desvios em um deslocamento nas vias da cidade.
 
@@ -40,7 +40,6 @@ Além das solicitações, é possível visualizar obras em execução e não se 
 - <a href="#userStory">User story da entrega</a>
 - <a href="#backlog">Product Backlog</a>
 - <a href="#funcionamento">Fluxo da plataforma</a>
-- <a href="#wireframe">Wireframe da entrega</a>
 - <a href="#prototipo">Protótipo da entrega</a>
     
 <h2 align="center" id="primeiraEntrega">A primeira entrega</h2>
@@ -75,7 +74,7 @@ Para esta entrega, as maiores dificuldades foram definir o Product Backlog corre
 
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
 
-<img src="https://github.com/ThomasPalma1/FatecAPI-04/blob/entrega-01/docs/User%20Story%20_%206.PNG">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_8.png">
 
 
 
@@ -84,7 +83,7 @@ Para esta entrega, as maiores dificuldades foram definir o Product Backlog corre
 
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
 
-<img src="https://github.com/ThomasPalma1/FatecAPI-04/blob/entrega-01/docs/Card_Sprint1.JPG">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/card_sprint_1.png">
               
 
 <h2 id="backlog">📘<i>Backlog</i> do projeto</h2>
@@ -111,6 +110,6 @@ Para esta entrega, as maiores dificuldades foram definir o Product Backlog corre
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
 
 <div align="center">
-    <h3 align="center"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-04/blob/entrega-01/docs/cadastroTalhoes.gif" width="400px" height="800px;" alt=""/><br /><sub><b>Cadastro de Talhões</b></sub></h3>
+    <h3 align="center"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/Entrega01.gif" width="300px" height="700px;" alt=""/><br /><sub><b>Registro de Solicitações</b></sub></h3>
          
 </div>
