@@ -13,6 +13,7 @@ import styleGlobal from '../assets/styles/styleGlobal';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ButtonBack from './ButtonBack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Config from '../services/config';
 
 export default function Menu() {
 
@@ -24,7 +25,7 @@ export default function Menu() {
   }, []);
 
   async function getSolicitacoes() {
-    await fetch('http://192.168.1.104:5000/reports/get', {
+    await fetch(`${Config.URL}/reports/get`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -53,7 +54,7 @@ export default function Menu() {
 
 
   async function deleteSolcitacao(idSolicitacao){
-    await fetch(`http://192.168.1.104:5000/reports/${idSolicitacao}`,{
+    await fetch(`${Config.URL}/reports/${idSolicitacao}`,{
       method: "DELETE",
       headers: {
         Accept: "application/json",

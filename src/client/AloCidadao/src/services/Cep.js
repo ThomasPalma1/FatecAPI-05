@@ -4,6 +4,7 @@ import styleGlobal from "../assets/styles/styleGlobal";
 import ButtonPost from "../components/ButtonPost";
 import Geolocation from "@react-native-community/geolocation";
 import MapView, { Marker } from 'react-native-maps';
+import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
 import {
   heightPercentageToDP as hp,
@@ -45,7 +46,7 @@ export default function Cep(props) {
         longitudeDelta: null
       })
     }
-    await fetch('http://192.168.1.104:5000/create', {
+    await fetch(`${Config.URL}/create`, {
         method:'POST',
         headers: {
           Accept: 'application/json',
