@@ -118,4 +118,38 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
    <td align="center"><a href="https://br.linkedin.com/in/raphael-lisboa-7b3597187?trk=people-guest_people_search-card"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/71613664?v=4" width="100px;" alt=""/><br /><sub><b>Raphael Lisboa</b></sub></a><br/><sub><b>Dev Team</b></sub></td>
   </tr>
 </table>
+<h2><i>:notebook:User</i> Stories</h2>
+
+[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
+
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_capa.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_legenda.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg1.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg2.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg3.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg4.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg5.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Stories_pg6.png">
+
+<h2><i>📅Cards</i> das entregas</h2>
+
+[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
+
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/Cards.png">
+              
+
+<h2>📘<i>Product Backlog</i> do projeto</h2>
+              
+[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
+
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg1.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg2.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg3.png">
+
+<h2 style="font-family:roboto;">💻<i>Prototipagem</i> do projeto</h2>
+              
+[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FMB61HUGpPlMMhkZ88ihctD%2FFATEC-API%252F05%3Fnode-id%3D14%253A3%26sc%255B%25E2%2580%25A6%255Dge-id%3D0%253A1%26starting-point-node-id%3D14%253A3%26show-proto-sidebar%3D1" allowfullscreen></iframe>
+              
 
