@@ -150,6 +150,11 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
               
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FMB61HUGpPlMMhkZ88ihctD%2FFATEC-API%252F05%3Fnode-id%3D14%253A3%26sc%255B%25E2%2580%25A6%255Dge-id%3D0%253A1%26starting-point-node-id%3D14%253A3%26show-proto-sidebar%3D1" allowfullscreen></iframe>
+<p><a href="https://www.figma.com/proto/MB61HUGpPlMMhkZ88ihctD/FATEC-API%2F05?node-id=26%3A196&sc%5B%E2%80%A6%5Dge-id=0%3A1&starting-point-node-id=14%3A3&show-proto-sidebar=1&scaling=scale-down">Link: Protótipo Figma</a></p>
+
+<div align="center">
+    <h3 align="center"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/figma.gif" width="400px" height="800px;" alt=""/><br /><sub><b>Figma</b></sub></h3>
+         
+</div>
               
 
