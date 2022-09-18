@@ -153,7 +153,7 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
 <p><a href="https://www.figma.com/proto/MB61HUGpPlMMhkZ88ihctD/FATEC-API%2F05?node-id=26%3A196&sc%5B%E2%80%A6%5Dge-id=0%3A1&starting-point-node-id=14%3A3&show-proto-sidebar=1&scaling=scale-down">Link: Protótipo Figma</a></p>
 
 <div align="center">
-    <h3 align="center"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/figma.gif" width="400px" height="800px;" alt=""/><br /><sub><b>Figma</b></sub></h3>
+    <h3 align="center"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/figma.gif" alt=""/><br /><sub><b>Figma</b></sub></h3>
          
 </div>
               
