@@ -101,7 +101,6 @@ export default function App() {
     >
     </MapView>)
 
-    console.log(location)
     return container;
   }
 

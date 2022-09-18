@@ -4,6 +4,7 @@ import styleGlobal from "../assets/styles/styleGlobal";
 import ButtonPost from "../components/ButtonPost";
 import Geolocation from "@react-native-community/geolocation";
 import MapView, { Marker } from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -18,19 +19,59 @@ const styles = StyleSheet.create({
     }, 
     map: {
         width: wp(80),
-        height: hp(60),
+        height: hp(40),
       }
 })
 
 export default function Cep(props) {
     const [isEditable, setisEditable] = useState(false);
-    const [cep, setCep] = useState("");
-    const [Logradouro, setLogradouro] = useState("");
-    const [Bairro, setBairro] = useState("");
-    const [Localidade, setLocalidade] = useState("");
-    const [UF, setUF] = useState("");
+    const [cep, setCep] = useState(null);
+    const [Logradouro, setLogradouro] = useState(null);
+    const [Bairro, setBairro] = useState(null);
+    const [Localidade, setLocalidade] = useState(null);
+    const [UF, setUF] = useState(null);
     const [location, setLocation] = useState(null);
     const [watchID, setWatchID] = useState(0);
+
+    const navigation = useNavigation();
+
+    const insertData = () =>{{
+
+    if(props.isEditable){
+      setLocation({
+        latitude: null,
+        longitude: null,
+        latitudeDelta: null,
+        longitudeDelta: null
+      })
+    }
+    fetch('http://127.0.0.1:5000/reports', {
+        method:'POST',
+        headers: {
+          'Content-Type': 'apllication/json'
+        },
+        body: JSON.stringify({
+          Localidade:Localidade,
+          cep:cep,
+          UF:UF,
+          Bairro:Bairro,
+          titulo:props.textTitle,
+          descricao:props.textDescription,
+          latitude:location.latitude,
+          longitude:location.longitude,
+          logradouro:Logradouro,
+          anonimo:props.isAnonymous
+        })
+
+     })
+     .then(resp => resp.json())
+     .catch(function(error) {
+      console.log('There has been a problem with your fetch operation: ' + error.message);
+       // ADD THIS THROW error
+        throw error;
+      });
+    }}
+  
 
     useEffect(() => {
       callLocation()
@@ -91,6 +132,7 @@ export default function Cep(props) {
         let container = <></>
         if(props.isEditable){
             container=( 
+          <View>
           <View style={{ borderRadius: 10, overflow: 'hidden', borderColor: 'black', borderWidth: 1 }}>
             <MapView
                 initialRegion={location}
@@ -99,15 +141,20 @@ export default function Cep(props) {
                 mapType="hybrid"
               >
               </MapView>
-          </View>)
+              
+          </View>
+          <ButtonPost color={"#6FBAFF"} title={'Confirmar'} onPressFunction = {() => insertData()} />
+          </View>
+          )
           }else{
             container= (
             <ScrollView>
             <View>
-            <TextInput placeholderTextColor="grey" placeholder={"CEP"} style={styleGlobal.input}
+            <TextInput placeholderTextColor="grey" placeholder={"CEP"} style={styleGlobal.input} 
                 onChangeText={text => {
                     if (text.length == 8) {
                         chamarCep(text);
+                        setCep(text)
                     }
                 }}
                 keyboardType="number-pad" />
@@ -119,12 +166,11 @@ export default function Cep(props) {
              placeholder={"Cidade"} value={Localidade} />
             <TextInput placeholderTextColor="grey" style={styleGlobal.input}
              placeholder={"UF"} value={UF} />
-            <ButtonPost color={"#6FBAFF"} title={'Confirmar'} />
+            <ButtonPost color={"#6FBAFF"} title={'Confirmar'} onPressFunction = {() => insertData()} />
             </View>
         </ScrollView>)
           }
 
-          console.log(isEditable)
           return container;
       }  
 
@@ -146,8 +192,6 @@ export default function Cep(props) {
         setLogradouro(res.logradouro)
         setUF(res.uf)
         props.onChange(cep, res.logradouro, res.bairro, res.localidade, res.uf);
-        console.log(props);
-        console.log(isEditable);
     }
     return (
         

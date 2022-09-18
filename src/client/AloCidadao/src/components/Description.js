@@ -50,10 +50,8 @@ const UselessTextInput = (props) => {
 
   const toggleSwitch = () => SetIsAnonymous(previousState => !previousState);
 
-  console.log(isAnonymous);
-
   setTimeout(() => {
-    props.onChange(textTitle, textDescription);
+    props.onChange(textTitle, textDescription, isAnonymous);
   }, 5000);
   // Here, we invoke the callback with the new value
 

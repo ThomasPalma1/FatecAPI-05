@@ -18,14 +18,10 @@ function  AloCidadao() {
   useEffect(() => {
     NetInfo.fetch().then(state => {
       setConnState(state.isConnected);
-      console.log("Tipo de conexão", state.type);
-      console.log("Está conectado?", state.isConnected);
     });
 
     const unsubscribe = NetInfo.addEventListener(state => {
       setConnState(state.isConnected);
-      console.log("Tipo de conexão", state.type);
-      console.log("Está conectado?", state.isConnected);
     });
 
     return () => {
