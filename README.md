@@ -17,11 +17,16 @@
        
  - [Descrição](#descrição)
  - [Objetivo do Projeto](#objetivo-do-projeto)
- - [Releases de cada entrega](#branches-de-cada-entrega)
+ - [Principais Deliverables](#principais-deliverables)
+ - [Limites e Restrições da Solução](#limites-e-restri%C3%A7%C3%B5es-da-solu%C3%A7%C3%A3o)
+ - [Benefícios da nossa plataformao](#benef%C3%ADcios-da-nossa-plataforma)
+ - [Releases de cada entrega](#releases-de-cada-entrega)
  - [Equipe](#equipe)
+ - [User Stories](#notebookuser-stories)
+ - [Product Backlog](#product-backlog-do-projeto)
  - [Ferramentas utilizadas](#ferramentas-utilizadas)
- - [Backlog do projeto](#backlog-do-projeto)
- - [Protótipo do projeto](#wireframes-do-projeto)
+ - [Protótipo](#prototipagem-do-projeto)
+ 
     
        
 <h2>📜Descrição</h2>
@@ -29,9 +34,12 @@
  [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
        
 No Brasil, as prefeituras comumente possuem a secretária de obras e manutenção, a qual é responsável pela troca de lâmpadas, asfaltação, poda de árvores entre outras demandas.
-As secretárias, em sua maioria, recebem as solcitações de serviço para manutenção pelo telefone 156. 
+
+As secretárias, em sua maioria, recebem as solicitações de serviço para manutenção pelo telefone 156. 
+
 O fluxo de atendimento das solcitações e manutenções adotando esta sistemática torna-se oneroso pela falta de otimização no atendimento às demandas assim como a identificação adequada da solicitação.
-A tecnologia, desta forma, permite melhorar o fluxo de atendimento das solicitações em lugar de uma ligação telefônica, pois permite meios de uma solicitação mais detalhada, além de melhores filtros.
+
+A tecnologia por meio de aplicativos, desta forma, permite melhorar o fluxo de atendimento das solicitações em lugar de uma ligação telefônica, pois permite meios de uma solicitação mais detalhada, além de melhores filtros.
 
               
 <h2>🎯Objetivo do projeto</h2>
@@ -42,7 +50,7 @@ O foco do Alô Cidadão está justamente em fornecer um aplicativo para receber 
               
 A solução proposta permite que o cidadão realize a solicitação de obras/manutenção inserindo fotos, endereço ou geolocalização, além da descrição do problema.
 
-O aplicativo também prevê o atendimento a LGPD nos tratamentos de dados pessoais,logs de usuários e termos e condições.
+O aplicativo também prevê o atendimento à LGPD nos tratamentos de dados pessoais,logs de usuários e termos e condições.
 
 As obras sendo realizadas na cidade também poderão ser consultadas para facilitar o deslocamento dos cidadãos.
 
@@ -118,6 +126,7 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
    <td align="center"><a href="https://br.linkedin.com/in/raphael-lisboa-7b3597187?trk=people-guest_people_search-card"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/71613664?v=4" width="100px;" alt=""/><br /><sub><b>Raphael Lisboa</b></sub></a><br/><sub><b>Dev Team</b></sub></td>
   </tr>
 </table>
+
 <h2><i>:notebook:User</i> Stories</h2>
 
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
@@ -145,6 +154,21 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg1.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg2.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg3.png">
+
+<h2>⚙Ferramentas utilizadas</h2>
+
+[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
+
+Um desafio mais complexo precisa de ferramentas mais capacitadas capazes de relacionar entre si e executar um bom resultado.
+
+Tecnologias | Usamos para
+----------|---------
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" width = "95px" height="23px"> | <p align = "justify">A linguagem de alto nível, JavaScript foi desenvolvida, primordialmente, para ser executada em navegadores e manipular os comportamentos de páginas web.</p>
+<img src="https://img.shields.io/badge/MongoDB-316192?style=for-the-badge=postgresql&logoColor=white" width = "198px" height="25px"> | <p align = "justify">MongoDB, é um sistema de gerenciamento de banco de dados não relacional. A escolha do MongoDB ao invés de um modelo SQL deve-se à necessidade de manipulação de imagens e este apresentar melhor perfomance para estas operações.</p>
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"> | Figma é uma ferramenta UI online e gratuita para prototipação de projetos que oferece trabalho colaborativo. |</p>
+<img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"> | <p align = "justify"> O React Native é um framework, baseado em React, que nos possibilita desenvolver aplicações mobile utilizando apenas Javascript. </p>
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"> | Node.js é um ambiente de execução JavaScript de código aberto e multiplataforma. Ele, por sua vez, utiliza o JavaScript como linguagem para realizar o processamento de suas aplicações no lado do servidor. |</p>
+<img src="https://img.shields.io/badge/Expo-20232A?style=for-the-badge&logo=expo">
 
 <h2 style="font-family:roboto;">💻<i>Prototipagem</i> do projeto</h2>
               
