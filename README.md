@@ -99,7 +99,7 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
         <td style="text-align: center; vertical-align: middle;">Links</td>
      <tr>
         <td style="text-align: center; vertical-align: middle;">Sprint 1</td> 
-        <td style="text-align: center; vertical-align: middle;">Em execução</td>
+        <td style="text-align: center; vertical-align: middle;">Concluída</td>
         <td style="text-align: center; vertical-align: middle;">29/08 a 18/09</td>
         <td style="text-align: center; vertical-align: middle;"><p><a href="https://github.com/ThomasPalma1/FatecAPI-05/tree/main/docs/readmes#readme">Visualizar</a></p></td>
     
