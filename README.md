@@ -38,7 +38,7 @@ No Brasil, as prefeituras comumente possuem a secretária de obras e manutençã
 
 As secretárias, em sua maioria, recebem as solicitações de serviço para manutenção pelo telefone 156. 
 
-O fluxo de atendimento das solcitações e manutenções adotando esta sistemática torna-se oneroso pela falta de otimização no atendimento às demandas assim como a identificação adequada da solicitação.
+O fluxo de atendimento das solicitações e manutenções adotando esta sistemática torna-se oneroso pela falta de otimização no atendimento às demandas assim como a identificação adequada da solicitação.
 
 A tecnologia por meio de aplicativos, desta forma, permite melhorar o fluxo de atendimento das solicitações em lugar de uma ligação telefônica, pois permite meios de uma solicitação mais detalhada, além de melhores filtros.
 
@@ -59,7 +59,7 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
               
 [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)    
               
- - Cadastro da solicitação da solicitação
+ - Cadastro da solicitação
  - Visualização da relação das solicitações de serviços do município
  - Relação de Obras em execução no município
  - Chatbot para soluções de dúvidas do aplicativo
