@@ -1,4 +1,4 @@
-from init import app, db
+from auth import app, db
 
 
 

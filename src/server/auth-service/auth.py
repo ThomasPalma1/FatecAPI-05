@@ -1,9 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, flash
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/flaskdb'
 db = SQLAlchemy(app)
 
 
@@ -34,6 +35,15 @@ def create_event():
     user.endereco = request.json['endereco']
     user.cidade = request.json['cidade']
     user.senha = request.json['senha']
+
+    user.senha=generate_password_hash(user.senha, method='sha256')
+
+    userEmail = User.query.filter_by(email=user.email).first()
+
+    if userEmail:
+        flash('Email já cadastrado')
+
+
     db.session.add(user)
     db.session.commit()
     return format_user(user)

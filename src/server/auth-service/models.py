@@ -1,4 +1,4 @@
-from init import db
+from auth import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -7,10 +7,10 @@ class User(db.Model):
     cpf = db.Column(db.String(20))
     cep = db.Column(db.String(10))
     bairro = db.Column(db.String(50))
-    numero = db.Column(db.Integer)
+    numero = db.Column(db.String)
     endereco = db.Column(db.String(50))
     cidade = db.Column(db.String(10))
-    senha = db.Column(db.String(10))
+    senha = db.Column(db.String(100))
 
     def __repr__(self):
         return f"User: {self.nome}"
