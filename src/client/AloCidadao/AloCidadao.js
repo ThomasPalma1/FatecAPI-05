@@ -8,6 +8,7 @@ import ListOccurrence from './src/components/listOccurrence';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Menu from "./src/components/Menu";
+import Occurrences from "./src/components/Ocurrences";
 
 const Stack = createStackNavigator()
 
@@ -39,6 +40,7 @@ function  AloCidadao() {
         <Stack.Screen name = "Menu" component={Menu}/>
         <Stack.Screen name= "ListOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
+        <Stack.Screen name= "Ocurrences" component={Occurrences}/>
       </Stack.Navigator>
       :<SemConexao/>}  
     </View>

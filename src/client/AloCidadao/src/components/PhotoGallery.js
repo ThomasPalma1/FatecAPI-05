@@ -51,7 +51,6 @@ export default function PhotoGallery(props) {
             setimageSelected(result.assets[0].uri);
             setTimeout(() => {
                 props.onChange(result.assets[0].uri);
-                console.log(props)
                 }, 5000);
             // Here, we invoke the callback with the new value
            

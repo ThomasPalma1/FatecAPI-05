@@ -35,6 +35,7 @@ export default StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     color: 'black',
+    marginBottom: hp(2),
   },
   input: {
     width: wp(80),
@@ -45,7 +46,7 @@ export default StyleSheet.create({
     padding: hp(1),
     color: "black",
     backgroundColor: '#ffffff',
-    borderRadius: hp(3),
+    borderRadius: hp(2),
     borderColor: "#6FBAFF",
     placeholderTextColor: 'black',
     fontSize: RFValue(14),
