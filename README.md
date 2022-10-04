@@ -1,39 +1,21 @@
-# FatecAPI-05
+<h1 align="center">FatecAPI-05</h1>
 <html>
        <head></head>
        <body>
-              <p align="center">
-                     <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
-                     <img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white">
-                     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-                     <img src="https://img.shields.io/badge/MongoDB-316192?style=for-the-badge&logo=MongoDB=white">
-                     <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
-                     <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
-                     <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
-              </p>
-         
-<h2>📋Menu de Navegação</h2>
-
-
-       
- - [Descrição](#descrição)
- - [Objetivo do Projeto](#objetivo-do-projeto)
- - [Principais Deliverables](#principais-deliverables)
- - [Limites e Restrições da Solução](#limites-e-restri%C3%A7%C3%B5es-da-solu%C3%A7%C3%A3o)
- - [Benefícios da nossa plataformao](#benef%C3%ADcios-da-nossa-plataforma)
- - [Releases de cada entrega](#releases-de-cada-entrega)
- - [Equipe](#equipe)
- - [User Stories](#notebookuser-stories)
- - [Product Backlog](#product-backlog-do-projeto)
- - [Ferramentas utilizadas](#ferramentas-utilizadas)
- - [Protótipo](#prototipagem-do-projeto)
- 
-    
+       <p align="center">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+         <i class="devicon-bash-plain colored"></i>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40"/>   	
+</p>
        
 <h2>📜Descrição</h2>
-   
- [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
-       
+      
 No Brasil, as prefeituras comumente possuem a secretária de obras e manutenção, a qual é responsável pela troca de lâmpadas, asfaltação, poda de árvores entre outras demandas.
 
 As secretárias, em sua maioria, recebem as solicitações de serviço para manutenção pelo telefone 156. 
@@ -44,8 +26,6 @@ A tecnologia por meio de aplicativos, desta forma, permite melhorar o fluxo de a
 
               
 <h2>🎯Objetivo do projeto</h2>
-       
- [<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação) 
 
 O foco do Alô Cidadão está justamente em fornecer um aplicativo para receber as demandas de obras e manutenção, permitindo uma solicitação mais detalhada e visual realizada pelo solicitante. 
               
@@ -55,25 +35,18 @@ O aplicativo também prevê o atendimento à LGPD nos tratamentos de dados pesso
 
 As obras sendo realizadas na cidade também poderão ser consultadas para facilitar o deslocamento dos cidadãos.
 
-<h2>📜Principais Deliverables</h2>
-              
-[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)    
+<h2>📜Principais Deliverables</h2>      
               
  - Cadastro da solicitação
  - Visualização da relação das solicitações de serviços do município
  - Relação de Obras em execução no município
  - Chatbot para soluções de dúvidas do aplicativo
  
-<h2>📜Limites e Restrições da Solução</h2>
-              
-[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
-                     
+<h2>📜Limites e Restrições da Solução</h2>                 
  - O acesso poderá ser feito por meio de aplicativo android.
  - O registro de solicitação necessita de conexão à internet.
        
 <h2>🏷Benefícios da nossa plataforma</h2>
-              
-[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
               
 ✅Gratuita
               
@@ -89,8 +62,6 @@ As obras sendo realizadas na cidade também poderão ser consultadas para facili
               
 <h2>📂Releases de cada entrega</h2>
 
-[<img src="https://svgshare.com/i/WF7.svg" width = "40%">](#menu-de-navegação)
-       
 <table border="1">
     <tr>
         <td style="text-align: center; vertical-align: middle;">Entregas</td>
