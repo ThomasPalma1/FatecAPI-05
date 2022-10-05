@@ -1,4 +1,4 @@
-from auth import db
+from register_user import db
 
 
 class User(db.Model):

@@ -1,6 +1,6 @@
+import os
 from flask import Flask, request, url_for
 from flask_cors import CORS
-import os
 from upload_images import fileRoutes
 
 

@@ -1,4 +1,4 @@
-<h1 align="center">Projeto Integrador</h1>
+<h1 align="center">Projeto Integrador | 5° Semestre</h1>
        <p align="center">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
          <i class="devicon-bash-plain colored"></i>
@@ -101,19 +101,44 @@
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg2.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/product_backlog_pg3.png">
 
-<h2>⚙Ferramentas utilizadas</h2>
+<h2>:gear: Ferramentas utilizadas</h2>
 
+Um desafio mais complexo, necessita de ferramentas mais capacitadas capazes de relacionar entre si e executar um bom resultado.
 
-Um desafio mais complexo precisa de ferramentas mais capacitadas capazes de relacionar entre si e executar um bom resultado.
-
-Tecnologias | Usamos para
-----------|---------
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" width = "95px" height="23px"> | <p align = "justify">A linguagem de alto nível, JavaScript foi desenvolvida, primordialmente, para ser executada em navegadores e manipular os comportamentos de páginas web.</p>
-<img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" width = "95px" height="23px"> | <p align = "justify">MongoDB, é um sistema de gerenciamento de banco de dados não relacional. A escolha do MongoDB ao invés de um modelo SQL deve-se à necessidade de manipulação de imagens e este apresentar melhor perfomance para estas operações.</p>
-<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" width = "95px" height="23px"> | Figma é uma ferramenta UI online e gratuita para prototipação de projetos que oferece trabalho colaborativo. |</p>
-<img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" width = "95px" height="23px"> | <p align = "justify"> O React Native é um framework, baseado em React, que nos possibilita desenvolver aplicações mobile utilizando apenas Javascript. </p>
-<img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white" width = "95px" height="23px"> | Flask é um micro-framework de execução Python. Ele, por sua vez, utiliza o Python como linguagem para realizar o processamento de suas aplicações no lado do servidor. |</p>
-<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" width = "95px" height="23px"> | <p align = "justify">PostgreSQL, é um sistema de gerenciamento de banco de dados do tipo relacional. Seu objetivo é permitir a realização da linguagem SQL em estruturas de programação. Sendo assim, garantindo um trabalho bem-organizado seguindo as diretrizes desse tipo de ordenação dos dados.</p>
+<table>
+    <tr>
+        <th align="center">Tecnologias</th>
+        <th align="center">Finalidade</th>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="40" height="40"></td>
+        <td align="center"></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40" height="40"</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="40" height="40"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40"/></td>
+        <td></td>
+    </tr>
+</table>
 
 <h2>💻 Prototipagem do projeto</h2>
               
@@ -125,5 +150,3 @@ Tecnologias | Usamos para
     <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/figma.gif" alt=""/><br /><sub><b>Figma</b></sub></h3>
          
 </div>
-              
-

@@ -22,7 +22,9 @@ def format_user(user):
         "senha": user.senha
     }
 
+
 from models import User
+
 
 @app.route('/signup', methods=['POST'])
 def create_event():
@@ -36,18 +38,13 @@ def create_event():
     user.cidade = request.json['cidade']
     user.senha = request.json['senha']
 
-    user.senha=generate_password_hash(user.senha, method='sha256')
+    user.senha = generate_password_hash(user.senha, method='sha256')
 
-    userEmail = User.query.filter_by(email=user.email).first()
+    user_email = User.query.filter_by(email=user.email).first()
 
-    if userEmail:
+    if user_email:
         flash('Email já cadastrado')
-
 
     db.session.add(user)
     db.session.commit()
     return format_user(user)
-    
-
-
-    
