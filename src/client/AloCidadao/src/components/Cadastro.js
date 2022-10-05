@@ -1,15 +1,7 @@
-// nome VARCHAR,
-// email VARCHAR,
-// cpf VARCHAR,
-// bairro VARCHAR,
-// numero INTEGER,
-// endereco VARCHAR,
-// cidade VARCHAR,
-// senha VARCHAR
 import React from 'react';
 import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity } from 'react-native';
 import styleGlobal from "../assets/styles/styleGlobal";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 
 export default function Login() {
     return (

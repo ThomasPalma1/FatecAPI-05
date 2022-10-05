@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Menu from "./src/components/Menu";
 import Occurrences from "./src/components/Ocurrences";
+import Login from "./src/components/Login";
 
 const Stack = createStackNavigator()
 
@@ -37,10 +38,11 @@ function  AloCidadao() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name = "Menu" component={Menu}/>
+        <Stack.Screen name= "Menu" component={Menu}/>
         <Stack.Screen name= "ListOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
         <Stack.Screen name= "Ocurrences" component={Occurrences}/>
+        <Stack.Screen name= "Login" component={Login}/>
       </Stack.Navigator>
       :<SemConexao/>}  
     </View>
