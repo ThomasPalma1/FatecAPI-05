@@ -122,11 +122,6 @@ export default function RegisterOccurrence(props) {
     } else {
       container = (
         <>
-          {/* <Image
-            style={styleGlobal.image}
-            source={require('../assets/images/icon.png')}
-            resizeMode={"cover"}
-          /> */}
           <Text style={styleGlobal.textMenu}>Preencha as informações com os dados do ocorrido</Text>
         </>
       )

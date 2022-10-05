@@ -37,6 +37,15 @@ export default StyleSheet.create({
     color: 'black',
     marginBottom: hp(2),
   },
+  textDescription: {
+    fontFamily: 'Montserrat',
+    fontStyle: "normal",
+    fontSize: RFValue(12),
+    alignItems: "center",
+    textAlign: "center",
+    color: 'black',
+    marginBottom: hp(2),
+  },
   input: {
     width: wp(80),
     height: hp(5),
@@ -61,7 +70,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: '#ffffff',
-    fontSize: RFValue(20),
+    fontSize: RFValue(18),
     margin: hp(1),
     textAlign: 'center',
     display: 'flex',

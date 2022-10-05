@@ -19,7 +19,7 @@ export default function Ocurrences(props) {
       <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
       <View>
         <Text style={styleGlobal.textMenu}>
-        #{props.route.params.idSolicitacao} - {props.route.params.titulo}
+         {props.route.params.titulo}
         </Text>
       </View>
       <View>

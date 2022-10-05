@@ -15,15 +15,15 @@ export default function Button(props) {
     return (
         <Pressable
             onPress={props.onPressFunction}
-            hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
-            android_ripple={{ color: '#00000050' }}
+           
+            android_ripple={{ color: '#6FBAFF' }}
             style={({ pressed }) => [
-                { backgroundColor: pressed ? '#dddddd' : props.color },
+                { backgroundColor: props.color },
                 styles.button,
                 { ...props.style }
             ]}
         >
-            <Text>{props.icon}</Text>
+            {props.icon}
             <Text style={styleGlobal.buttonText}>
                 {props.title}
             </Text>
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: hp(3),
         margin: hp(1),
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        display: 'flex',
     },
 })

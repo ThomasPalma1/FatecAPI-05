@@ -14,7 +14,7 @@ import styleGlobal from '../assets/styles/styleGlobal';
 import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export default function Menu() {
     const navigation = useNavigation();
@@ -26,20 +26,20 @@ export default function Menu() {
                     source={require('../assets/images/icon.png')}
                     resizeMode={"cover"}
                 />
-                <Text style={styleGlobal.textMenu}>Olá, seja Bem-Vindo ao Alo Cidadão!</Text>
+                <Text style={styleGlobal.textMenu}>Olá, seja bem-vindo ao Alo Cidadão!</Text>
             </View>
             <View style={styles.buttonStyleContainer}>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('RegisterOccurrence')} icon={<MaterialIcons name="assignment" size={RFValue(80)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
+                    <Button onPressFunction={() => navigation.navigate('RegisterOccurrence')} icon={<MaterialIcons name="assignment" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
                 </View>
                 <View>
-                    <Button icon={<FontAwesome name="user" size={RFValue(80)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
+                    <Button icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={RFValue(80)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
+                    <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
-                    <Button icon={<MaterialIcons name="construction" size={RFValue(80)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
+                    <Button icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
             </View>
         </View>

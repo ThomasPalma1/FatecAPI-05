@@ -28,9 +28,7 @@ export default function ListItem({data, handleLeft, handleRight}){
     );
   }
 
-  console.log(data);
-
-
+ 
   return(
     
     <Swipeable

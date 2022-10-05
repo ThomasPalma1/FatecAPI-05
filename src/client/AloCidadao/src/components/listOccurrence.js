@@ -11,7 +11,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import styleGlobal from '../assets/styles/styleGlobal';
 import ButtonBack from './ButtonBack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Config from '../services/config';
 import ListItem from './ListItem';
 
@@ -94,8 +94,12 @@ export default function Menu() {
       <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
       <View>
         <Text style={styleGlobal.textMenu}>
-          Minhas ocorrências
+          Minhas ocorrências 
         </Text>
+        <Text style={styleGlobal.textDescription}>
+          deslize para o lado para excluir uma solicitacão ou clique sobre o titulo para visualizar mais detalhes
+        </Text>
+        
       </View>
       <View style={styles.container}>
         <FlatList
