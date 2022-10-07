@@ -5,11 +5,15 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-na
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 import { RFValue } from "react-native-responsive-fontsize";
+import ButtonBack from './ButtonBack';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Login() {
+    const navigation = useNavigation();
     const [display, setDisplay] = useState('none'); //chamei um estado inicial display com um valor none e to passando ele no css
     return (
         <View style={styles.container}>
+            <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
             <View>
                 <Text style={styles.login_msg(display)}>Usuário ou senha inválidos!</Text>
             </View>
@@ -27,7 +31,6 @@ export default function Login() {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf7ff',
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         marginBottom: hp(12),
+        marginTop: hp(-22),
     },
     login_msg: (text = 'none') => ({
         fontWeight: 'bold',
