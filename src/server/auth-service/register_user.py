@@ -1,11 +1,8 @@
-from flask import Flask, request, flash
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import request, flash, Blueprint
+from werkzeug.security import generate_password_hash
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/flaskdb'
-db = SQLAlchemy(app)
+
+signUpRoute = Blueprint("signUpRoute", __name__)
 
 
 def format_user(user):
@@ -23,11 +20,9 @@ def format_user(user):
     }
 
 
-from models import User
-
-
-@app.route('/signup', methods=['POST'])
+@signUpRoute.route('/signup', methods=['POST'])
 def create_event():
+    from models import User
     user = User(nome=request.json['nome'])
     user.email = request.json['email']
     user.cpf = request.json['cpf']

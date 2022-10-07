@@ -1,7 +1,13 @@
-from register_user import db
+from flask_login import UserMixin
+from login_connection import login_manager, db
 
 
-class User(db.Model):
+@login_manager.user_loader
+def get_user(user_id):
+    return User.query.filter_id(id=user_id).first()
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(50))
     email = db.Column(db.String(100), unique=True)
