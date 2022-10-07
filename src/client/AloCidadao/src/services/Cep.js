@@ -161,7 +161,7 @@ export default function Cep(props) {
             container= (
             <ScrollView>
             <View>
-            <TextInput placeholderTextColor="grey" placeholder={"CEP"} style={styleGlobal.input} 
+            <TextInput maxLength={8} placeholderTextColor="grey" placeholder={"CEP"} style={styleGlobal.input} 
                 onChangeText={text => {
                     if (text.length == 8) {
                         chamarCep(text);
@@ -169,13 +169,13 @@ export default function Cep(props) {
                     }
                 }}
                 keyboardType="number-pad" />
-            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
+            <TextInput editable={false} placeholderTextColor="grey" style={styleGlobal.input}
               placeholder={"Rua"} value={Logradouro} />
-            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
+            <TextInput editable={false} placeholderTextColor="grey" style={styleGlobal.input}
               placeholder={"Bairro"} value={Bairro} />
-            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
+            <TextInput editable={false} placeholderTextColor="grey" style={styleGlobal.input}
              placeholder={"Cidade"} value={Localidade} />
-            <TextInput placeholderTextColor="grey" style={styleGlobal.input}
+            <TextInput editable={false} placeholderTextColor="grey" style={styleGlobal.input}
              placeholder={"UF"} value={UF} />
             <ButtonPost color={"#6FBAFF"} title={'Confirmar'} onPressFunction = {() => insertData()} />
             </View>

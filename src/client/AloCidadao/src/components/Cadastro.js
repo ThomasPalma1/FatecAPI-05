@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
 import styleGlobal from "../assets/styles/styleGlobal";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import Button from './Button';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// import MaskCpfCnpj from "react-native-mask-cpf-cnpj";
 
 export default function Cadastro() {
     const navigation = useNavigation();
@@ -12,10 +15,23 @@ export default function Cadastro() {
         <View style={styles.container}>
             <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
             <View style={styles.form}>
-            <Text style={styles.title}>CADASTRO</Text>
+                <Text style={styles.title}>CADASTRO</Text>
+                <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styleGlobal.input} placeholder='Nome' />
                 <TextInput style={styleGlobal.input} placeholder='Email' />
-                <TextInput style={styleGlobal.input} placeholder='CPF' />
+                {/* <MaskCpfCnpj
+                    setData={setDataExample}
+                    submit={() => secondTextInputRef.current.focus()}
+                    containerStyle={{ width: "100%" }}
+                    keyboardTypeSubmit="next"
+                    cpf
+                    placeholderTextColor="#48626f"
+                    inputStyle={{
+                        color: "#48626f",
+                        borderBottomColor: "#48626f",
+                    }}
+                /> */}
+                <TextInput style={styleGlobal.input} placeholder='CPF' keyboardType='number-pad' maxLength={11} />
                 <TextInput style={styleGlobal.input} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
                 <TouchableOpacity style={styles.button}>
@@ -53,8 +69,8 @@ const styles = StyleSheet.create({
         color: '#6FBAFF',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginBottom: hp(12),
-        marginTop: hp(-10),
+        // marginBottom: hp(1),
+        marginTop: hp(-20),
     },
     input: {
         alignSelf: 'center',
@@ -92,4 +108,12 @@ const styles = StyleSheet.create({
         // marginTop: 10,
         // marginBottom: 15,
     },
+    image: {
+        marginBottom: hp(7),
+        marginTop: hp(0.5),
+        width: wp(30),
+        height: hp(16),
+        alignSelf: 'center',
+        borderRadius: hp('21%'),
+    }
 })

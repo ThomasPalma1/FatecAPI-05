@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
 import styleGlobal from "../assets/styles/styleGlobal";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 export default function Login() {
     const navigation = useNavigation();
+    const onPress = () => navigation.navigate('Cadastro');
     const [display, setDisplay] = useState('none'); //chamei um estado inicial display com um valor none e to passando ele no css
     return (
         <View style={styles.container}>
@@ -18,13 +21,14 @@ export default function Login() {
                 <Text style={styles.login_msg(display)}>Usuário ou senha inválidos!</Text>
             </View>
             <View style={styles.form}>
-            <Text style={styles.title}>Entrar</Text>
+                <Text style={styles.title}>Entrar</Text>
+                <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styles.input} placeholder='Usuário' />
                 <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} />
                 <TouchableOpacity style={styles.button} onPress={() => setDisplay(value = 'flex')}>
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.register}>
+                <TouchableOpacity onPress={onPress} style={styles.register}>
                     <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
             </View>
@@ -34,6 +38,11 @@ export default function Login() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf7ff',
+        flex: 1,
+        backgroundColor: '#ffffff',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+        alignContent: 'center',
     },
     title: {
         alignSelf: "center",
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
         color: '#6FBAFF',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginBottom: hp(12),
+        marginBottom: hp(1),
         marginTop: hp(-22),
     },
     login_msg: (text = 'none') => ({
@@ -107,5 +116,14 @@ const styles = StyleSheet.create({
     },
     regText: {
         color: '#a1a1a1',
+        marginBottom: hp(-7)
+    },
+    image: {
+        marginBottom: hp(7),
+        marginTop: hp(0.5),
+        width: wp(30),
+        height: hp(16),
+        alignSelf: 'center',
+        borderRadius: hp('21%'),
     }
 })
