@@ -7,20 +7,46 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import ButtonBack from './ButtonBack';
-import { RFValue } from 'react-native-responsive-fontsize';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 export default function Ocurrences(props) {
   const navigation = useNavigation();
 
+  const getBodyContainer = () => {
+    let container = <></>;
 
+    if (props.route.params.logradouro == null) {
+      container = (
+        <>
+          <Text style={styles.text}>
+            Latitude: {props.route.params.latitude}
+          </Text>
+          <Text style={styles.text}>
+            Longitude: {props.route.params.longitude}
+          </Text>
+        </>
+      );
+    } else {
+      container = (
+        <>
+          <Text style={styles.text}>
+            Logradouro: {props.route.params.logradouro}
+          </Text>
+          <Text style={styles.text}>Bairro: {props.route.params.bairro}</Text>
+          <Text style={styles.text}>
+            Cidade: {props.route.params.localidade} - {props.route.params.uf}
+          </Text>
+        </>
+      );
+    }
+    return container;
+  };
 
   return (
     <View style={styles.container}>
-      <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
+      <ButtonBack onPressFunction={() => navigation.navigate('listOccurrence')} />
       <View>
-        <Text style={styleGlobal.textMenu}>
-         {props.route.params.titulo}
-        </Text>
+        <Text style={styleGlobal.textMenu}>{props.route.params.titulo}</Text>
       </View>
       <View>
         <Image
@@ -31,8 +57,13 @@ export default function Ocurrences(props) {
         />
       </View>
       <View style={styles.buttonStyleContainer}>
-         <Text style={styles.text}>Descrição: {props.route.params.descricao}</Text> 
-         <Text style={styles.text}>privacidade: {props.route.params.anonimo ? "anonimo" : "publico"}</Text> 
+        <Text style={styles.text}>
+          Descrição: {props.route.params.descricao}
+        </Text>
+        <Text style={styles.text}>
+          Privacidade: {props.route.params.anonimo ? 'anonimo' : 'publico'}
+        </Text>
+        {getBodyContainer()}
       </View>
     </View>
   );
@@ -54,14 +85,15 @@ const styles = StyleSheet.create({
   },
   buttonStyleContainer: {
     flex: 1,
-    padding: hp(3),
+    padding: hp(2),
+    margin: hp(1),
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
     height: '100%',
   },
-  text:{
+  text: {
     fontSize: RFValue(17),
-    color: 'black'
+    color: 'black',
   },
 });

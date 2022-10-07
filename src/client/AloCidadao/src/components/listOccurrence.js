@@ -11,7 +11,6 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import styleGlobal from '../assets/styles/styleGlobal';
 import ButtonBack from './ButtonBack';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Config from '../services/config';
 import ListItem from './ListItem';
 
@@ -42,6 +41,12 @@ export default function Menu() {
             descricao: data.reports[i].descricao,
             anonimo: data.reports[i].anonimo,
             idSolicitacao: data.reports[i].id,
+            latitude: data.reports[i].latitude,
+            longitude: data.reports[i].longitude,
+            logradouro: data.reports[i].logradouro,
+            localidade: data.reports[i].Localidade,
+            bairro: data.reports[i].Bairro,
+            uf: data.reports[i].UF,
           });
         }
         setSolicitacoes(eventsSolicitacoes);
