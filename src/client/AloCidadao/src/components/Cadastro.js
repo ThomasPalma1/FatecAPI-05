@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
 import styleGlobal from "../assets/styles/styleGlobal";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
 import { useNavigation } from '@react-navigation/native';
+import { TextInputMask } from 'react-native-masked-text';
+
 
 export default function Cadastro() {
     const navigation = useNavigation();
+    const [cpf, setCpf] = useState();
     return (
         <View style={styles.container}>
             <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
@@ -16,9 +19,7 @@ export default function Cadastro() {
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styleGlobal.input} placeholder='Nome' />
                 <TextInput style={styleGlobal.input} placeholder='Email' />
-
-                <TextInput style={styleGlobal.input} placeholder='CPF' keyboardType='number-pad' maxLength={11} />
-
+                <TextInputMask style={styleGlobal.input} placeholder='CPF' maxLength={14} type={'cpf'} value={cpf} onChangeText={text => setCpf(text)}  />
                 <TextInput style={styleGlobal.input} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
                 <TouchableOpacity style={styles.button}>
