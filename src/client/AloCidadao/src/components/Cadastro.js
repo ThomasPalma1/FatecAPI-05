@@ -5,9 +5,6 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-na
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
 import { useNavigation } from '@react-navigation/native';
-import Button from './Button';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-// import MaskCpfCnpj from "react-native-mask-cpf-cnpj";
 
 export default function Cadastro() {
     const navigation = useNavigation();
@@ -15,23 +12,13 @@ export default function Cadastro() {
         <View style={styles.container}>
             <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
             <View style={styles.form}>
-                <Text style={styles.title}>CADASTRO</Text>
+                <Text style={styles.title}>Cadastro</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styleGlobal.input} placeholder='Nome' />
                 <TextInput style={styleGlobal.input} placeholder='Email' />
-                {/* <MaskCpfCnpj
-                    setData={setDataExample}
-                    submit={() => secondTextInputRef.current.focus()}
-                    containerStyle={{ width: "100%" }}
-                    keyboardTypeSubmit="next"
-                    cpf
-                    placeholderTextColor="#48626f"
-                    inputStyle={{
-                        color: "#48626f",
-                        borderBottomColor: "#48626f",
-                    }}
-                /> */}
+
                 <TextInput style={styleGlobal.input} placeholder='CPF' keyboardType='number-pad' maxLength={11} />
+
                 <TextInput style={styleGlobal.input} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
                 <TouchableOpacity style={styles.button}>
@@ -63,13 +50,13 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     title: {
+        fontFamily: 'Montserrat',
         alignSelf: "center",
         fontWeight: 'bold',
         fontSize: hp(4),
         color: '#6FBAFF',
         marginLeft: 'auto',
         marginRight: 'auto',
-        // marginBottom: hp(1),
         marginTop: hp(-20),
     },
     input: {
@@ -91,8 +78,6 @@ const styles = StyleSheet.create({
         width: wp(80),
         height: hp(5),
         marginTop: hp(1),
-        // marginBottom: hp(1),
-        // padding: hp(1),
         backgroundColor: "#6FBAFF",
         alignSelf: "center",
         borderRadius: hp(3),
@@ -105,8 +90,6 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginTop: 'auto',
         marginBottom: 'auto',
-        // marginTop: 10,
-        // marginBottom: 15,
     },
     image: {
         marginBottom: hp(7),

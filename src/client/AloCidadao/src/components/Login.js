@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
-import styleGlobal from "../assets/styles/styleGlobal";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
 import { useNavigation } from '@react-navigation/native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 export default function Login() {
     const navigation = useNavigation();
     const onPress = () => navigation.navigate('Cadastro');
-    const [display, setDisplay] = useState('none'); //chamei um estado inicial display com um valor none e to passando ele no css
+    const [display, setDisplay] = useState('none'); 
+    //chamei um estado inicial display com um valor none e to passando ele no css
+    //onPress={()=>setDisplay(value='flex')} => dentro do TouchableOpacity button (pra mostrar q o usuário ou senha são inválidos)
+    //PS. não funcionou
     return (
         <View style={styles.container}>
             <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
@@ -25,7 +25,7 @@ export default function Login() {
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styles.input} placeholder='Usuário' />
                 <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} />
-                <TouchableOpacity style={styles.button} onPress={() => setDisplay(value = 'flex')}>
+                <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={onPress} style={styles.register}>
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
     },
     title: {
+        fontFamily: 'Montserrat',
         alignSelf: "center",
         fontWeight: 'bold',
         fontSize: hp(4),
@@ -93,8 +94,6 @@ const styles = StyleSheet.create({
         width: wp(80),
         height: hp(5),
         marginTop: hp(1),
-        // marginBottom: hp(1),
-        // padding: hp(1),
         backgroundColor: "#6FBAFF",
         alignSelf: "center",
         borderRadius: hp(3),
@@ -107,8 +106,6 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginTop: 'auto',
         marginBottom: 'auto',
-        // marginTop: 10,
-        // marginBottom: 15,
     },
     register: {
         marginTop: 14,
