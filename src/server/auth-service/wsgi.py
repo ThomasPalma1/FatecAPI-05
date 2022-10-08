@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+import os
 
 
 def initialize_database(app):
@@ -9,9 +10,9 @@ def initialize_database(app):
 
 def main():
     app = Flask(__name__)
-
+    pdb = os.getenv('PDB')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:thomaspalma1@localhost/flaskdb'
+    app.config['SQLALCHEMY_DATABASE_URI'] = pdb
 
     initialize_database(app)
 
