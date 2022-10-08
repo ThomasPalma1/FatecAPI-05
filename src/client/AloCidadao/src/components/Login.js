@@ -16,7 +16,6 @@ export default function Login() {
     //PS. não funcionou
     return (
         <View style={styles.container}>
-            <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
             <View>
                 <Text style={styles.login_msg(display)}>Usuário ou senha inválidos!</Text>
             </View>
@@ -25,7 +24,7 @@ export default function Login() {
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styles.input} placeholder='Usuário' />
                 <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Menu')}>
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={onPress} style={styles.register}>
