@@ -6,6 +6,7 @@ import {
     View,
 } from 'react-native';
 import Button from './Button';
+import ButtonChat from './ButtonChat'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -14,6 +15,8 @@ import styleGlobal from '../assets/styles/styleGlobal';
 import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { Linking } from 'react-native';
+import ButtonBack from './ButtonBack';
 
 
 export default function Menu() {
@@ -21,6 +24,10 @@ export default function Menu() {
     return (
         <View style={styles.container}>
             <View>
+                <View>
+                    <ButtonChat onPressFunction={() => { Linking.openURL('https://chat.blip.ai/?appKey=dXJiYW5pdGFzOjhhNjQ4NzY1LTNhNDQtNDE2NS1iZTA1LWQ0ZjEzN2JiZWY0OQ==&_gl=1*8v525u*_ga*NzIzMzcxMjM3LjE2NjQyNzU1MzI.*_ga_VYKG6G92NK*MTY2NTI2MDE5Ny4xNy4xLjE2NjUyNjAyMjIuMC4wLjA.'); 
+    }} icon={<MaterialIcons name="assignment" size={hp(2)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
+                </View>
                 <Image
                     style={styleGlobal.image}
                     source={require('../assets/images/icon.png')}
@@ -41,7 +48,9 @@ export default function Menu() {
                 <View>
                     <Button onPressFunction={() => navigation.navigate('Login')} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
+
             </View>
+
         </View>
     )
 }
