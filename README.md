@@ -54,6 +54,14 @@
         <td align="center">Concluída</td>
         <td align="center">29/08 a 18/09</td>
         <td align="center"><p><a href="https://github.com/ThomasPalma1/FatecAPI-05/tree/main/docs/readmes#readme">Visualizar</a></p></td>
+     <tr>
+        <td align="center">Sprint 02</td>
+        <td align="center">Concluída</td>
+        <td align="center">19/09 a 09/10</td>
+        <td align="center"><p><a href="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/readmes/README_sprint2.md">Visualizar</a></p></td>
+    </tr>
+        
+        
     
 </table>
        
