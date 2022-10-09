@@ -1,4 +1,4 @@
-from src.server.auth_service.login_connection import app
+from src.server.auth_service.init_variables import app
 from src.server.auth_service.app.controllers.auth_user import authRoutes
 from src.server.auth_service.app.controllers.register_user import signUpRoute
 

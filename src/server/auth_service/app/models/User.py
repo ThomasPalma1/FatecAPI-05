@@ -1,4 +1,4 @@
-from src.server.auth_service.login_connection import pdb
+from src.server.auth_service.init_variables import pdb
 from werkzeug.security import check_password_hash
 from flask_login import UserMixin
 

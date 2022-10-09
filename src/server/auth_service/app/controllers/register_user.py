@@ -38,7 +38,7 @@ def create_event():
 
     if user_email:
         flash('Email já cadastrado')
-    import src.server.auth_service.login_connection as initializer_postgresql
+    import src.server.auth_service.init_variables as initializer_postgresql
 
     initializer_postgresql.pdb.session.add(user)
     initializer_postgresql.pdb.session.commit()

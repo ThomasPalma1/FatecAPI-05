@@ -1,4 +1,4 @@
-from src.server.auth_service.login_connection import login_manager
+from src.server.auth_service.init_variables import login_manager
 from src.server.auth_service.app.models.User import User
 
 
