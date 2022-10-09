@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image, Alert } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
 import { RFValue } from "react-native-responsive-fontsize";
-import ButtonBack from './ButtonBack';
+import ButtonPost from './ButtonPost';
+import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Login() {
@@ -14,6 +15,47 @@ export default function Login() {
     //chamei um estado inicial display com um valor none e to passando ele no css
     //onPress={()=>setDisplay(value='flex')} => dentro do TouchableOpacity button (pra mostrar q o usuário ou senha são inválidos)
     //PS. não funcionou
+    const [email, setEmail] = useState(null);
+    const [senha, setSenha] = useState(null);
+
+    async function Logar(){
+        await fetch(`${Config.AUTH}/login`, {
+            method:'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email:email,
+              senha:senha
+            })
+         })
+         .then(function(res) {return res.json();})
+         .then((data)=> { 
+            console.log(data)
+            console.log(data.data)
+            if(data.data==true){
+                navigation.navigate('Menu')
+            }
+            else if(data.data==false)
+            {
+                Alert.alert(
+                    "Erro!",
+                    data.message,
+                    [
+                      { text: "OK", onPress: () => console.log("OK Pressed") }
+                    ]
+                  ) 
+            }
+         })
+         .catch(function(error) {
+            console.log(error.message);
+            throw error;
+          });
+      
+      
+       }
+
     return (
         <View style={styles.container}>
             <View>
@@ -22,11 +64,9 @@ export default function Login() {
             <View style={styles.form}>
                 <Text style={styles.title}>Entrar</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
-                <TextInput style={styles.input} placeholder='Usuário' />
-                <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} />
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Menu')}>
-                    <Text style={styles.buttonText}>Entrar</Text>
-                </TouchableOpacity>
+                <TextInput style={styles.input} onChangeText={text => setEmail(text)} placeholder='Email' />
+                <TextInput style={styles.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
+                <ButtonPost color={"#6FBAFF"} title={'Entrar'} onPressFunction = {() => Logar()} />
                 <TouchableOpacity onPress={onPress} style={styles.register}>
                     <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>

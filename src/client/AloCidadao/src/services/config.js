@@ -1,5 +1,7 @@
 const obj = {
-    'URL': 'http://192.168.1.107:5000',
+    'REPORT': 'http://10.0.0.141:5000',
+    'AUTH': 'http://10.0.0.141:5001'
+
 };
 
 export default obj;

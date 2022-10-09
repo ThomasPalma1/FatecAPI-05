@@ -1,4 +1,4 @@
-from src.server.auth_service.init_variables import pdb
+from init_variables import pdb
 from werkzeug.security import check_password_hash
 from flask_login import UserMixin
 
@@ -8,11 +8,6 @@ class User(pdb.Model, UserMixin):
     nome = pdb.Column(pdb.String(50), nullable=False)
     email = pdb.Column(pdb.String(100), unique=True)
     cpf = pdb.Column(pdb.String(20), nullable=False)
-    cep = pdb.Column(pdb.String(10), nullable=False)
-    bairro = pdb.Column(pdb.String(50), nullable=False)
-    numero = pdb.Column(pdb.String(100), nullable=False)
-    endereco = pdb.Column(pdb.String(50), nullable=False)
-    cidade = pdb.Column(pdb.String(10), nullable=False)
     senha = pdb.Column(pdb.String(100), nullable=False)
 
     def __repr__(self):

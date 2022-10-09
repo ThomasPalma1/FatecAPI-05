@@ -1,30 +1,88 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useForm } from 'react';
+import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image, Alert } from 'react-native';
 import styleGlobal from "../assets/styles/styleGlobal";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { RFValue } from "react-native-responsive-fontsize";
 import ButtonBack from './ButtonBack';
+import ButtonPost from './ButtonPost';
+import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
 import { TextInputMask } from 'react-native-masked-text';
 
 
+
+
+
 export default function Cadastro() {
+
+    
+  
+    const [nome, setNome] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [cpf, setCpf] = useState(null);
+    const [senha, setSenha] = useState(null);
+
+
+    async function SalvarCadastro(){
+        await fetch(`${Config.AUTH}/signup`, {
+            method:'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nome:nome,
+              email:email,
+              cpf:cpf,
+              senha:senha
+            })
+         })
+         .then(function(res) {return res.json();})
+         .then((data)=> { 
+            console.log(data)
+            console.log(data.data)
+            if(data.data==true){
+                Alert.alert(
+                    "Sucesso!",
+                    "Sua conta foi criada!",
+                    [
+                      { text: "OK", onPress: () => navigation.navigate('Login') }
+                    ]
+                  )
+            }
+            else if(data.data==false)
+            {
+                Alert.alert(
+                    "Erro!",
+                    data.message,
+                    [
+                      { text: "OK", onPress: () => console.log("OK Pressed") }
+                    ]
+                  ) 
+            }
+         })
+         .catch(function(error) {
+            console.log(error.message);
+            throw error;
+          });
+      
+      
+       }
     const navigation = useNavigation();
-    const [cpf, setCpf] = useState();
+
+
     return (
         <View style={styles.container}>
             <ButtonBack onPressFunction={() => navigation.navigate('Login')} />
             <View style={styles.form}>
                 <Text style={styles.title}>Cadastro</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
-                <TextInput style={styleGlobal.input} placeholder='Nome' />
-                <TextInput style={styleGlobal.input} placeholder='Email' />
-                <TextInputMask style={styleGlobal.input} placeholder='CPF' maxLength={14} type={'cpf'} value={cpf} onChangeText={text => setCpf(text)}  />
-                <TextInput style={styleGlobal.input} placeholder='Senha' secureTextEntry={true} />
+                <TextInput style={styleGlobal.input} onChangeText={text => setNome(text)} placeholder='Nome' />
+                <TextInput style={styleGlobal.input} onChangeText={text => setEmail(text)} placeholder='Email' />
+                <TextInputMask style={styleGlobal.input} onChangeText={text => setCpf(text)} placeholder='CPF' maxLength={14} type={'cpf'}  />
+                <TextInput style={styleGlobal.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Criar conta</Text>
-                </TouchableOpacity>
+                <ButtonPost color={"#6FBAFF"} title={'Criar Conta'} onPressFunction = {() => SalvarCadastro()} />
             </View>
         </View>
     );
