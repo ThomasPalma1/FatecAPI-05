@@ -20,7 +20,7 @@
 
 <p align="justify"> O foco do Alô Cidadão está justamente em fornecer um aplicativo para receber as demandas de obras e manutenção, permitindo uma solicitação mais detalhada e visual realizada pelo solicitante. A solução proposta permite que o cidadão realize a solicitação de obras/manutenção inserindo fotos, endereço ou geolocalização, além da descrição do problema. O aplicativo também prevê o atendimento à LGPD nos tratamentos de dados pessoais,logs de usuários e termos e condições. As obras sendo realizadas na cidade também poderão ser consultadas para facilitar o deslocamento dos cidadãos.</p>
 
-<h2>📜 Principais Funcionalidades</h2>      
+<h2>🎁 Principais Funcionalidades</h2>      
               
  - Cadastro da solicitação;
  - Visualização da relação das solicitações de serviços do município;
@@ -67,7 +67,7 @@
                 <sub><b>Pedro Ferreira</b></sub>
             </a>
             <br />
-            <sub><b>Master</b></sub>
+            <sub><b>Scrum Master</b></sub>
         </td>
         <td align="center">
             <a href="https://br.linkedin.com/in/barbara-bidetti-bb910a1b3">
@@ -83,7 +83,7 @@
                 <sub><b>Higor Mariano</b></sub>
             </a>
             <br />
-            <sub><b>Dev Team</b></sub>
+            <sub><b>Development Team</b></sub>
         </td>
         <td align="center">
             <a href="https://www.linkedin.com/in/juliane-freitas-9b6287163">
@@ -91,19 +91,39 @@
                 <sub><b>Juliane Freitas</b></sub>
             </a>
             <br />
-            <sub><b>Dev Team</b></sub>
+            <sub><b>Development Team</b></sub>
         </td>
     </tr>
 </table>
        
 
 <table align="center">
-  <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/gustavo-oliveira-353647207/"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-03/blob/main/docs/Equipe/Gustavo.jfif" width="100px;" alt=""/><br /><sub><b>Gustavo Oliveira</b></sub></a><br/><sub><b>Dev Team</b></sub></td>
-    <td align="center"><a href="https://www.linkedin.com/in/elias-ferreira-525ba41b6"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/71013006?v=4" width="100px;" alt=""/><br /><sub><b>Elias Ferreira</b></sub></a><br/><sub><b>Dev Team</b></sub></td>
-   <td align="center"><a href="https://www.linkedin.com/in/thomas-palma-0764b81b3/"><img style="border-radius: 50%;" src="https://github.com/ThomasPalma1/FatecAPI-03/blob/main/docs/Equipe/Thomas.jfif" width="100px;" alt=""/><br /><sub><b>Thomas Palma</b></sub></a><br/><sub><b>Dev Team</b></sub></td>
-   
-  </tr>
+    <tr>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/gustavo-oliveira-353647207/">
+                <img src="https://github.com/ThomasPalma1/FatecAPI-03/blob/main/docs/Equipe/Gustavo.jfif" width="100px;" alt="" /><br />
+                <sub><b>Gustavo Oliveira</b></sub>
+            </a>
+            <br />
+            <sub><b>Development Team</b></sub>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/elias-ferreira-525ba41b6">
+                <img src="https://avatars.githubusercontent.com/u/71013006?v=4" width="100px;" alt="" /><br />
+                <sub><b>Elias Ferreira</b></sub>
+            </a>
+            <br />
+            <sub><b>Development Team</b></sub>
+        </td>
+        <td align="center">
+            <a href="https://www.linkedin.com/in/thomas-palma-0764b81b3/">
+                <img src="https://github.com/ThomasPalma1/FatecAPI-03/blob/main/docs/Equipe/Thomas.jfif" width="100px;" alt="" /><br />
+                <sub><b>Thomas Palma</b></sub>
+            </a>
+            <br />
+            <sub><b>Development Team</b></sub>
+        </td>
+    </tr>
 </table>
 
 <h2><i>📚 User Stories</h2></i>
