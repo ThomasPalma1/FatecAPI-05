@@ -1,6 +1,6 @@
 from flask import request, flash, Blueprint
+from src.server.auth_service.app.models.User import User
 from werkzeug.security import generate_password_hash
-
 
 signUpRoute = Blueprint("signUpRoute", __name__)
 
@@ -22,7 +22,6 @@ def format_user(user):
 
 @signUpRoute.route('/signup', methods=['POST'])
 def create_event():
-    from models import User
     user = User(nome=request.json['nome'])
     user.email = request.json['email']
     user.cpf = request.json['cpf']
@@ -39,7 +38,8 @@ def create_event():
 
     if user_email:
         flash('Email já cadastrado')
+    import src.server.auth_service.init_variables as initializer_postgresql
 
-    db.session.add(user)
-    db.session.commit()
+    initializer_postgresql.pdb.session.add(user)
+    initializer_postgresql.pdb.session.commit()
     return format_user(user)

@@ -13,7 +13,7 @@ export default function Cadastro() {
     const [cpf, setCpf] = useState();
     return (
         <View style={styles.container}>
-            <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
+            <ButtonBack onPressFunction={() => navigation.navigate('Login')} />
             <View style={styles.form}>
                 <Text style={styles.title}>Cadastro</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />

@@ -39,12 +39,12 @@ function  AloCidadao() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
+        <Stack.Screen name= "Login" component={Login}/>
         <Stack.Screen name= "Menu" component={Menu}/>
         <Stack.Screen name= "ListOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
         <Stack.Screen name= "listOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "Ocurrences" component={Occurrences}/>
-        <Stack.Screen name= "Login" component={Login}/>
         <Stack.Screen name= "Cadastro" component={Cadastro}/>
       </Stack.Navigator>
       :<SemConexao/>}  
