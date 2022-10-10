@@ -92,25 +92,13 @@
             </a>
             <br />
             <sub><b>Development Team</b></sub>
-        </td>
-        <td align="center">
+      </td>
+    </tr>
+   <tr>
+          <td align="center">
             <a href="https://www.linkedin.com/in/juliane-freitas-9b6287163">
                 <img src="https://github.com/ThomasPalma1/FatecAPI-03/raw/main/docs/Equipe/Juliane.jfif" width="100px;" alt="" /><br />
                 <sub><b>Juliane Freitas</b></sub>
-            </a>
-            <br />
-            <sub><b>Development Team</b></sub>
-        </td>
-    </tr>
-</table>
-       
-
-<table align="center">
-    <tr>
-        <td align="center">
-            <a href="https://www.linkedin.com/in/gustavo-oliveira-353647207/">
-                <img src="https://github.com/ThomasPalma1/FatecAPI-03/blob/main/docs/Equipe/Gustavo.jfif" width="100px;" alt="" /><br />
-                <sub><b>Gustavo Oliveira</b></sub>
             </a>
             <br />
             <sub><b>Development Team</b></sub>
@@ -133,6 +121,8 @@
         </td>
     </tr>
 </table>
+       
+
 
 <h2><i>📚 User Stories</h2></i>
 
