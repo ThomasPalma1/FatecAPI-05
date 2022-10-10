@@ -69,9 +69,9 @@ Para esta entrega, as maiores dificuldades aconteceram na integração do <i><b>
 <h2>📱 Fluxo do aplicativo</h2>
 
 <div align="center">
-    <b>Sequência do vídeo: Cadastro → Login → Chatbot → Listagem de solicitações.</b>
+    <b>Sequência do vídeo: Cadastro → Login → Listagem de solicitações → Chatbot.</b>
     <h3 align="center">
-        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/Entrega01.gif" width="300px" height="700px;" alt="" /><br />
+        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/Entrega02.gif" width="300px" height="700px;" alt="" /><br />
     </h3>
 </div>
 
