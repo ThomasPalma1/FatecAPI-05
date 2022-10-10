@@ -46,7 +46,7 @@ export default function Cep(props) {
         longitudeDelta: null
       })
     }
-    await fetch(`${Config.AUTH}/create`, {
+    await fetch(`${Config.REPORT}/create`, {
         method:'POST',
         headers: {
           Accept: 'application/json',

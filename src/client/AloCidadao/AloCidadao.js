@@ -11,6 +11,7 @@ import Menu from "./src/components/Menu";
 import Occurrences from "./src/components/Ocurrences";
 import Login from "./src/components/Login";
 import Cadastro from "./src/components/Cadastro";
+import Termos from "./src/pages/termos";
 
 const Stack = createStackNavigator()
 
@@ -46,6 +47,7 @@ function  AloCidadao() {
         <Stack.Screen name= "listOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "Ocurrences" component={Occurrences}/>
         <Stack.Screen name= "Cadastro" component={Cadastro}/>
+        <Stack.Screen name= "Termos" component={Termos}/>
       </Stack.Navigator>
       :<SemConexao/>}  
     </View>

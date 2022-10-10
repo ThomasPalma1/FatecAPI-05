@@ -8,66 +8,19 @@ import ButtonPost from './ButtonPost';
 import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
 import { TextInputMask } from 'react-native-masked-text';
-
+import Termos from '../pages/termos';
 
 
 
 
 export default function Cadastro() {
-
-    
-  
     const [nome, setNome] = useState(null);
     const [email, setEmail] = useState(null);
     const [cpf, setCpf] = useState(null);
     const [senha, setSenha] = useState(null);
 
 
-    async function SalvarCadastro(){
-        await fetch(`${Config.AUTH}/signup`, {
-            method:'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              nome:nome,
-              email:email,
-              cpf:cpf,
-              senha:senha
-            })
-         })
-         .then(function(res) {return res.json();})
-         .then((data)=> { 
-            console.log(data)
-            console.log(data.data)
-            if(data.data==true){
-                Alert.alert(
-                    "Sucesso!",
-                    "Sua conta foi criada!",
-                    [
-                      { text: "OK", onPress: () => navigation.navigate('Login') }
-                    ]
-                  )
-            }
-            else if(data.data==false)
-            {
-                Alert.alert(
-                    "Erro!",
-                    data.message,
-                    [
-                      { text: "OK", onPress: () => console.log("OK Pressed") }
-                    ]
-                  ) 
-            }
-         })
-         .catch(function(error) {
-            console.log(error.message);
-            throw error;
-          });
-      
-      
-       }
+    
     const navigation = useNavigation();
 
 
@@ -77,12 +30,22 @@ export default function Cadastro() {
             <View style={styles.form}>
                 <Text style={styles.title}>Cadastro</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
-                <TextInput style={styleGlobal.input} onChangeText={text => setNome(text)} placeholder='Nome' />
+                <TextInput style={styleGlobal.input}
+                value={nome} 
+                onChangeText={(nome) => setNome(nome)} 
+                placeholder='Nome' />
                 <TextInput style={styleGlobal.input} onChangeText={text => setEmail(text)} placeholder='Email' />
                 <TextInputMask style={styleGlobal.input} onChangeText={text => setCpf(text)} placeholder='CPF' maxLength={14} type={'cpf'}  />
                 <TextInput style={styleGlobal.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
-                <ButtonPost color={"#6FBAFF"} title={'Criar Conta'} onPressFunction = {() => SalvarCadastro()} />
+                <ButtonPost color={"#6FBAFF"} title={'Continuar'} 
+                onPressFunction = {() => navigation.navigate('Termos', {
+                    nome: nome,
+                    email: email,
+                    cpf: cpf,
+                    senha: senha
+                })} 
+                />
             </View>
         </View>
     );

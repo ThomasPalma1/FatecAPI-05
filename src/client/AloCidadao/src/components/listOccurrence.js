@@ -23,7 +23,7 @@ export default function Menu() {
   }, []);
 
   async function getSolicitacoes() {
-    await fetch(`${Config.URL}/reports/get`, {
+    await fetch(`${Config.REPORT}/reports/get`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -58,7 +58,7 @@ export default function Menu() {
   }
 
   async function deleteSolcitacao(idSolicitacao) {
-    await fetch(`${Config.URL}/reports/${idSolicitacao}`, {
+    await fetch(`${Config.REPORT}/reports/${idSolicitacao}`, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',

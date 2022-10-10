@@ -14,9 +14,10 @@ def login():
 
         user = User.query.filter_by(email=email).first()
 
+
         if not user or not user.verify_password(senha):
             return make_response(jsonify(data=False, message="Email ou Senha inválidos, tente novamente!"), 401)
-
+           
         login_user(user)
         return make_response(jsonify(data=True), 200)
 

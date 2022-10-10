@@ -46,7 +46,7 @@ export default function Menu() {
                     <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('Login')} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
+                    <Button icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
 
             </View>

@@ -10,7 +10,8 @@ def format_user(user):
         "nome": user.nome,
         "email": user.email,
         "cpf": user.cpf,
-        "senha": user.senha
+        "senha": user.senha,
+        "termos": user.termos
     }
 
 
@@ -22,6 +23,7 @@ def create_event():
     user.email = request.json['email']
     user.cpf = request.json['cpf']
     user.senha = request.json['senha']
+    user.termos = request.json['termos']
 
     user.senha = generate_password_hash(user.senha, method='sha256')
 
@@ -37,6 +39,7 @@ def create_event():
 
     import init_variables as initializer_postgresql
 
+    initializer_postgresql.pdb.create_all()
     initializer_postgresql.pdb.session.add(user)
     initializer_postgresql.pdb.session.commit()
     
