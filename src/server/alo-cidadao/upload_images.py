@@ -1,7 +1,7 @@
 import codecs
 from bson import ObjectId
 from flask import request, Blueprint, make_response, jsonify
-from database_connection import grid, mongo
+from database_connection import grid, db
 from PIL import Image  # library to open the received image
 from io import BytesIO  # and get image bytes to send to mongodb
 from response_builder import build_response
@@ -31,7 +31,7 @@ def create():
         output = output.getvalue()
         _id = grid.put(output)
 
-        mongo.db.report_images.insert_one(
+        db.report_images.insert_one(
             {'grid_id': ObjectId(_id), 'filename': report_image.filename, 'type': image_type})
 
         return build_response({"message": "Done!"}, 200)
@@ -47,8 +47,8 @@ def file_uploaded_to_database(id):
     base64_data = codecs.encode(image.read(), 'base64')  # converting received image to base64
     image = base64_data.decode('utf-8')
 
-    image_data = mongo.db.report_images.find_one({'grid_id': ObjectId(id)})
+    image_data = db.report_images.find_one({'grid_id': ObjectId(id)})
 
-    # image_base_64 = "data:image/" + image_data['type'] + ";base64," + image
+    image_base_64 = "data:image/" + image_data['type'] + ";base64," + image
 
-    return build_response({"image": image}, 200)
+    return build_response(image_base_64, 200, "text/plain")
