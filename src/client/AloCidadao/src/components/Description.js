@@ -52,7 +52,7 @@ const UselessTextInput = (props) => {
 
   setTimeout(() => {
     props.onChange(textTitle, textDescription, isAnonymous);
-  }, 5000);
+  }, 50);
   // Here, we invoke the callback with the new value
 
   return (

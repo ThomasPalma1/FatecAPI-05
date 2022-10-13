@@ -41,7 +41,13 @@ export default function RegisterOccurrence(props) {
   const PAGES = [
                   <PhotoGallery onChange={handleChange}/>, 
                   <Description onChange={handleChangeDescription}/>,
-                   <Cep isAnonymous={isAnonymous} textTitle={textTitle} textDescription={textDescription} isEditable={isEditable} onChange={handleChangeLocation}/>
+                  <Cep 
+                  isAnonymous={isAnonymous}
+                  textTitle={textTitle}
+                  textDescription={textDescription}
+                  isEditable={isEditable}
+                  imageSelected={imageSelected}
+                  />
                 ];
 
   const firstIndicatorStyles = {
@@ -98,15 +104,6 @@ export default function RegisterOccurrence(props) {
     setTextTiltle(title);
     setTextDescription(description);
     SetIsAnonymous(isAnonymous);
-  }
-
-  function handleChangeLocation(cep, rua, bairro, cidade, uf) {
-    // here we get the new value
-    setCep(cep);
-    setLogradouro(rua);
-    setBairro(bairro);
-    setLocalidade(cidade);
-    setUF(uf);
   }
 
   const getBodyContainer = () => {

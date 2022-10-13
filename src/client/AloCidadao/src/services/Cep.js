@@ -38,51 +38,63 @@ export default function Cep(props) {
 
    async function insertData(){
 
-    if(props.isEditable){
-      setLocation({
-        latitude: null,
-        longitude: null,
-        latitudeDelta: null,
-        longitudeDelta: null
-      })
-    }
+    // if(props.isEditable){
+    //   setLocation({
+    //     latitude: null,
+    //     longitude: null,
+    //     latitudeDelta: null,
+    //     longitudeDelta: null
+    //   })
+    // }
+    console.log(props.imageSelected)
+    const data = new FormData();
+    data.append('report_image', props.imageSelected.uri);
+    console.log(data)
     await fetch(`${Config.REPORT}/create`, {
-        method:'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          Localidade:Localidade,
-          cep:cep,
-          UF:UF,
-          Bairro:Bairro,
-          titulo:props.textTitle,
-          descricao:props.textDescription,
-          latitude:location.latitude,
-          longitude:location.longitude,
-          logradouro:Logradouro,
-          anonimo:props.isAnonymous
-        })
-     })
-     .then(function(res) {return res.json();})
-     .then( Alert.alert(
-      "Sucesso!",
-      "Sua ocorrência foi cadastrada com sucesso.",
-      [
-        { text: "OK", onPress: () => navigation.navigate('ListOccurrence') }
-      ]
-    )
+      method:'POST',
+      body: data
+    }).then(function(res) {return res.json();})
+    .then((data)=>{
+      console.log(data)
+    })
+    // await fetch(`${Config.REPORT}/create`, {
+    //     method:'POST',
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       Localidade:Localidade,
+    //       cep:cep,
+    //       UF:UF,
+    //       Bairro:Bairro,
+    //       titulo:props.textTitle,
+    //       descricao:props.textDescription,
+    //       latitude:location.latitude,
+    //       longitude:location.longitude,
+    //       logradouro:Logradouro,
+    //       anonimo:props.isAnonymous
+    //     })
+    //  })
+    //  .then(function(res) {return res.json();})
+    //  .then( Alert.alert(
+    //   "Sucesso!",
+    //   "Sua ocorrência foi cadastrada com sucesso.",
+    //   [
+    //     { text: "OK", onPress: () => navigation.navigate('ListOccurrence') }
+    //   ]
+    // )
     
-    )
-     .catch(function(error) {
-        console.log(error.message);
-        throw error;
-      });
+    // )
+    //  .catch(function(error) {
+    //     console.log(error.message);
+    //     throw error;
+    //   });
   
   
    }
-
+  
+   console.log(props.imageSelected)
 
     useEffect(() => {
       callLocation()

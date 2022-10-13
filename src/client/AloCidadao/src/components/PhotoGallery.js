@@ -48,10 +48,10 @@ export default function PhotoGallery(props) {
 
 
         if (result.assets) {
-            setimageSelected(result.assets[0].uri);
+            setimageSelected(result.assets[0]);
             setTimeout(() => {
-                props.onChange(result.assets[0].uri);
-                }, 5000);
+                props.onChange(result.assets[0]);
+                }, 50);
             // Here, we invoke the callback with the new value
            
             return
@@ -79,7 +79,7 @@ export default function PhotoGallery(props) {
 
 
         if (result.assets) {
-            setimageSelected(result.assets[0].uri)
+            setimageSelected(result.assets[0])
             return
         }
         
@@ -116,7 +116,7 @@ export default function PhotoGallery(props) {
         if (imageSelected !== null) {
             container = (
                 <View style={styleGlobal.containerPhoto}>
-                    {imageSelected && <Image source={{ uri: imageSelected }} style={styleGlobal.photo} />}
+                    {imageSelected && <Image source={{ uri: imageSelected.uri }} style={styleGlobal.photo} />}
                     <View>
                         <Button icon={<AntDesign name="pluscircleo" size={80} color="white" />} color={"#6FBAFF"} title={'Adicionar'} onPressFunction={getPhotoFrom} />
                     </View>

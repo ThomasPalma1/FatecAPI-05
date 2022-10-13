@@ -40,7 +40,7 @@ export default function Menu() {
                     <Button onPressFunction={() => navigation.navigate('RegisterOccurrence')} icon={<MaterialIcons name="assignment" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
                 </View>
                 <View>
-                    <Button icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
+                    <Button onPressFunction={() => navigation.navigate('MeusDados')} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
                     <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
