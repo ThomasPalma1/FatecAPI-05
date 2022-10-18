@@ -76,10 +76,12 @@ export default function PhotoGallery(props) {
             quality: 1
         }
         const result = await launchCamera(options);
-
-
+       
         if (result.assets) {
-            setimageSelected(result.assets[0])
+            setimageSelected(result.assets[0]);
+            setTimeout(() => {
+                props.onChange(result.assets[0]);
+                }, 50);
             return
         }
         
