@@ -68,7 +68,7 @@ export default function Ocurrences(props) {
         <View>
           <Image
             source={{
-              uri: 'https://st2.depositphotos.com/4164031/6914/i/450/depositphotos_69145633-stock-photo-flag-of-brazil.jpg',
+              uri: 'https://spaceks.net/sites/ativafm.net/images/notimage/user_2078026677.jpg',
             }}
             style={styles.photo}
           />

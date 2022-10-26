@@ -338,7 +338,7 @@ export default function Termos({route}) {
         />
         <Text style={styles.label}>Eu li e concordo com os termos de uso</Text>
 
-        <ButtonPost color={"#6FBAFF"} title={'Salvar'} style={styles.button} onPressFunction = {() => SalvarCadastro()} />
+        <ButtonPost color={ isSelected ? "#6FBAFF" : "#c9c9c9"} title={'Salvar'}  disabled={isSelected ? false : true} style={styles.button} onPressFunction = {() => SalvarCadastro()} />
 
       </ScrollView>
     </View>
