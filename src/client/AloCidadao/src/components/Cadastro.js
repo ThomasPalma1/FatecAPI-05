@@ -14,15 +14,33 @@ import Termos from '../pages/termos';
 
 
 export default function Cadastro() {
+    const botao = () =>{
+        
+
+        if (nome && email && cpf && senha !== null){
+            navigation.navigate('Termos', {
+                nome: nome,
+                email: email,
+                cpf: cpf,
+                senha: senha
+            })
+        }
+        else {
+            Alert.alert(
+                "ERRO!",
+                "Preencha todos os campos para continuar!",
+                [
+                  { text: "OK"}
+                ]
+              )
+        }
+    };
     const [nome, setNome] = useState(null);
     const [email, setEmail] = useState(null);
     const [cpf, setCpf] = useState(null);
     const [senha, setSenha] = useState(null);
-
-
     
     const navigation = useNavigation();
-
 
     return (
         <View style={styles.container}>
@@ -39,12 +57,7 @@ export default function Cadastro() {
                 <TextInput style={styleGlobal.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
                 <ButtonPost color={"#6FBAFF"} title={'Continuar'} 
-                onPressFunction = {() => navigation.navigate('Termos', {
-                    nome: nome,
-                    email: email,
-                    cpf: cpf,
-                    senha: senha
-                })} 
+                onPressFunction = {() => botao}
                 />
             </View>
         </View>
