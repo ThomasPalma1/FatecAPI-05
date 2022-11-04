@@ -14,9 +14,8 @@ import Termos from '../pages/termos';
 
 
 export default function Cadastro() {
-    const botao = () =>{
+    const botao = () => {
         
-
         if (nome && email && cpf && senha !== null){
             navigation.navigate('Termos', {
                 nome: nome,
@@ -57,7 +56,7 @@ export default function Cadastro() {
                 <TextInput style={styleGlobal.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
                 <TextInput style={styleGlobal.input} placeholder='Confirmar senha' secureTextEntry={true} />
                 <ButtonPost color={"#6FBAFF"} title={'Continuar'} 
-                onPressFunction = {() => botao}
+                onPressFunction = {botao}
                 />
             </View>
         </View>

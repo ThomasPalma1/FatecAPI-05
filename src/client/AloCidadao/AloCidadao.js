@@ -13,6 +13,8 @@ import Login from "./src/components/Login";
 import Cadastro from "./src/components/Cadastro";
 import Termos from "./src/pages/termos";
 import MeusDados from "./src/pages/MeusDados";
+import ListConstruction from "./src/components/listConstruction";
+import Constructions from "./src/components/Constructions";
 
 const Stack = createStackNavigator()
 
@@ -45,11 +47,12 @@ function  AloCidadao() {
         <Stack.Screen name= "Menu" component={Menu}/>
         <Stack.Screen name= "ListOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "RegisterOccurrence" component={RegisterOccurrence}/>
-        <Stack.Screen name= "listOccurrence" component={ListOccurrence}/>
         <Stack.Screen name= "Ocurrences" component={Occurrences}/>
         <Stack.Screen name= "Cadastro" component={Cadastro}/>
         <Stack.Screen name= "Termos" component={Termos}/>
         <Stack.Screen name= "MeusDados" component={MeusDados}/>
+        <Stack.Screen name= "Obras" component={ListConstruction}/>
+        <Stack.Screen name= "Constructions" component={Constructions}/>
       </Stack.Navigator>
       :<SemConexao/>}  
     </View>
