@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styleGlobal from '../assets/styles/styleGlobal';
@@ -8,23 +8,22 @@ import {
 } from 'react-native-responsive-screen';
 import ButtonBack from './ButtonBack';
 import {RFValue} from 'react-native-responsive-fontsize';
-import MapView, {Marker} from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 export default function Constructions(props) {
   const navigation = useNavigation();
-  
-  const getBodyContainer = () => {
 
+  const getBodyContainer = () => {
     let container = <></>;
-  
+
     if (props.route.params.logradouro == null) {
       container = (
         <View
           style={{
             borderRadius: 10,
+            overflow: 'hidden',
             borderColor: 'black',
             borderWidth: 1,
-          
           }}>
           <MapView
             style={styles.map}
@@ -41,15 +40,13 @@ export default function Constructions(props) {
       );
     } else {
       container = (
-        <>
-          <Text style={styles.text}>
-            Logradouro: {props.route.params.logradouro}
-          </Text>
-          <Text style={styles.text}>Bairro: {props.route.params.bairro}</Text>
-          <Text style={styles.text}>
+        <View style={styles.map}>
+          <Text style={styles.textDescription}>Logradouro: {props.route.params.logradouro}</Text>
+          <Text style={styles.textDescription}>Bairro: {props.route.params.bairro}</Text>
+          <Text style={styles.textDescription}>
             Cidade: {props.route.params.localidade} - {props.route.params.uf}
           </Text>
-        </>
+        </View>
       );
     }
     return container;
@@ -58,30 +55,34 @@ export default function Constructions(props) {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <ButtonBack
-          onPressFunction={() => navigation.navigate('Obras')}
-        />
         <View>
-          <Text style={styleGlobal.textMenu}>{props.route.params.titulo}</Text>
-        </View>
-        <View>
+          <View>
+            <ButtonBack onPressFunction={() => navigation.navigate('Obras')} />
+          </View>
+          <View>
+            <Text style={styleGlobal.textMenu}>
+              {props.route.params.titulo}
+            </Text>
+          </View>
           <Image
             source={{
               uri: 'https://spaceks.net/sites/ativafm.net/images/notimage/user_2078026677.jpg',
             }}
             style={styles.photo}
           />
-          <Text style={styles.title}>Descrição:</Text>
-          <Text style={styles.text2}>{props.route.params.descricao}</Text>
         </View>
-        <View style={styles.buttonStyleContainer}>
-          <Text style={styles.text}>
-            Status: em andamento
-          </Text>
-        </View>
-        <Text style={styles.title}>Localização:</Text>
-        <View style={styles.containerMaps}>
-          {getBodyContainer()}
+
+        <View style={styles.page}>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Status: </Text>
+            <Text style={styles.textDescription}>em andamento</Text>
+            <Text style={styles.text}>Descrição:</Text>
+            <Text style={styles.textDescription}>{props.route.params.descricao}</Text>
+            <Text style={styles.text}>Localização:</Text>
+          </View>
+          <View>
+            {getBodyContainer()}
+            </View>
         </View>
       </ScrollView>
     </View>
@@ -96,45 +97,45 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignContent: 'center',
   },
+  page: {
+    flex: 1,
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginTop: hp(2),
+    padding: hp(2),
+    borderTopLeftRadius: hp(4),
+    borderTopRightRadius: hp(4),
+    alignContent: 'flex-start',
+    backgroundColor: '#ecf7ff',
+    width: '100%',
+    height: '100%',
+  },
   photo: {
-    height: hp(40),
+    height: hp(35),
     alignSelf: 'center',
     width: '90%',
     borderRadius: hp(3),
   },
-  buttonStyleContainer: {
-    flex: 1,
-    padding: hp(2),
-    margin: hp(1),
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: '100%',
-    height: '100%',
-  },
-  containerMaps:{
-    flex: 1,
-    flexWrap: 'wrap',
-    alignSelf: 'center',
-    margin: 10
-  },
-  text: {
-    fontSize: RFValue(17),
-    color: 'black',
-  },
-  text2: {
-    fontSize: RFValue(17),
-    textAlign: 'justify',
-    padding: hp(2),
-    margin: hp(1),
-  },
-  title: {
-    marginTop: RFValue(10),
-    color: '#000000',
-    fontSize: RFValue(20),
-    textAlign: 'center',
+  textContainer: {
+    marginTop: hp(2),
   },
   map: {
-    width: wp(80),
-    height: hp(40)
+    width: wp(91),
+    height: hp(40),
+    fontFamily: 'Montserrat',
+    fontStyle: "normal",
+    fontSize: RFValue(12),
+  },
+  text: {
+    padding: hp(1),
+    color: '#6FBAFF',
+    fontSize: RFValue(16),
+  },
+  textDescription: {
+    color: 'white',
+    fontFamily: 'Montserrat',
+    fontStyle: "normal",
+    fontSize: RFValue(14),
+    padding: hp(1),
   },
 });
