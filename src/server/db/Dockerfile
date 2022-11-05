@@ -1,2 +1,2 @@
-FROM mariadb:10.4
+FROM postgres:15.0
 COPY . /docker-entrypoint-initdb.d/
