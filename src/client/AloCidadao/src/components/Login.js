@@ -77,9 +77,10 @@ export default function Login() {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.tela}>
                 <Text style={styles.login_msg(display)}>Usuário ou senha inválidos!</Text>
             </View>
+            <View>
             <View style={styles.form}>
                 <Text style={styles.title}>Entrar</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
@@ -98,6 +99,7 @@ export default function Login() {
             <Ionicons name="logo-google" size={30} color="#6FBAFF" />
    
         </Pressable>
+        </View>
         </View>
      
         
@@ -157,6 +159,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ecf7ff',
         width: '100%',
         height: '100%',
+        padding:'10%',
     },
     input: {
         alignSelf: 'center',
@@ -192,7 +195,7 @@ const styles = StyleSheet.create({
     },
     btnBox:{
         alignItems:"center",
-        marginLeft:20,
+        
           
     },
       
@@ -211,5 +214,8 @@ const styles = StyleSheet.create({
         height: hp(16),
         alignSelf: 'center',
         borderRadius: hp('21%'),
+    },
+    tela: {paddingLeft:50,
+
     }
 })
