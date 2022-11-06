@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash
 from flask_login import UserMixin
 
 
-class User(pdb.Model, UserMixin):
+class acUser(pdb.Model, UserMixin):
     id = pdb.Column(pdb.Integer, primary_key=True)
     nome = pdb.Column(pdb.String(50), nullable=False)
     email = pdb.Column(pdb.String(100), unique=True)

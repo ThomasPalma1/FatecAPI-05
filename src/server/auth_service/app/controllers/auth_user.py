@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, url_for, make_response, jsonify
 from flask_login import login_user, logout_user
-from app.models.User import User
+from app.models.acUser import acUser
 
 authRoutes = Blueprint("authRoutes", __name__)
 
@@ -12,7 +12,7 @@ def login():
         email = request.json['email']
         senha = request.json['senha']
 
-        user = User.query.filter_by(email=email).first()
+        user = acUser.query.filter_by(email=email).first()
 
 
         if not user or not user.verify_password(senha):
