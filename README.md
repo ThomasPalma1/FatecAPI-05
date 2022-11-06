@@ -16,7 +16,7 @@
 <p align="justify">No Brasil, as prefeituras comumente possuem a secretária de obras e manutenção, a qual é responsável pela troca de lâmpadas, asfaltação, poda de árvores entre outras demandas. As secretárias, em sua maioria, recebem as solicitações de serviço para manutenção pelo telefone 156. O fluxo de atendimento das solicitações e manutenções adotando esta sistemática torna-se oneroso pela falta de otimização no atendimento às demandas assim como a identificação adequada da solicitação. A tecnologia por meio de aplicativos, desta forma, permite melhorar o fluxo de atendimento das solicitações em lugar de uma ligação telefônica, pois permite meios de uma solicitação mais detalhada, além de melhores filtros.</p>
 
               
-<h2>🎯 Objetivo do projeto</h2>
+<h2>🎯 Objetivo do pr0ojeto</h2>
 
 <p align="justify"> O foco do Alô Cidadão está justamente em fornecer um aplicativo para receber as demandas de obras e manutenção, permitindo uma solicitação mais detalhada e visual realizada pelo solicitante. A solução proposta permite que o cidadão realize a solicitação de obras/manutenção inserindo fotos, endereço ou geolocalização, além da descrição do problema. O aplicativo também prevê o atendimento à LGPD nos tratamentos de dados pessoais,logs de usuários e termos e condições. As obras sendo realizadas na cidade também poderão ser consultadas para facilitar o deslocamento dos cidadãos.</p>
 

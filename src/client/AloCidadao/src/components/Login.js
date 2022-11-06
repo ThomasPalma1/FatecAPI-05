@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image, Alert } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Touchable, TouchableOpacity, Image, Alert,Pressable, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import { value } from 'deprecated-react-native-prop-types/DeprecatedTextInputPropTypes';
@@ -7,6 +7,9 @@ import { RFValue } from "react-native-responsive-fontsize";
 import ButtonPost from './ButtonPost';
 import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MeusDados from "../pages/MeusDados";
 import Menu from "../components/Menu";
 
@@ -18,7 +21,27 @@ export default function Login(props) {
     const [senha, setSenha] = useState(null);
     const [id, setId] = useState();
 
+
+    useEffect(()=>{GoogleSignin.configure({
+        webClientId: '817166456092-9ncs2hrt7jpi8i1jp7jvkaa2adfcf19r.apps.googleusercontent.com',
+      });
+    },[]);
+    
+      const googleSingIn = async ()=> {
+    
+        const { idToken } = await GoogleSignin.signIn();
+      
+        // Create a Google credential with the token
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    
+        // Sign-in the user with the credential
+        return auth().signInWithCredential(googleCredential);
+      };
+
+    async function Logar(){
+
     async function Logar(props){
+
         await fetch(`${Config.AUTH}/login`, {
             method:'POST',
             headers: {
@@ -58,22 +81,55 @@ export default function Login(props) {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.tela}>
                 <Text style={styles.login_msg(display)}>Usuário ou senha inválidos!</Text>
             </View>
+            <View>
             <View style={styles.form}>
                 <Text style={styles.title}>Entrar</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styles.input} onChangeText={text => setEmail(text)} placeholder='Email' />
                 <TextInput style={styles.input} onChangeText={text => setSenha(text)} placeholder='Senha' secureTextEntry={true} />
                 <ButtonPost color={"#6FBAFF"} title={'Entrar'} onPressFunction = {() => Logar()} />
+                <View>
+                <Pressable onPress={()=>
+            googleSingIn().then(
+          res =>{
+            console.log(res);
+             navigation.navigate('Termos', {
+                nome: null,
+                email: res.user._user.email,
+                cpf: '000000',
+                senha: '000000'
+            })
+           
+          })        
+          .catch(error=>console.log(error))
+          } 
+          style={styles.btnBox}>
+            <Ionicons name="logo-google" size={30} color="#6FBAFF" />
+   
+        </Pressable>
+        </View>
+        </View>
+     
+        
                 <TouchableOpacity onPress={onPress} style={styles.register}>
                     <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
+      
+               
             </View>
         </View>
     );
 }
+
+
+
+
+  
+
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf7ff',
@@ -82,6 +138,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'column',
         alignContent: 'center',
+      
     },
     title: {
         fontFamily: 'Montserrat',
@@ -113,6 +170,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ecf7ff',
         width: '100%',
         height: '100%',
+        padding:'10%',
     },
     input: {
         alignSelf: 'center',
@@ -146,6 +204,12 @@ const styles = StyleSheet.create({
         marginTop: 'auto',
         marginBottom: 'auto',
     },
+    btnBox:{
+        alignItems:"center",
+        
+          
+    },
+      
     register: {
         marginTop: 14,
         alignSelf: 'center',
@@ -161,5 +225,8 @@ const styles = StyleSheet.create({
         height: hp(16),
         alignSelf: 'center',
         borderRadius: hp('21%'),
+    },
+    tela: {paddingLeft:50,
+
     }
 })

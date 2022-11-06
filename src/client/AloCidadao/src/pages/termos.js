@@ -12,49 +12,63 @@ export default function Termos({route}) {
 
 
     async function SalvarCadastro(){
+
+
+      if(route.params.nome != null){
+
         await fetch(`${Config.AUTH}/signup`, {
-            method:'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              nome:route.params.nome,
-              email:route.params.email,
-              cpf:route.params.cpf,
-              senha:route.params.senha,
-              termos: isSelected
-            })
-         })
-         .then(function(res) {return res.json();})
-         .then((data)=> { 
-            console.log(data)
-            console.log(data.data)
-            if(data.data==true){
-                Alert.alert(
-                    "Sucesso!",
-                    "Sua conta foi criada!",
-                    [
-                      { text: "OK", onPress: () => navigation.navigate('Login') }
-                    ]
-                  )
+          method:'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            nome:route.params.nome,
+            email:route.params.email,
+            cpf:route.params.cpf,
+            senha:route.params.senha,
+            termos: isSelected
+          })
+       })
+       .then(function(res) {return res.json();})
+       .then((data)=> { 
+        
+          if(data.data==true){
+
+            if(route.params.cpf == '000000'){
+              navigation.navigate('Menu')
+            }else{
+              Alert.alert(
+                "Sucesso!",
+                "Sua conta foi criada!",
+                [
+                  { text: "OK", onPress: () => navigation.navigate('Login') }
+                ]
+              )
             }
-            else if(data.data==false)
-            {
-                Alert.alert(
-                    "Erro!",
-                    data.message,
-                    [
-                      { text: "OK", onPress: () => console.log("OK Pressed") }
-                    ]
-                  ) 
-            }
-         })
-         .catch(function(error) {
-            console.log(error.message);
-            throw error;
-          });
-      
+             
+          }
+          else if(data.data==false)
+          {
+              Alert.alert(
+                  "Erro!",
+                  data.message,
+                  [
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                  ]
+                ) 
+          }
+       })
+       .catch(function(error) {
+          console.log(error.message);
+          throw error;
+        });
+    
+
+      }else{
+        navigation.navigate('Menu')
+      }
+       
       
        }
 
@@ -338,7 +352,12 @@ export default function Termos({route}) {
         />
         <Text style={styles.label}>Eu li e concordo com os termos de uso</Text>
 
-        <ButtonPost color={ isSelected ? "#6FBAFF" : "#c9c9c9"} title={'Salvar'}  disabled={isSelected ? false : true} style={styles.button} onPressFunction = {() => SalvarCadastro()} />
+        <ButtonPost 
+        color={ isSelected ? "#6FBAFF" : "#c9c9c9"} 
+        title={'Salvar'}  
+        disabled={isSelected ? false : true} 
+        style={styles.button} 
+        onPressFunction = {() => SalvarCadastro()} />
 
       </ScrollView>
     </View>
