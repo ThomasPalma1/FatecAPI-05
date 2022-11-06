@@ -32,7 +32,7 @@ export default function Login() {
       
         // Create a Google credential with the token
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-      
+    
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
       };
@@ -92,7 +92,14 @@ export default function Login() {
             googleSingIn().then(
           res =>{
             console.log(res);
-          })
+             navigation.navigate('Termos', {
+                nome: null,
+                email: res.user._user.email,
+                cpf: '000000',
+                senha: '000000'
+            })
+           
+          })        
           .catch(error=>console.log(error))
           } 
           style={styles.btnBox}>
