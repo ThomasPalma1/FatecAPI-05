@@ -33,7 +33,7 @@
 - Lista de todas as solicitações e solicitações por usuário;
 
 
-<h2>⛳ Por qual razão entregamos isso?</h2>
+<h2>⛳ Por qual razão entr0egamos isso?</h2>
 
 <p align="justify">
 
