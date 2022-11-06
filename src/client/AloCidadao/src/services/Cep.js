@@ -46,6 +46,8 @@ export default function Cep(props) {
 
   const navigation = useNavigation();
 
+  console.log(props.isAnonymous)
+
   async function insertData() {
     if(props.isEditable){
       setLocation({
@@ -56,27 +58,7 @@ export default function Cep(props) {
       })
     }
 
-    // let file = JSON.stringify({
-    //   uri: props.imageSelected.uri,
-    //   type: props.imageSelected.type,
-    //   fileName: props.imageSelected.fileName,
-    // });
-    // let data = new FormData();
-    // data.append('file', props.imageSelected, props.imageSelected.fileName);
-    // console.log(data);
-    // fetch(`${Config.REPORT}/upload`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data;',
-    //   },
-    //   body: data,
-    // })
-    //   .then(function (res) {
-    //     return res.json();
-    //   })
-    //   .then(data => {
-    //     console.log(data);
-    //   });
+
     await fetch(`${Config.REPORT}/create`, {
         method:'POST',
         headers: {

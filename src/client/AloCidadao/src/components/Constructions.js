@@ -10,7 +10,7 @@ import ButtonBack from './ButtonBack';
 import {RFValue} from 'react-native-responsive-fontsize';
 import MapView from 'react-native-maps';
 
-export default function Ocurrences(props) {
+export default function Constructions(props) {
   const navigation = useNavigation();
 
   const getBodyContainer = () => {
@@ -41,12 +41,8 @@ export default function Ocurrences(props) {
     } else {
       container = (
         <View style={styles.map}>
-          <Text style={styles.textDescription}>
-            Logradouro: {props.route.params.logradouro}
-          </Text>
-          <Text style={styles.textDescription}>
-            Bairro: {props.route.params.bairro}
-          </Text>
+          <Text style={styles.textDescription}>Logradouro: {props.route.params.logradouro}</Text>
+          <Text style={styles.textDescription}>Bairro: {props.route.params.bairro}</Text>
           <Text style={styles.textDescription}>
             Cidade: {props.route.params.localidade} - {props.route.params.uf}
           </Text>
@@ -61,9 +57,7 @@ export default function Ocurrences(props) {
       <ScrollView>
         <View>
           <View>
-            <ButtonBack
-              onPressFunction={() => navigation.navigate('ListOccurrence')}
-            />
+            <ButtonBack onPressFunction={() => navigation.navigate('Obras')} />
           </View>
           <View>
             <Text style={styleGlobal.textMenu}>
@@ -80,17 +74,15 @@ export default function Ocurrences(props) {
 
         <View style={styles.page}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Privacidade: </Text>
-            <Text style={styles.textDescription}>
-              {props.route.params.anonimo ? 'anônimo' : 'publico'}
-            </Text>
+            <Text style={styles.text}>Status: </Text>
+            <Text style={styles.textDescription}>em andamento</Text>
             <Text style={styles.text}>Descrição:</Text>
-            <Text style={styles.textDescription}>
-              {props.route.params.descricao}
-            </Text>
+            <Text style={styles.textDescription}>{props.route.params.descricao}</Text>
             <Text style={styles.text}>Localização:</Text>
           </View>
-          <View>{getBodyContainer()}</View>
+          <View>
+            {getBodyContainer()}
+            </View>
         </View>
       </ScrollView>
     </View>
@@ -131,7 +123,7 @@ const styles = StyleSheet.create({
     width: wp(91),
     height: hp(40),
     fontFamily: 'Montserrat',
-    fontStyle: 'normal',
+    fontStyle: "normal",
     fontSize: RFValue(12),
   },
   text: {
@@ -142,7 +134,7 @@ const styles = StyleSheet.create({
   textDescription: {
     color: 'white',
     fontFamily: 'Montserrat',
-    fontStyle: 'normal',
+    fontStyle: "normal",
     fontSize: RFValue(14),
     padding: hp(1),
   },

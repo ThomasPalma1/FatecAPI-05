@@ -1,7 +1,7 @@
 from src.server.auth_service.init_variables import login_manager
-from src.server.auth_service.app.models.User import User
+from src.server.auth_service.app.models.acUser import acUser
 
 
 @login_manager.user_loader
 def get_user(user_id):
-    return User.query.filter_id(id=user_id).first()
+    return acUser.query.filter_id(id=user_id).first()

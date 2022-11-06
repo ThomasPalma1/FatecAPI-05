@@ -10,16 +10,17 @@ import { useNavigation } from '@react-navigation/native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MeusDados from "../pages/MeusDados";
+import Menu from "../components/Menu";
 
-export default function Login() {
+export default function Login(props) {
     const navigation = useNavigation();
     const onPress = () => navigation.navigate('Cadastro');
     const [display, setDisplay] = useState('none'); 
-    //chamei um estado inicial display com um valor none e to passando ele no css
-    //onPress={()=>setDisplay(value='flex')} => dentro do TouchableOpacity button (pra mostrar q o usuário ou senha são inválidos)
-    //PS. não funcionou
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
+    const [id, setId] = useState();
+
 
     useEffect(()=>{GoogleSignin.configure({
         webClientId: '817166456092-9ncs2hrt7jpi8i1jp7jvkaa2adfcf19r.apps.googleusercontent.com',
@@ -38,6 +39,9 @@ export default function Login() {
       };
 
     async function Logar(){
+
+    async function Logar(props){
+
         await fetch(`${Config.AUTH}/login`, {
             method:'POST',
             headers: {
@@ -51,10 +55,9 @@ export default function Login() {
          })
          .then(function(res) {return res.json();})
          .then((data)=> { 
-            console.log(data)
-            console.log(data.data)
             if(data.data==true){
-                navigation.navigate('Menu')
+                console.log(data.nome)
+                navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome})
             }
             else if(data.data==false)
             {
@@ -74,6 +77,7 @@ export default function Login() {
       
       
        }
+
 
     return (
         <View style={styles.container}>

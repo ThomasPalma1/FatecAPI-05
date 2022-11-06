@@ -10,7 +10,7 @@ import ButtonChat from './ButtonChat'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native';
+import { TabRouter, useNavigation } from '@react-navigation/native';
 import styleGlobal from '../assets/styles/styleGlobal';
 import {
     heightPercentageToDP as hp,
@@ -19,8 +19,14 @@ import { Linking } from 'react-native';
 import ButtonBack from './ButtonBack';
 
 
-export default function Menu() {
+
+export default function Menu({route}) {
     const navigation = useNavigation();
+    const id = route.params.id;
+    const email = route.params.email;
+    const cpf = route.params.cpf;
+    const nome = route.params.nome;
+
     return (
         <View style={styles.container}>
             <View>
@@ -40,13 +46,13 @@ export default function Menu() {
                     <Button onPressFunction={() => navigation.navigate('RegisterOccurrence')} icon={<MaterialIcons name="assignment" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('MeusDados')} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
+                    <Button onPressFunction={() => navigation.navigate('MeusDados', {id: id, email: email , cpf: cpf, nome: nome})} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
                     <Button onPressFunction={() => navigation.navigate('ListOccurrence')} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
-                    <Button icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
+                    <Button onPressFunction={() => navigation.navigate('Obras')} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
 
             </View>

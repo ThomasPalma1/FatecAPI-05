@@ -12,6 +12,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import Cep from "../services/Cep";
 import Description from './Description';
 import ButtonBack from "./ButtonBack";
+import MeusDados from "../pages/MeusDados";
 
 
 
@@ -47,8 +48,10 @@ export default function RegisterOccurrence(props) {
                   textDescription={textDescription}
                   isEditable={isEditable}
                   imageSelected={imageSelected}
-                  />
+                  />,
                 ];
+
+
 
   const firstIndicatorStyles = {
     stepIndicatorSize: 30,

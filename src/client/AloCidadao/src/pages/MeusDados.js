@@ -7,27 +7,31 @@ import ButtonBack from '../components/ButtonBack';
 import ButtonPost from '../components/ButtonPost';
 import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
+import Login from '../components/Login';
 
-export default function Cadastro() {
+export default function Cadastro({route}) {
     const navigation = useNavigation();
 
+    console.log(route.params.id);
+    console.log(route.params.email);
+    console.log(route.params.cpf);
 
-    const dadosLogin = async ()=>{
-        await fetch(`${Config.AUTH}/profile`, {
+    const userId = route.params.id;
+    const userEmail = route.params.email;
+    const userCpf = route.params.cpf;
+    const userNome = route.params.nome;
+
+    const dadosLogin = async ()=>{ 
+        await fetch(`${Config.AUTH}/user/${userId}`, {
+            method: 'GET',
             headers: {
               Accept: 'application/json',
-              'Content-Type': 'application/json'
-            }
-         })
-         .then(function(res) {return res.json();})
-         .then((data)=> { 
-            console.log(data)
-         })
-         .catch(function(error) {
-            console.log(error.message);
-            throw error;
-          });
-      
+              'Content-Type': 'application/json',
+            },
+          })
+          .then((res) => {console.log(res)})
+          .then((data) => {console.log(data)})
+          .catch((error) => {console.log(error)})
     }
 
     const logout = async ()=>{
@@ -56,9 +60,9 @@ export default function Cadastro() {
                 <Text style={styles.title}>Meus Dados</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styleGlobal.input}
-                placeholder='Nome' />
-                <TextInput style={styleGlobal.input} placeholder='Email' />
-                <TextInput style={styleGlobal.input} placeholder='CPF' />
+                placeholder={userNome} />
+                <TextInput style={styleGlobal.input} placeholder={userEmail} />
+                <TextInput style={styleGlobal.input} placeholder={userCpf} />
                 <ButtonPost color={"#6FBAFF"} title={'Voltar'} 
                 onPressFunction = {() => dadosLogin()}
                 // onPressFunction = {() => navigation.navigate('Menu')} 

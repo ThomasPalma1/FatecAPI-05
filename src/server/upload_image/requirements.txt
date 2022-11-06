@@ -1,0 +1,6 @@
+dnspython==2.2.1
+Flask-Cors==3.0.10
+Flask-PyMongo==2.3.0
+Flask==2.2.2
+Pillow==9.2.0
+pymongo==4.2.0
