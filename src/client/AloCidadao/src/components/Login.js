@@ -7,15 +7,18 @@ import { RFValue } from "react-native-responsive-fontsize";
 import ButtonPost from './ButtonPost';
 import Config from '../services/config';
 import { useNavigation } from '@react-navigation/native';
+import MeusDados from "../pages/MeusDados";
+import Menu from "../components/Menu";
 
-export default function Login() {
+export default function Login(props) {
     const navigation = useNavigation();
     const onPress = () => navigation.navigate('Cadastro');
     const [display, setDisplay] = useState('none'); 
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
+    const [id, setId] = useState();
 
-    async function Logar(){
+    async function Logar(props){
         await fetch(`${Config.AUTH}/login`, {
             method:'POST',
             headers: {
@@ -29,10 +32,9 @@ export default function Login() {
          })
          .then(function(res) {return res.json();})
          .then((data)=> { 
-            console.log(data)
-            console.log(data.data)
             if(data.data==true){
-                navigation.navigate('Menu')
+                console.log(data.nome)
+                navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome})
             }
             else if(data.data==false)
             {
@@ -52,6 +54,7 @@ export default function Login() {
       
       
        }
+
 
     return (
         <View style={styles.container}>

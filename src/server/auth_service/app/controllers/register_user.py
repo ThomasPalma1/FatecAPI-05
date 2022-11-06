@@ -15,8 +15,6 @@ def format_user(user):
     }
 
 
-
-
 @signUpRoute.route('/signup', methods=['POST'])
 def create_event():
     user = acUser(nome=request.json['nome'])

@@ -46,6 +46,8 @@ export default function Cep(props) {
 
   const navigation = useNavigation();
 
+  console.log(props.isAnonymous)
+
   async function insertData() {
     if(props.isEditable){
       setLocation({
