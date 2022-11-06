@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   input: {
-    width: wp(68),
+    display: 'flex',
+    width: wp(65),
     height: hp(5),
     marginTop: hp(1),
     marginBottom: hp(1),

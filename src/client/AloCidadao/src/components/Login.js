@@ -14,9 +14,6 @@ export default function Login(props) {
     const navigation = useNavigation();
     const onPress = () => navigation.navigate('Cadastro');
     const [display, setDisplay] = useState('none'); 
-    //chamei um estado inicial display com um valor none e to passando ele no css
-    //onPress={()=>setDisplay(value='flex')} => dentro do TouchableOpacity button (pra mostrar q o usuário ou senha são inválidos)
-    //PS. não funcionou
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
     const [id, setId] = useState();
