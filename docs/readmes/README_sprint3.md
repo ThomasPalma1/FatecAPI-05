@@ -56,6 +56,7 @@ A exclusão de conta precisa garantir a exclusão dos dados do cidadão no banco
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_2.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_6.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_11.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/card_sprint_13.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_16.png">
 
 
