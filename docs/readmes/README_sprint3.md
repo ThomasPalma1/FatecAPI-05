@@ -1,4 +1,4 @@
-<h2 align="center">⌛ Segunda entrega</h2>
+<h2 align="center">⌛ Terceira entrega</h2>
        <p align="center">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
          <i class="devicon-bash-plain colored"></i>
@@ -67,10 +67,18 @@ A exclusão de conta precisa garantir a exclusão dos dados do cidadão no banco
 
 <h2>📱 Fluxo do aplicativo</h2>
 
-<div align="center">
-    <b>Sequência do vídeo: Cadastro → Login → Listagem de solicitações → Chatbot.</b>
+<div align="center" display="flex">
+    <b>Login Social</b>
     <h3 align="center">
-        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/Entrega02.gif" width="300px" height="700px;" alt="" /><br />
+        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_google.gif" width="300px" height="700px;" alt="" />
+    </h3>
+       <b>Obras</b>
+    <h3 align="center">
+        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_padrao.gif" width="300px" height="700px;" alt="" />
+    </h3>
+       <b>Administrador e Histórico de Termos</b>
+    <h3 align="center">
+        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_adm.gif" width="300px" height="700px;" alt="" /><br />
     </h3>
 </div>
 
