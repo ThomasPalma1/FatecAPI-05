@@ -11,7 +11,8 @@ def format_user(user):
         "email": user.email,
         "cpf": user.cpf,
         "senha": user.senha,
-        "termos": user.termos
+        "termos": user.termos,
+        "admin": user.admin
     }
 
 
@@ -22,11 +23,12 @@ def create_event():
     user.cpf = request.json['cpf']
     user.senha = request.json['senha']
     user.termos = request.json['termos']
+    user.admin = request.json['admin']
 
     user.senha = generate_password_hash(user.senha, method='sha256')
 
     user_email = acUser.query.filter_by(email=user.email).first()
-
+    print(user)
 
     if user_email:
         return jsonify(data=False, message="Email já cadastrado.")

@@ -63,10 +63,7 @@ export default function Cadastro({route}) {
                 placeholder={userNome} />
                 <TextInput style={styleGlobal.input} placeholder={userEmail} />
                 <TextInput style={styleGlobal.input} placeholder={userCpf} />
-                <ButtonPost color={"#6FBAFF"} title={'Voltar'} 
-                onPressFunction = {() => dadosLogin()}
-                // onPressFunction = {() => navigation.navigate('Menu')} 
-                />
+               
                 <ButtonPost color={"red"} title={'Sair'} 
                 onPressFunction = {() => logout()}
                 // onPressFunction = {() => navigation.navigate('Menu')} 

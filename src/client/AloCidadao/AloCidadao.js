@@ -15,7 +15,9 @@ import Termos from "./src/pages/termos";
 import MeusDados from "./src/pages/MeusDados";
 import ListConstruction from "./src/components/listConstruction";
 import Constructions from "./src/components/Constructions";
-
+import Adm from "./src/pages/Adm";
+import Historico from "./src/pages/HistTermos";
+import TermosDesc from "./src/pages/TermosDesc";
 const Stack = createStackNavigator()
 
 
@@ -53,6 +55,9 @@ function  AloCidadao() {
         <Stack.Screen name= "MeusDados" component={MeusDados}/>
         <Stack.Screen name= "Obras" component={ListConstruction}/>
         <Stack.Screen name= "Constructions" component={Constructions}/>
+        <Stack.Screen name= "Adm" component={Adm}/>
+        <Stack.Screen name="Historico" component={Historico}/>
+        <Stack.Screen name="DetailTermo" component={TermosDesc}/>
       </Stack.Navigator>
       :<SemConexao/>}  
     </View>

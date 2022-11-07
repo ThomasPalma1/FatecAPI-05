@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Termos({route}) {
     const [isSelected, setSelection] = useState(false);
- 
+    const [admin, setAdmin] = useState(true);
     const navigation = useNavigation();
 
 
@@ -27,7 +27,8 @@ export default function Termos({route}) {
             email:route.params.email,
             cpf:route.params.cpf,
             senha:route.params.senha,
-            termos: isSelected
+            termos: isSelected,
+            admin: false,
           })
        })
        .then(function(res) {return res.json();})
@@ -353,9 +354,9 @@ export default function Termos({route}) {
         <Text style={styles.label}>Eu li e concordo com os termos de uso</Text>
 
         <ButtonPost 
-        color={ isSelected ? "#6FBAFF" : "#c9c9c9"} 
+        color={"#6FBAFF"} 
         title={'Salvar'}  
-        disabled={isSelected ? false : true} 
+       
         style={styles.button} 
         onPressFunction = {() => SalvarCadastro()} />
 

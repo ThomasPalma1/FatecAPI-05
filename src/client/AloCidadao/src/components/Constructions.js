@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     fontSize: RFValue(16),
   },
   textDescription: {
-    color: 'white',
     fontFamily: 'Montserrat',
     fontStyle: "normal",
     fontSize: RFValue(14),

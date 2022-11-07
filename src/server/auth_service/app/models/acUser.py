@@ -10,6 +10,7 @@ class acUser(pdb.Model, UserMixin):
     cpf = pdb.Column(pdb.String(20), nullable=False)
     senha = pdb.Column(pdb.String(100), nullable=False)
     termos = pdb.Column(pdb.Boolean)
+    admin = pdb.Column(pdb.Boolean)
 
     def __repr__(self):
         return f"User: {self.nome}"

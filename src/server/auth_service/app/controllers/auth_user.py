@@ -11,7 +11,8 @@ def format_user(user):
         "email": user.email,
         "cpf": user.cpf,
         "senha": user.senha,
-        "termos": user.termos
+        "termos": user.termos,
+        "admin": user.admin
     }
 
 @authRoutes.route('/login', methods=['POST'])
@@ -28,12 +29,12 @@ def login():
             return make_response(jsonify(data=False, message="Email ou Senha inválidos, tente novamente!"), 401)
            
         login_user(user)
-        return make_response(jsonify(id= user.id, email= user.email, cpf = user.cpf, nome = user.nome, data=True), 200)
+        return make_response(jsonify(id= user.id, email= user.email, cpf = user.cpf, nome = user.nome, termos = user.termos, admin = user.admin, data=True), 200)
 
 
 @authRoutes.route('/user/<id>', methods=['GET'])
 def get_user(id):
-    user = User.query.filter_by(id=id).one()
+    user = acUser.query.filter_by(id=id).one()
     formatted_user = format_user(user)
     return {'user': formatted_user}
 

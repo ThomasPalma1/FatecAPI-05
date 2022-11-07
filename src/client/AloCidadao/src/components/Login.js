@@ -38,7 +38,6 @@ export default function Login(props) {
         return auth().signInWithCredential(googleCredential);
       };
 
-    async function Logar(){
 
     async function Logar(props){
 
@@ -57,7 +56,7 @@ export default function Login(props) {
          .then((data)=> { 
             if(data.data==true){
                 console.log(data.nome)
-                navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome})
+                navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos})
             }
             else if(data.data==false)
             {
@@ -110,13 +109,15 @@ export default function Login(props) {
             <Ionicons name="logo-google" size={30} color="#6FBAFF" />
    
         </Pressable>
+
+        
+        <TouchableOpacity onPress={onPress} style={styles.register}>
+                    <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
+                </TouchableOpacity>
         </View>
         </View>
      
         
-                <TouchableOpacity onPress={onPress} style={styles.register}>
-                    <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
-                </TouchableOpacity>
       
                
             </View>
@@ -226,7 +227,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: hp('21%'),
     },
-    tela: {paddingLeft:50,
-
+    tela: {
+        paddingLeft:50
     }
 })
