@@ -2,9 +2,7 @@ from flask import Blueprint, request
 from init_variables import pdb
 from app.models.Report import Report
 
-
 reportRoutes = Blueprint("reportRoutes", __name__)
-
 
 
 def format_report(report):
@@ -47,7 +45,6 @@ def create_event():
     return format_report(report)
 
 
-# conseguir todos os reports
 @reportRoutes.route('/reports/get', methods=['GET'])
 def get_reports():
     reports = Report.query.order_by(Report.id.asc()).all()
@@ -57,16 +54,14 @@ def get_reports():
     return {'reports': report_list}
 
 
-# conseguir apenas 1 report
-@reportRoutes.route('/delete/<id>', methods=['GET'])
+@reportRoutes.route('/reports/<id>', methods=['GET'])
 def get_report(id):
     report = Report.query.filter_by(id=id).one()
     formatted_report = format_report(report)
     return {'report': formatted_report}
 
 
-# deletar um report
-@reportRoutes.route('/reports/<id>', methods=['DELETE'])
+@reportRoutes.route('/delete/<id>', methods=['DELETE'])
 def delete_report(id):
     report = Report.query.filter_by(id=id).one()
     pdb.session.delete(report)
