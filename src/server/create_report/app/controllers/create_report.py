@@ -1,6 +1,5 @@
-from flask import Blueprint, Flask, request
-from flask_sqlalchemy import SQLAlchemy
-from init_variables import pdb, app
+from flask import Blueprint, request
+from init_variables import pdb
 from app.models.Report import Report
 
 
@@ -18,9 +17,9 @@ def format_report(report):
         "longitude": report.longitude,
         "logradouro": report.logradouro,
         "cep": report.cep,
-        "Localidade": report.Localidade,
-        "UF": report.UF,
-        "Bairro": report.Bairro,
+        "localidade": report.localidade,
+        "uf": report.uf,
+        "bairro": report.bairro,
         "descricaoLocal": report.descricaoLocal
     }
 
@@ -39,10 +38,10 @@ def create_event():
     report.longitude = request.json['longitude']
     report.logradouro = request.json['logradouro']
     report.cep = request.json['cep']
-    report.Localidade = request.json['Localidade']
-    report.UF = request.json['UF']
-    report.Bairro = request.json['Bairro']
-    report.descricaoLocal = "teste"
+    report.localidade = request.json['localidade']
+    report.uf = request.json['uf']
+    report.bairro = request.json['bairro']
+    report.descricaoLocal = request.json['descricaoLocal']
     pdb.session.add(report)
     pdb.session.commit()
     return format_report(report)
@@ -73,7 +72,3 @@ def delete_report(id):
     pdb.session.delete(report)
     pdb.session.commit()
     return f'Report (id: {id}) deleted!'
-
-
-if __name__ == '__main__':
-    pdb.create_all()

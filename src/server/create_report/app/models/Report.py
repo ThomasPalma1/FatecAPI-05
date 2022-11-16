@@ -10,9 +10,9 @@ class Report(pdb.Model):
     longitude = pdb.Column(pdb.String)
     logradouro = pdb.Column(pdb.String)
     cep = pdb.Column(pdb.String)
-    Localidade = pdb.Column(pdb.String)
-    UF = pdb.Column(pdb.String)
-    Bairro = pdb.Column(pdb.String)
+    localidade = pdb.Column(pdb.String)
+    uf = pdb.Column(pdb.String)
+    bairro = pdb.Column(pdb.String)
     descricaoLocal = pdb.Column(pdb.String)
 
     def __repr__(self):
