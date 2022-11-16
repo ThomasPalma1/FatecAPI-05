@@ -1,27 +1,21 @@
 import os
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-pdb = os.getenv('PDB')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = pdb
-db = SQLAlchemy(app)
-
+from init_variables import pdb, app
 
 class Report(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    titulo = db.Column(db.String(100))
-    descricao = db.Column(db.String(255))
-    anonimo = db.Column(db.Boolean)
-    latitude = db.Column(db.String)
-    longitude = db.Column(db.String)
-    logradouro = db.Column(db.String)
-    cep = db.Column(db.String)
-    Localidade = db.Column(db.String)
-    UF = db.Column(db.String)
-    Bairro = db.Column(db.String)
-    descricaoLocal = db.Column(db.String)
+    id = pdb.Column(pdb.Integer, primary_key=True)
+    titulo = pdb.Column(pdb.String(100))
+    descricao = pdb.Column(pdb.String(255))
+    anonimo = pdb.Column(pdb.Boolean)
+    latitude = pdb.Column(pdb.String)
+    longitude = pdb.Column(pdb.String)
+    logradouro = pdb.Column(pdb.String)
+    cep = pdb.Column(pdb.String)
+    Localidade = pdb.Column(pdb.String)
+    UF = pdb.Column(pdb.String)
+    Bairro = pdb.Column(pdb.String)
+    descricaoLocal = pdb.Column(pdb.String)
 
     def __repr__(self):
         return f"Report: {self.titulo}"
@@ -65,8 +59,8 @@ def create_event():
     report.UF = request.json['UF']
     report.Bairro = request.json['Bairro']
     report.descricaoLocal = "teste"
-    db.session.add(report)
-    db.session.commit()
+    pdb.session.add(report)
+    pdb.session.commit()
     return format_report(report)
 
 
@@ -92,11 +86,11 @@ def get_report(id):
 @app.route('/reports/<id>', methods=['DELETE'])
 def delete_report(id):
     report = Report.query.filter_by(id=id).one()
-    db.session.delete(report)
-    db.session.commit()
+    pdb.session.delete(report)
+    pdb.session.commit()
     return f'Report (id: {id}) deleted!'
 
 
 if __name__ == '__main__':
-    db.create_all()
+    pdb.create_all()
     app.run(host='0.0.0.0', port=5000, debug=False)
