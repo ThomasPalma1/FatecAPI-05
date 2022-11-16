@@ -1,30 +1,11 @@
 from flask import Blueprint, Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from init_variables import pdb, app
+from app.models.Report import Report
 
 
 reportRoutes = Blueprint("reportRoutes", __name__)
 
-
-class Report(pdb.Model):
-    id = pdb.Column(pdb.Integer, primary_key=True)
-    titulo = pdb.Column(pdb.String(100))
-    descricao = pdb.Column(pdb.String(255))
-    anonimo = pdb.Column(pdb.Boolean)
-    latitude = pdb.Column(pdb.String)
-    longitude = pdb.Column(pdb.String)
-    logradouro = pdb.Column(pdb.String)
-    cep = pdb.Column(pdb.String)
-    Localidade = pdb.Column(pdb.String)
-    UF = pdb.Column(pdb.String)
-    Bairro = pdb.Column(pdb.String)
-    descricaoLocal = pdb.Column(pdb.String)
-
-    def __repr__(self):
-        return f"Report: {self.titulo}"
-
-    def __init__(self, titulo):
-        self.titulo = titulo
 
 
 def format_report(report):

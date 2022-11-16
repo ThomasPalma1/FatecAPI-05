@@ -1,5 +1,5 @@
 from init_variables import app
-from create_report import reportRoutes
+from app.models.controllers.create_report import reportRoutes
 
 app.register_blueprint(reportRoutes)
 
