@@ -1,9 +1,12 @@
-import os
-from flask import Flask, request
+from flask import Blueprint, Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from init_variables import pdb, app
 
-class Report(db.Model):
+
+reportRoutes = Blueprint("reportRoutes", __name__)
+
+
+class Report(pdb.Model):
     id = pdb.Column(pdb.Integer, primary_key=True)
     titulo = pdb.Column(pdb.String(100))
     descricao = pdb.Column(pdb.String(255))
@@ -41,12 +44,12 @@ def format_report(report):
     }
 
 
-@app.route('/')
+@reportRoutes.route('/')
 def hello():
     return 'Hello World!'
 
 
-@app.route('/create', methods=['POST'])
+@reportRoutes.route('/create', methods=['POST'])
 def create_event():
     report = Report(titulo=request.json['titulo'])
     report.descricao = request.json['descricao']
@@ -65,7 +68,7 @@ def create_event():
 
 
 # conseguir todos os reports
-@app.route('/reports/get', methods=['GET'])
+@reportRoutes.route('/reports/get', methods=['GET'])
 def get_reports():
     reports = Report.query.order_by(Report.id.asc()).all()
     report_list = []
@@ -75,7 +78,7 @@ def get_reports():
 
 
 # conseguir apenas 1 report
-@app.route('/delete/<id>', methods=['GET'])
+@reportRoutes.route('/delete/<id>', methods=['GET'])
 def get_report(id):
     report = Report.query.filter_by(id=id).one()
     formatted_report = format_report(report)
@@ -83,7 +86,7 @@ def get_report(id):
 
 
 # deletar um report
-@app.route('/reports/<id>', methods=['DELETE'])
+@reportRoutes.route('/reports/<id>', methods=['DELETE'])
 def delete_report(id):
     report = Report.query.filter_by(id=id).one()
     pdb.session.delete(report)
@@ -93,4 +96,3 @@ def delete_report(id):
 
 if __name__ == '__main__':
     pdb.create_all()
-    app.run(host='0.0.0.0', port=5000, debug=False)
