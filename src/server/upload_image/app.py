@@ -4,11 +4,10 @@ from flask_cors import CORS
 from upload_images import fileRoutes
 import logging
 
-logging.basicConfig(handlers=[logging.FileHandler(filename="./log_records.log", 
-                                                 encoding='utf-8', mode='a+')],
-                    format="%(asctime)s %(name)s:%(levelname)s:%(message)s", 
-                    datefmt="%F %A %T", 
-                    level=logging.INFO)
+logging.basicConfig(
+    filename='logRecorder.log', 
+    level=logging.INFO, 
+    format=f'%(asctime)s | %(levelname)s | %(message)s')
 
 
 def start_application():
@@ -16,13 +15,13 @@ def start_application():
     app = Flask(__name__)
     app.config["MONGO_URI"] = mdb
     app.register_blueprint(fileRoutes)
-    # app.debug = True
 
     CORS(app)
     from database_connection import mongo
     mongo.init_app(app)
 
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=False)
+    
 
 
 def main():
@@ -31,3 +30,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

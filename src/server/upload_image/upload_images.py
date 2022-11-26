@@ -10,6 +10,7 @@ from database_connection import grid, db
 from PIL import Image  # library to open the received image
 from io import BytesIO  # and get image bytes to send to mongodb
 from response_builder import build_response
+import logging
 
 fileRoutes = Blueprint("fileRoutes", __name__)
 
