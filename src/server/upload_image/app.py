@@ -2,12 +2,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from upload_images import fileRoutes
-import logging
-
-logging.basicConfig(
-    filename='logRecorder.log', 
-    level=logging.INFO, 
-    format=f'%(asctime)s | %(levelname)s | %(message)s')
+from logger_format import logger_format
 
 
 def start_application():
@@ -21,7 +16,6 @@ def start_application():
     mongo.init_app(app)
 
     app.run(host="0.0.0.0", port=5000, debug=False)
-    
 
 
 def main():
@@ -30,4 +24,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

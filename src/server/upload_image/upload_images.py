@@ -1,24 +1,17 @@
 import codecs
-from ctypes.wintypes import tagRECT
-from fileinput import filename
-from urllib import response
-from bson import ObjectId
-import os
-from flask_cors import CORS, cross_origin
-from flask import request, Blueprint, make_response, jsonify, session
-from database_connection import grid, db
-from PIL import Image  # library to open the received image
-from io import BytesIO  # and get image bytes to send to mongodb
-from response_builder import build_response
 import logging
+from io import BytesIO  # and get image bytes to send to mongodb
+
+from PIL import Image  # library to open the received image
+from bson import ObjectId
+from flask import request, Blueprint
+
+from database_connection import grid, db
+from response_builder import build_response
 
 fileRoutes = Blueprint("fileRoutes", __name__)
 
-UPLOAD_FOLDER = '../../client/AloCidadao/src/path/uploads'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
-
-# fileRoutes.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @fileRoutes.route('/')  # simple form to simulate image upload
 def index():
     return '''
@@ -29,24 +22,8 @@ def index():
     '''
 
 
-@fileRoutes.route('/upload', methods=['POST'])
-def fileUpload():
-    target = os.path.join(UPLOAD_FOLDER, 'report_image')
-    if not os.path.isdir(target):
-        os.mkdir(target)
-    print(request.files)
-    file = request.files['file']
-    fileName = file.filename
-    destination = "/".join([target, fileName])
-    file.save(destination)
-    session['uploadFilePath'] = destination
-    response = "Caiu aqui? Upou?"
-    return request.files
-
-
 @fileRoutes.route('/create', methods=['POST'])
 def create():
-    print(request.files)
     if 'report_image' in request.files:
         report_image = request.files['report_image']
 
@@ -57,8 +34,10 @@ def create():
         output = output.getvalue()
         _id = grid.put(output)
 
-        db.report_images.insert_one(
-            {'grid_id': ObjectId(_id), 'filename': report_image.filename, 'type': image_type})
+        mongodb_query = {'grid_id': ObjectId(_id), 'filename': report_image.filename, 'type': image_type}
+        mongodb_query_result = db.report_images.insert_one(mongodb_query)
+        logging.getLogger().info(msg="Value that was inserted: " + str(mongodb_query_result.inserted_id) + str(" ") + str(mongodb_query))
+        logging.getLogger().info(msg=str(request.files).split('ImmutableMultiDict')[1])
 
         return build_response({"message": "Done!"}, 200)
     return build_response({"message": "Error!"}, 400)
