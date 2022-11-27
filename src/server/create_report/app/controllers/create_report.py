@@ -1,6 +1,8 @@
 from flask import Blueprint, request
 from init_variables import pdb
 from app.models.Report import Report
+import logger_format
+import logging
 
 reportRoutes = Blueprint("reportRoutes", __name__)
 
@@ -40,10 +42,18 @@ def create_event():
     report.uf = request.json['uf']
     report.bairro = request.json['bairro']
     report.descricaoLocal = request.json['descricaoLocal']
+
+
     pdb.session.add(report)
     pdb.session.commit()
-    return format_report(report)
+    pdb.session.refresh(report)
 
+    formatted_report = format_report(report)
+    query_results = {'report': formatted_report}
+
+    logging.getLogger().info(msg="Inserted data in executed query: " + str(" ") + str(query_results))
+
+    return formatted_report
 
 @reportRoutes.route('/reports/get', methods=['GET'])
 def get_reports():
@@ -58,12 +68,18 @@ def get_reports():
 def get_report(id):
     report = Report.query.filter_by(id=id).one()
     formatted_report = format_report(report)
-    return {'report': formatted_report}
+    query_results = {'report': formatted_report}
+    logging.getLogger().info(msg="Result of the executed query: " + str(" ") + str(query_results))
+    return query_results
+
 
 
 @reportRoutes.route('/delete/<id>', methods=['DELETE'])
 def delete_report(id):
     report = Report.query.filter_by(id=id).one()
+    formatted_report = format_report(report)
+    query_results = {'report': formatted_report}
     pdb.session.delete(report)
     pdb.session.commit()
+    logging.getLogger().info(msg="Deleted data: " + str(" ") + str(query_results))
     return f'Report (id: {id}) deleted!'

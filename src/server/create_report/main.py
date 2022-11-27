@@ -1,5 +1,6 @@
 from init_variables import app, pdb
 from app.controllers.create_report import reportRoutes
+from logger_format import logger_format
 
 app.register_blueprint(reportRoutes)
 
