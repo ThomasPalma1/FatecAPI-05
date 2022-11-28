@@ -9,6 +9,9 @@ import {
 import ButtonBack from './ButtonBack';
 import {RFValue} from 'react-native-responsive-fontsize';
 import MapView from 'react-native-maps';
+import { Marker } from 'react-native-maps';
+
+
 
 export default function Ocurrences(props) {
   const navigation = useNavigation();
@@ -35,7 +38,15 @@ export default function Ocurrences(props) {
             }}
             showsUserLocation={true}
             mapType="hybrid"
-          />
+          >
+
+              <Marker
+                coordinate={{
+                    latitude: parseFloat(props.route.params.latitude),
+                    longitude: parseFloat(props.route.params.longitude),
+                }}
+              />
+          </MapView>
         </View>
       );
     } else {
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(16),
   },
   textDescription: {
-    color: 'white',
+    
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontSize: RFValue(14),

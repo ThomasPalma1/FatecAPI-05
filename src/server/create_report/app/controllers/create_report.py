@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from init_variables import pdb
 from app.models.Report import Report
+from app.models.Report import Obras
 import logger_format
 import logging
 

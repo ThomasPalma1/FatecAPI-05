@@ -60,33 +60,32 @@ export default function Cep(props) {
 
 
     await fetch(`${Config.REPORT}/create`, {
-        method:'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          Localidade:Localidade,
-          cep:cep,
-          UF:UF,
-          Bairro:Bairro,
-          titulo:props.textTitle,
-          descricao:props.textDescription,
-          latitude:location.latitude,
-          longitude:location.longitude,
-          logradouro:Logradouro,
-          anonimo:props.isAnonymous
-        })
-     })
-     .then(function(res) {return res.json();})
-     .then( Alert.alert(
-      "Sucesso!",
-      "Sua ocorrência foi cadastrada com sucesso.",
-      [
-        { text: "OK", onPress: () => navigation.navigate('ListOccurrence') }
-      ]
-    )
-
+      method:'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Localidade:Localidade,
+        cep:cep,
+        UF:UF,
+        Bairro:Bairro,
+        titulo:props.textTitle,
+        descricao:props.textDescription,
+        latitude:location.latitude,
+        longitude:location.longitude,
+        logradouro:Logradouro,
+        anonimo:props.isAnonymous
+      })
+   })
+   .then(function(res) {return res.json();})
+   .then( Alert.alert(
+    "Sucesso!",
+    "Sua ocorrência foi cadastrada com sucesso.",
+    [
+      { text: "OK", onPress: () => navigation.navigate('ListOccurrence') }
+    ]
+  )
     )
      .catch(function(error) {
         console.log(error.message);

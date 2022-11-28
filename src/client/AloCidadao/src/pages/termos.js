@@ -9,13 +9,22 @@ export default function Termos({route}) {
     const [isSelected, setSelection] = useState(false);
     const [admin, setAdmin] = useState(true);
     const navigation = useNavigation();
-
-
+    const [objeto, setObjeto] = useState(false);
+    const [aceitacao, setAceitacao] = useState(false);
+    const [acessoUser, setAcessoUser] = useState(false);
+    const [cadastro, setCadastro] = useState(false);
+    const [servico, setServico] = useState(false);
+    const [preco, setPreco] = useState(false);
+    const [cancelamento, setCancelamento] = useState(false);
+    const [suporte, setSuporte] = useState(false);
+    const [responsabilidade, setResponsabilidade] = useState(false);
+    const [direitosAutorais, setDireitosAutorais] = useState(false);
+    const [sancoes, setSancoes] = useState(false);
+    const [rescisao, setRescisao] = useState(false);
+    const [alteracoes, setAlteracoes] = useState(false);
+    const [politicaPrivacidade, setPoliticaPrivacidade] = useState(false);
+    const [foro, setForo] = useState(false);
     async function SalvarCadastro(){
-
-
-      if(route.params.nome != null){
-
         await fetch(`${Config.AUTH}/signup`, {
           method:'POST',
           headers: {
@@ -63,14 +72,7 @@ export default function Termos({route}) {
        .catch(function(error) {
           console.log(error.message);
           throw error;
-        });
-    
-
-      }else{
-        navigation.navigate('Menu')
-      }
-       
-      
+        }); 
        }
 
   return (
@@ -94,6 +96,14 @@ export default function Termos({route}) {
           município de São José dos Campos.
         </Text>
 
+        <CheckBox
+          value={objeto}
+          onValueChange={setObjeto}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
+
         <Text style={styles.topico}>2. Da aceitação</Text>
         <Text style={styles.text}>
           O presente Termo estabelece obrigações contratadas de livre e
@@ -111,8 +121,15 @@ export default function Termos({route}) {
           A aceitação do presente instrumento é imprescindível para o acesso e
           para a utilização de quaisquer serviços fornecidos pelo Alô Cidadão.
           Caso não concorde com as disposições deste instrumento, o usuário não
-          poderá utilizá-los.{' '}
+          poderá utilizá-los.
         </Text>
+
+        <CheckBox
+          value={aceitacao}
+          onValueChange={setAceitacao}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
 
         <Text style={styles.topico}>3. Do acesso dos usuários</Text>
         <Text style={styles.text}>
@@ -124,6 +141,13 @@ export default function Termos({route}) {
           qualquer ação necessária ao seu bom funcionamento. A plataforma
           necessita de acesso à internet para o seu funcionamento adequado.
         </Text>
+
+        <CheckBox
+          value={acessoUser}
+          onValueChange={setAcessoUser}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
 
         <Text style={styles.topico}>4. Do cadastro</Text>
         <Text style={styles.text}>
@@ -207,6 +231,14 @@ export default function Termos({route}) {
           autorizada pelo usuário.
         </Text>
 
+
+        <CheckBox
+          value={cadastro}
+          onValueChange={setCadastro}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>5. Dos serviços</Text>
         <Text style={styles.text}>
           A plataforma poderá disponibilizar para o usuário um conjunto
@@ -220,11 +252,28 @@ export default function Termos({route}) {
           suas características e funcionalidades.{' '}
         </Text>
 
+
+        <CheckBox
+          value={servico}
+          onValueChange={setServico}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>6. Dos preços</Text>
         <Text style={styles.text}>
           A plataforma é de acesso gratuito, não existindo cobrança para uso em
           nenhuma de suas funcionalidades.
         </Text>
+
+
+        <CheckBox
+          value={preco}
+          onValueChange={setPreco}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+        
 
         <Text style={styles.topico}>7. Do cancelamento</Text>
         <Text style={styles.text}>
@@ -234,11 +283,26 @@ export default function Termos({route}) {
           imediatamente.
         </Text>
 
+        <CheckBox
+          value={cancelamento}
+          onValueChange={setCancelamento}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>8. Do suporte</Text>
         <Text style={styles.text}>
           Em caso de qualquer dúvida, sugestão ou problema com a utilização da
           plataforma, o usuário poderá consultar o chatbot Urbanitas.
         </Text>
+
+
+        <CheckBox
+          value={suporte}
+          onValueChange={setSuporte}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
 
         <Text style={styles.topico}>9. Das responsabilidades</Text>
         <Text style={styles.text}>
@@ -271,6 +335,14 @@ export default function Termos({route}) {
           ofensivas.
         </Text>
 
+
+        <CheckBox
+          value={responsabilidade}
+          onValueChange={setResponsabilidade}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>10. Dos direitos autorais</Text>
         <Text style={styles.text}>
           O presente Termo de Uso concede aos usuários uma licença não
@@ -292,6 +364,15 @@ export default function Termos({route}) {
           intelectual ao usuário, exceto pela licença limitada ora concedida.
         </Text>
 
+
+        <CheckBox
+          value={direitosAutorais}
+          onValueChange={setDireitosAutorais}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
+
         <Text style={styles.topico}>11. Das sanções</Text>
         <Text style={styles.text}>
           Sem prejuízo das demais medidas legais cabíveis, o Alô Cidadão poderá,
@@ -301,6 +382,14 @@ export default function Termos({route}) {
           comportamento fraudulento, doloso ou que ofenda a terceiros.
         </Text>
 
+
+        <CheckBox
+          value={sancoes}
+          onValueChange={setSancoes}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>12. Da rescisão</Text>
         <Text style={styles.text}>
           A não observância das obrigações pactuadas neste Termo de Uso ou da
@@ -308,6 +397,13 @@ export default function Termos({route}) {
           rescisão unilateral por parte do Alô Cidadão e o bloqueio de todos os
           serviços prestados ao usuário.
         </Text>
+
+        <CheckBox
+          value={rescisao}
+          onValueChange={setRescisao}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
 
         <Text style={styles.topico}>13. Das alterações</Text>
         <Text style={styles.text}>
@@ -318,6 +414,13 @@ export default function Termos({route}) {
           Cidadão e o usuário poderá optar por aceitar o novo conteúdo ou por
           cancelar o uso dos serviços, cancelando acesso ao aplicativo.
         </Text>
+
+        <CheckBox
+          value={alteracoes}
+          onValueChange={setAlteracoes}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
 
         <Text style={styles.topico}>14. Da política de privacidade</Text>
         <Text style={styles.text}>
@@ -340,12 +443,33 @@ export default function Termos({route}) {
           solicitações legais da ANPD –Autoridade Nacional de Proteção de Dados.
         </Text>
 
+
+        <CheckBox
+          value={politicaPrivacidade}
+          onValueChange={setPoliticaPrivacidade}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
         <Text style={styles.topico}>15. Do foro</Text>
         <Text style={styles.text}>
           Para a solução de controvérsias decorrentes do presente instrumento
           será aplicado integralmente o Direito brasileiro.
         </Text>
 
+
+        <CheckBox
+          value={foro}
+          onValueChange={setForo}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Aceito</Text>
+
+
+
+        <Text style={styles.topico}>
+          Aceitar todos os termos de uso.
+        </Text>
         <CheckBox
           value={isSelected}
           onValueChange={setSelection}
@@ -356,7 +480,6 @@ export default function Termos({route}) {
         <ButtonPost 
         color={"#6FBAFF"} 
         title={'Salvar'}  
-       
         style={styles.button} 
         onPressFunction = {() => SalvarCadastro()} />
 

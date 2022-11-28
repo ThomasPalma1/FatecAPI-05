@@ -39,8 +39,20 @@ export default function Adm({route}) {
             <View style={styles.buttonStyleContainer}>
 
                 <View>
+                    <Button style={styles.buttonSpecial} onPressFunction={() => navigation.navigate('RegistroTermos')} icon={<MaterialIcons name="add-circle-outline" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Editar Termos'} />
+                </View>
+                <View>
                     <Button style={styles.buttonSpecial} onPressFunction={() => navigation.navigate('Historico')} icon={<MaterialIcons name="notes" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Termos'} />
                 </View>
+
+                <View>
+                    <Button style={styles.buttonSpecial} onPressFunction={() => navigation.navigate('CadastroAdm')} icon={<MaterialIcons name="group-add" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Cadastrar Adm'} />
+                </View>
+
+                <View>
+                    <Button style={styles.buttonSpecial} onPressFunction={() => navigation.navigate('cadastroObras')} icon={<MaterialIcons name="add" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Status obras'} />
+                </View>
+
 
                 </View>
         
@@ -67,10 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ecf7ff',
         width: '100%',
         height: '100%',
-    },
-    buttonSpecial:{
-        alignItems: 'center',
-        marginLeft: 125
     }
+   
 
 });
