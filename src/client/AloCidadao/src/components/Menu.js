@@ -24,38 +24,22 @@ import ButtonBack from './ButtonBack';
 export default function Menu({route}) {
     const navigation = useNavigation();
 
-    // if(route.params.id != undefined && route.params.id != null){
-        const id = route.params.id;
-        const email = route.params.email;
-        const cpf = route.params.cpf;
-        const nome = route.params.nome;
-        const admin = route.params.admin;
-        const termos = route.params.termos;
-    // }else{
-        // const id = 0;
-        // const email = 0;
-        // const cpf = 0;
-        // const nome = 0;
-        // const admin = false;
-        // const termos = true;
-    // }
-
-
+  
     const renderItem = () =>{
         let container = <></>;
 
-        if(termos == false){
+        if(route.params.termos == false){
             container = (
 
                 <View style={styles.buttonStyleContainer}>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('MeusDados', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
+                    <Button onPressFunction={() => navigation.navigate('MeusDados', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('ListOccurrence', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
+                    <Button onPressFunction={() => navigation.navigate('ListOccurrence', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('Obras', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
+                    <Button onPressFunction={() => navigation.navigate('Obras', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
 
                 </View>
@@ -64,16 +48,16 @@ export default function Menu({route}) {
             container = (
                 <View style={styles.buttonStyleContainer}>
                      <View>
-                    <Button onPressFunction={() => navigation.navigate('RegisterOccurrence', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<MaterialIcons name="assignment" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
+                    <Button onPressFunction={() => navigation.navigate('RegisterOccurrence', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<MaterialIcons name="assignment" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('MeusDados', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
+                    <Button onPressFunction={() => navigation.navigate('MeusDados', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<FontAwesome name="user" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Meus Dados'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('ListOccurrence', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
+                    <Button onPressFunction={() => navigation.navigate('ListOccurrence', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<MaterialCommunityIcons name="clipboard-text-search-outline" size={hp(10)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solcitações'} />
                 </View>
                 <View>
-                    <Button onPressFunction={() => navigation.navigate('Obras', {id: id, email: email , cpf: cpf, nome: nome, admin: admin, termos: termos})} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
+                    <Button onPressFunction={() => navigation.navigate('Obras', {id: route.params.id, email: route.params.email , cpf: route.params.cpf, nome: route.params.nome, admin: route.params.admin, termos: route.params.termos})} icon={<MaterialIcons name="construction" size={hp(10)} color="white" />} color={"#6FBAFF"} title={'Obras'} />
                 </View>
 
                 </View>
@@ -86,7 +70,7 @@ export default function Menu({route}) {
         let container = <></>
 
 
-        if(admin == true){
+        if(route.params.admin == true){
             container = (
             <View>
             <ButtonConfig onPressFunction={() => {navigation.navigate('Adm') }} icon={<MaterialIcons name="settings" size={hp(2)} color="white" />} buttomColor={"white"} color={"#6FBAFF"} title={'Solicitar'} />

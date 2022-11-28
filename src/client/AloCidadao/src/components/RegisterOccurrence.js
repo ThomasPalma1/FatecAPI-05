@@ -141,7 +141,6 @@ export default function RegisterOccurrence(props) {
   return (
 
     <View style={styles.container}>
-      <ButtonBack onPressFunction={() => navigation.navigate('Menu')}/>
       {getBodyContainer()}
       <View style={styles.stepIndicator}>
         <StepIndicator
