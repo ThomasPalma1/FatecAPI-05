@@ -61,18 +61,11 @@ A geração das logs foi mais complexo, por conta de demonstrar cada passo reali
 <h2>📱 Fluxo do aplicativo</h2>
 
 <div align="center" display="flex">
-    <b>Login Social</b>
+    <b>Página de administrador e obras.</b>
     <h3 align="center">
-        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_google.gif" width="300px" height="700px;" alt="" />
+        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/sprint4.gif" width="300px" height="700px;" alt="" />
     </h3>
-       <b>Obras</b>
-    <h3 align="center">
-        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_padrao.gif" width="300px" height="700px;" alt="" />
-    </h3>
-       <b>Administrador e Histórico de Termos</b>
-    <h3 align="center">
-        <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/videos/entrega03_adm.gif" width="300px" height="700px;" alt="" /><br />
-    </h3>
+     
 </div>
 
 
