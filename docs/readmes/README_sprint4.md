@@ -48,11 +48,8 @@ A geração das logs foi mais complexo, por conta de demonstrar cada passo reali
 <br>
 <h2><i>📚 User Stories</i> da quarta entrega</h2>
 
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_2.png">
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_6.png">
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_11.png">
 <img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/card_sprint_13.png">
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_16.png">
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/user_stories_15.png">
 
 
 <h2><i>📅 Cards</i> da quarta entregas</h2>
