@@ -1,6 +1,7 @@
 from flask import jsonify, request, flash, Blueprint
 from app.models.acUser import acUser
 from werkzeug.security import generate_password_hash
+import logging
 
 signUpRoute = Blueprint("signUpRoute", __name__)
 
@@ -31,19 +32,24 @@ def create_event():
     print(user)
 
     if user_email:
-        return jsonify(data=False, message="Email já cadastrado.")
+        logging.getLogger().warning(msg="You are trying to create an account with an email that has already been used. Try another.")
+        return jsonify(data=False, message="E-mail already registered.")
 
         
-        
-    
-
     import init_variables as initializer_postgresql
 
     initializer_postgresql.pdb.create_all()
     initializer_postgresql.pdb.session.add(user)
     initializer_postgresql.pdb.session.commit()
+    initializer_postgresql.pdb.session.refresh(user)
     
-    return jsonify(data=True, message="Sucesso ao salvar seu cadastro."), format_user(user)
+    formatted_user = format_user(user)
+    query_results = {'user': formatted_user}
+
+    logging.getLogger().info(msg="Inserted data in executed query: " + str(" ") + str(query_results))
+
+
+    return jsonify(data=True, message="Success in saving your registration."), format_user(user)
 
    
 
