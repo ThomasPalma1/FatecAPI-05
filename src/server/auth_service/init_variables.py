@@ -1,14 +1,12 @@
 import os
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+import logger_format
 import logging
+
 
 from flask import Flask
 
-logging.basicConfig(
-    filename='logRecorder.log', 
-    level=logging.INFO, 
-    format=f'%(asctime)s | %(levelname)s | %(message)s')
 
 app = Flask(__name__)
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, redirect, url_for, make_response, jsonify
 from flask_login import login_user, logout_user
 from app.models.acUser import acUser
+import logging
 
 authRoutes = Blueprint("authRoutes", __name__)
 
@@ -26,10 +27,12 @@ def login():
 
 
         if not user or not user.verify_password(senha):
-            return make_response(jsonify(data=False, message="Email ou Senha inválidos, tente novamente!"), 401)
+            logging.getLogger().warning(msg="Invalid email or password. Try again!")
+            return make_response(jsonify(message="Unauthorized"), 401)
            
         login_user(user)
-        return make_response(jsonify(id= user.id, email= user.email, cpf = user.cpf, nome = user.nome, termos = user.termos, admin = user.admin, data=True), 200)
+        logging.getLogger().warning(msg="User successfully authenticated!")
+        return make_response(jsonify(message="Authorized"), 200)
 
 
 @authRoutes.route('/user/<id>', methods=['GET'])

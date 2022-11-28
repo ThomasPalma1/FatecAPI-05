@@ -44,7 +44,6 @@ def create_event():
     report.bairro = request.json['bairro']
     report.descricaoLocal = request.json['descricaoLocal']
 
-
     pdb.session.add(report)
     pdb.session.commit()
     pdb.session.refresh(report)
@@ -55,6 +54,7 @@ def create_event():
     logging.getLogger().info(msg="Inserted data in executed query: " + str(" ") + str(query_results))
 
     return formatted_report
+
 
 @reportRoutes.route('/reports/get', methods=['GET'])
 def get_reports():
@@ -72,7 +72,6 @@ def get_report(id):
     query_results = {'report': formatted_report}
     logging.getLogger().info(msg="Result of the executed query: " + str(" ") + str(query_results))
     return query_results
-
 
 
 @reportRoutes.route('/delete/<id>', methods=['DELETE'])

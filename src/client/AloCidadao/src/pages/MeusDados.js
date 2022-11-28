@@ -55,14 +55,13 @@ export default function Cadastro({route}) {
 
     return (
         <View style={styles.container}>
-            <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
             <View style={styles.form}>
                 <Text style={styles.title}>Meus Dados</Text>
                 <Image style={styles.image} source={require('../assets/images/user.png')} resizeMode={"cover"} />
                 <TextInput style={styleGlobal.input}
-                placeholder={userNome} />
-                <TextInput style={styleGlobal.input} placeholder={userEmail} />
-                <TextInput style={styleGlobal.input} placeholder={userCpf} />
+                value={userNome} />
+                <TextInput style={styleGlobal.input} value={userEmail} />
+                <TextInput style={styleGlobal.input} value={userCpf} />
                
                 <ButtonPost color={"red"} title={'Sair'} 
                 onPressFunction = {() => logout()}

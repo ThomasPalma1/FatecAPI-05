@@ -85,7 +85,6 @@ export default function ListConstruction() {
 
   return (
     <View style={styles.container}>
-      <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
       <View>
         <Text style={styleGlobal.textMenu}>
          Obras em andamento

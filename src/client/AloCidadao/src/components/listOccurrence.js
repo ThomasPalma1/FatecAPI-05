@@ -96,7 +96,6 @@ export default function Menu() {
 
   return (
     <View style={styles.container}>
-      <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
       <View>
         <Text style={styleGlobal.textMenu}>
           Minhas ocorrências 
