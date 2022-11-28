@@ -34,7 +34,7 @@
 
 <p align="justify">
 
-- O administrador é necesário para fazer o gerenciamento das obras de acordo com às ocorrências cadastradas, e funcionalidade de termos no sistema;
+- O administrador é necessário para fazer o gerenciamento das obras de acordo com às ocorrências cadastradas, e funcionalidade de termos no sistema;
 - Os logs são requisitos para a LGPD, conseguindo assim ter um controle sobre às ações feitas;
 
 
@@ -48,8 +48,8 @@ A geração das logs foi mais complexo, por conta de demonstrar cada passo reali
 <br>
 <h2><i>📚 User Stories</i> da quarta entrega</h2>
 
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/card_sprint_13.png">
-<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/user_stories_15.png">
+
+<img src="https://github.com/ThomasPalma1/FatecAPI-05/blob/main/docs/images/User_Story_18.png">
 
 
 <h2><i>📅 Cards</i> da quarta entregas</h2>
