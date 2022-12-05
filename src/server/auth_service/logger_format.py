@@ -14,4 +14,4 @@ logger_format = logging.basicConfig(
 
 sql_query_executed = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
-FileHandler.addFilter(FiltroSenha())
+#FileHandler.addFilter(FiltroSenha('email'))
