@@ -21,6 +21,7 @@ import TermosDesc from "./src/pages/TermosDesc";
 import CadastroAdm from "./src/pages/cadastroAdm";
 import RegistroTermos from "./src/pages/RegistroTermos";
 import cadastroObras from "./src/pages/cadastroObras";
+import ConstructionsAdmin from "./src/pages/ConstructionsAdmin";
 
 const Stack = createStackNavigator()
 
@@ -59,6 +60,7 @@ function  AloCidadao() {
         <Stack.Screen name= "MeusDados" component={MeusDados}/>
         <Stack.Screen name= "Obras" component={ListConstruction}/>
         <Stack.Screen name= "Constructions" component={Constructions}/>
+        <Stack.Screen name= "ConstructionsAdmin" component={ConstructionsAdmin}/>
         <Stack.Screen name= "Adm" component={Adm}/>
         <Stack.Screen name="Historico" component={Historico}/>
         <Stack.Screen name="DetailTermo" component={TermosDesc}/>

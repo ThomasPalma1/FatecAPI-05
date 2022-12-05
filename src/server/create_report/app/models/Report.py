@@ -14,25 +14,10 @@ class Report(pdb.Model):
     uf = pdb.Column(pdb.String)
     bairro = pdb.Column(pdb.String)
     descricaoLocal = pdb.Column(pdb.String)
-    addresses = pdb.relationship('Address', beckred='report', lazy=True)
-
+    statusObras = pdb.Column(pdb.String)
 
     def __repr__(self):
         return f"Report: {self.titulo}"
-
-    def __init__(self, titulo):
-        self.titulo = titulo
-
-
-class Obras (pdb.Model):
-    id = pdb.Column(pdb.Integer, primary_key=True)
-    report_id = pdb.Column(pdb.Integer, pdb.ForeignKey('report.id'),
-        nullable=False)
-    status = pdb.Column(pdb.String)
-
-
-    def __repr__(self):
-        return f"Obras: {self.titulo}"
 
     def __init__(self, titulo):
         self.titulo = titulo

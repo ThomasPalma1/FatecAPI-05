@@ -17,12 +17,46 @@ export default function Cadastro() {
     const botao = () => {
         
         if (nome && email && cpf && senha !== null){
-            navigation.navigate('Termos', {
-                nome: nome,
-                email: email,
-                cpf: cpf,
-                senha: senha
-            })
+    
+                 fetch(`${Config.AUTH}/signup`, {
+                  method:'POST',
+                  headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    nome:nome,
+                    email:email,
+                    cpf:cpf,
+                    senha:senha,
+                    termos: null,
+                    admin: false,
+                  })
+               })
+               .then(function(res) {return res.json();})
+               .then((data)=> { 
+                
+                  if(data.data==true){
+                 
+                        console.log(data.user.user.id)
+                   navigation.navigate('Login')
+                    }
+                  else
+                  {
+                      Alert.alert(
+                          "Erro!",
+                          data.message,
+                          [
+                            { text: "OK", onPress: () => console.log("OK Pressed") }
+                          ]
+                        ) 
+                  }
+               })
+               .catch(function(error) {
+                  console.log(error.message);
+                  throw error;
+                }); 
+            
         }
         else {
             Alert.alert(

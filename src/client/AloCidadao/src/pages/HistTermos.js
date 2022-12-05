@@ -12,28 +12,65 @@ import {useNavigation} from '@react-navigation/native';
 import styleGlobal from '../assets/styles/styleGlobal';
 import ButtonBack from '../components/ButtonBack';
 import ListItem from '../components/ListItem';
+import Config from '../services/config'
+import ListTermosItem from '../components/termosItem';
 
 export default function Historico() {
   const [solicitacoes, setSolicitacoes] = useState([]);
   const navigation = useNavigation();
+  useEffect(() => {
+    PuxarTermo();
+  }, []);
 
+
+  const [Termos, setTermos] = useState(null);
+  async function PuxarTermo(){
+      await fetch(`${Config.AUTH}/termosGeral/get`, {
+        method:'GET'
+        })
+     .then(function(res) {return res.json();})
+     .then((data)=> {
+       const TermosSolicitador = [];
+      for (var i = 0; i< data.termos.length; i++){
+        TermosSolicitador.push({
+          id: data.termos[i].id
+        })
+      }
+        setTermos(TermosSolicitador)
+     })
+     .catch(function(error) {
+        console.log(error.message);
+        throw error;
+      });
+     }
 
 
   return (
     <View style={styles.container}>
-      <ButtonBack onPressFunction={() => navigation.navigate('Menu')} />
-      <View>
-        <Text style={styleGlobal.textMenu}>
-          Meus termos
-        </Text>
-      </View>
-      <View style={styles.container}>
-      <Pressable style={styles.button} onPress={() => navigation.navigate('DetailTermo')} >
-      <Text style={styles.textInput}>Termo 1</Text>
-
-    </Pressable>
-      </View>
+    <View>
+      <Text style={styleGlobal.textMenu}>
+      Historico Termos
+      </Text>
+      <Text style={styleGlobal.textDescription}>
+        clique sobre um item para visualizar mais detalhes
+      </Text>
+      
     </View>
+    <View style={styles.container}>
+      <FlatList
+        data={Termos}
+        keyExtractor={item => item.idSolicitacao}
+        renderItem={({item}) => (
+          <Pressable onPress={() => navigation.navigate('DetailTermo', {id: item.id})}>
+            <ListTermosItem
+              data={item}
+            />
+          </Pressable>
+        )}
+        ItemSeparatorComponent={() => <Separator />}
+      />
+    </View>
+  </View>
   );
 }
 
@@ -69,6 +106,9 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: 'bold',
     color: 'blue',
- 
+
   },
+  flat:{
+    color: 'black'
+  }
 });

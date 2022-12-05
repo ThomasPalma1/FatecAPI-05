@@ -5,39 +5,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {RFValue} from 'react-native-responsive-fontsize';
 
-export default function ListConstructionItem({data, handleLeft, handleRight}) {
-  const renderItem = () => {
-    let container = <></>;
+export default function ListTermosItem({data, handleLeft, handleRight}) {
 
-    console.log(data);
-
-    if (data.statusObras == 'Em Aberto') {
-      container = (
-        <View>
-          <Text style={styles.textAberto}>{data.statusObras} </Text>
-        </View>
-      );
-    } else if (data.statusObras == 'Em Andamento') {
-      container = (
-        <View>
-          <Text style={styles.textAndamento}>{data.statusObras}</Text>
-        </View>
-      );
-    } else if (data.statusObras == 'Finalizado') {
-      container = (
-        <View>
-          <Text style={styles.textFinalizado}>{data.statusObras} </Text>
-        </View>
-      );
-    }
-    return container;
-  };
 
   return (
     <View style={styles.container}>
       <View style={styles.listItem}>
-        <Text style={styles.text}> {data.titulo} </Text>
-        {renderItem()}
+        <Text style={styles.text}> Termo {data.id} </Text>
+       
       </View>
     </View>
   );

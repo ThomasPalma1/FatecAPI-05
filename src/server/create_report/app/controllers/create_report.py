@@ -1,7 +1,6 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, make_response, jsonify
 from init_variables import pdb
 from app.models.Report import Report
-from app.models.Report import Obras
 import logger_format
 import logging
 
@@ -21,8 +20,10 @@ def format_report(report):
         "localidade": report.localidade,
         "uf": report.uf,
         "bairro": report.bairro,
-        "descricaoLocal": report.descricaoLocal
+        "descricaoLocal": report.descricaoLocal,
+        "statusObras": report.statusObras
     }
+
 
 
 @reportRoutes.route('/')
@@ -43,6 +44,7 @@ def create_event():
     report.uf = request.json['uf']
     report.bairro = request.json['bairro']
     report.descricaoLocal = request.json['descricaoLocal']
+    report.statusObras = request.json['statusObras']
 
     pdb.session.add(report)
     pdb.session.commit()
@@ -55,6 +57,15 @@ def create_event():
 
     return formatted_report
 
+
+@reportRoutes.route('/update/<id>',methods = ['PUT'])
+def update(id):
+    report = Report.query.filter_by(id=id).one()
+
+    report.statusObras = request.json['statusObras']
+
+    pdb.session.add(report)
+    pdb.session.commit()
 
 @reportRoutes.route('/reports/get', methods=['GET'])
 def get_reports():

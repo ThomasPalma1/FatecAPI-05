@@ -35,6 +35,7 @@ export default function ListConstruction() {
         return res.json();
       })
       .then(data => {
+        console.log(data)
         const eventsSolicitacoes = [];
         for (var i = 0; i < data.reports.length; i++) {
           eventsSolicitacoes.push({
@@ -48,6 +49,7 @@ export default function ListConstruction() {
             localidade: data.reports[i].Localidade,
             bairro: data.reports[i].Bairro,
             uf: data.reports[i].UF,
+            statusObras: data.reports[i].statusObras,
           });
         }
         setSolicitacoes(eventsSolicitacoes);
@@ -77,11 +79,6 @@ export default function ListConstruction() {
         throw error;
       });
   }
-
-  
-
-
-
 
   return (
     <View style={styles.container}>

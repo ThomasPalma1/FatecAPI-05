@@ -13,20 +13,22 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MeusDados from "../pages/MeusDados";
 import Menu from "../components/Menu";
 
+
 export default function Login(props) {
     const navigation = useNavigation();
     const onPress = () => navigation.navigate('Cadastro');
     const [display, setDisplay] = useState('none'); 
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
+    const [idTermoUser,setIdTermoUser] = useState(null);
+    const [idTermo, setIdTermo] = useState(null);
     const [id, setId] = useState();
-
-
     useEffect(()=>{GoogleSignin.configure({
         webClientId: '817166456092-9ncs2hrt7jpi8i1jp7jvkaa2adfcf19r.apps.googleusercontent.com',
       });
     },[]);
-    
+
+
       const googleSingIn = async ()=> {
     
         const { idToken } = await GoogleSignin.signIn();
@@ -37,10 +39,7 @@ export default function Login(props) {
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
       };
-
-
     async function Logar(props){
-
         await fetch(`${Config.AUTH}/login`, {
             method:'POST',
             headers: {
@@ -55,8 +54,62 @@ export default function Login(props) {
          .then(function(res) {return res.json();})
          .then((data)=> { 
             if(data.data==true){
-                console.log(data.nome)
-                navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos})
+                if(data.admin == true){
+                    navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos})
+
+                }
+                else if(data.termos != null){
+
+
+                  function verifica(){
+                    console.log(idTermo)
+                    console.log(idTermoUser)
+                    if(idTermoUser === idTermo){
+                        navigation.navigate('Menu', {id: data.id, email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos})
+                    }else{
+                        navigation.navigate('Termos', {
+                            id: data.id,
+                            email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos
+                        })
+                    }
+                  }
+  
+                    fetch(`${Config.AUTH}/userTermos/${data.id}`, {
+                        method:'GET'
+                        })
+                    .then(function(res) {return res.json();})
+                    .then((data)=> { 
+                        setIdTermoUser(data.userTermos[0].termos_id)
+                        
+                    fetch(`${Config.AUTH}/termos/get`, {
+                        method:'GET'
+                        })
+                    .then(function(res) {return res.json();})
+                    .then((data)=> { 
+                            
+                            setIdTermo(data.termos[0].id)
+                            verifica();
+                    })
+                    .catch(function(error) {
+                        console.log(error.message);
+                        throw error;
+                        }); 
+                    
+                    })
+                    .catch(function(error) {
+                        console.log(error.message);
+                        throw error;
+                    });
+                    
+              
+                
+              }else{
+
+                navigation.navigate('Termos', {
+                    id: data.id,
+                    email: data.email, cpf: data.cpf, nome: data.nome, admin: data.admin, termos: data.termos
+                })
+              }
             }
             else if(data.data==false)
             {
@@ -73,8 +126,6 @@ export default function Login(props) {
             console.log(error.message);
             throw error;
           });
-      
-      
        }
 
 
@@ -109,7 +160,6 @@ export default function Login(props) {
             <Ionicons name="logo-google" size={30} color="#6FBAFF" />
    
         </Pressable>
-
         
         <TouchableOpacity onPress={onPress} style={styles.register}>
                     <Text style={styles.regText}>Não possui uma conta? Cadastre-se</Text>
@@ -124,13 +174,7 @@ export default function Login(props) {
         </View>
     );
 }
-
-
-
-
   
-
-
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ecf7ff',

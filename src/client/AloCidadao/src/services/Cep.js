@@ -66,16 +66,18 @@ export default function Cep(props) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        Localidade:Localidade,
-        cep:cep,
-        UF:UF,
-        Bairro:Bairro,
         titulo:props.textTitle,
         descricao:props.textDescription,
+        anonimo:props.isAnonymous,
         latitude:location.latitude,
         longitude:location.longitude,
         logradouro:Logradouro,
-        anonimo:props.isAnonymous
+        cep:cep,
+        localidade:Localidade,
+        uf:UF,
+        bairro:Bairro,
+        descricaoLocal: "",
+        statusObras: "Em Aberto"
       })
    })
    .then(function(res) {return res.json();})

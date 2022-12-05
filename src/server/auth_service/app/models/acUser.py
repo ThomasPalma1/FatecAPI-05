@@ -4,26 +4,32 @@ from flask_login import UserMixin
 
 
 
-userTermos = pdb.Table('user_termos',
-    pdb.Column('id', pdb.Integer, primary_key=True),
-    pdb.Column('objeto',pdb.Boolean),
-    pdb.Column('aceitacao',pdb.Boolean),
-    pdb.Column('acessoUser',pdb.Boolean),
-    pdb.Column('cadastro',pdb.Boolean),
-    pdb.Column('servico',pdb.Boolean),
-    pdb.Column('preco',pdb.Boolean),
-    pdb.Column('cancelamento', pdb.Boolean),
-    pdb.Column('suporte', pdb.Boolean),
-    pdb.Column('responsabilidade', pdb.Boolean),
-    pdb.Column('direitorAutorais', pdb.Boolean),
-    pdb.Column('sancoes', pdb.Boolean),
-    pdb.Column('rescisao', pdb.Boolean),
-    pdb.Column('alteracoes', pdb.Boolean),
-    pdb.Column('politicaPrivacidade', pdb.Boolean),
-    pdb.Column('foro', pdb.Boolean),
-     pdb.Column('user_id', pdb.Integer, pdb.ForeignKey('ac_user.id')),
-    pdb.Column('termos_id', pdb.Integer, pdb.ForeignKey('termos.id'))
-)
+class userTermos(pdb.Model):
+    id = pdb.Column(pdb.Integer, primary_key=True)
+    objeto = pdb.Column(pdb.Boolean)
+    aceitacao = pdb.Column(pdb.Boolean)
+    acessoUser = pdb.Column(pdb.Boolean)
+    cadastro = pdb.Column(pdb.Boolean)
+    servico = pdb.Column(pdb.Boolean)
+    preco = pdb.Column(pdb.Boolean)
+    cancelamento = pdb.Column(pdb.Boolean)
+    suporte = pdb.Column(pdb.Boolean)
+    responsabilidade = pdb.Column(pdb.Boolean)
+    direitorAutorais = pdb.Column(pdb.Boolean)
+    sancoes = pdb.Column(pdb.Boolean)
+    rescisao = pdb.Column(pdb.Boolean)
+    alteracoes = pdb.Column(pdb.Boolean)
+    politicaPrivacidade = pdb.Column(pdb.Boolean)
+    foro = pdb.Column(pdb.Boolean)
+    user_id = pdb.Column(pdb.Integer, pdb.ForeignKey('ac_user.id'))
+    termos_id = pdb.Column(pdb.Integer, pdb.ForeignKey('termos.id'))
+
+    def __repr__(self):
+        return f"userTermos: {self.objeto}"
+
+    def __init__(self, objeto):
+        self.objeto = objeto
+
 
 class acUser(pdb.Model, UserMixin):
     id = pdb.Column(pdb.Integer, primary_key=True)
@@ -63,10 +69,10 @@ class Termos(pdb.Model):
     createdAt = pdb.Column(pdb.DateTime(6), default=pdb.func.current_timestamp(), nullable=False)
 
     def __repr__(self):
-        return f"Termos: {self.titulo}"
+        return f"Termos: {self.objeto}"
 
-    def __init__(self, titulo):
-        self.titulo = titulo
+    def __init__(self, objeto):
+        self.objeto = objeto
 
 
 if __name__ == '__main__':

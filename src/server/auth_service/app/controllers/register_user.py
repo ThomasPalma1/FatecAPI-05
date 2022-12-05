@@ -48,8 +48,7 @@ def create_event():
 
     logging.getLogger().info(msg="Inserted data in executed query: " + str(" ") + str(query_results))
 
-
-    return jsonify(data=True, message="Success in saving your registration."), format_user(user)
+    return jsonify(data=True, message="Success in saving your registration.", user = query_results), format_user(user)
 
    
 
