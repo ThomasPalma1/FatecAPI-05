@@ -22,8 +22,12 @@ export default function ButtonBack(props) {
 
 const styles = StyleSheet.create({
     button: {
+        flex: 1,
+        flexDirection: 'row-reverse',
         alignItems: 'flex-end',
         marginTop: hp(-6),
-        marginRight: hp(1),
+        marginRight: hp(40),
+        width: 50,
+        
     },
 })
