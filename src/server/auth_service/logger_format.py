@@ -14,6 +14,6 @@ logger_format = logging.basicConfig(
 
 sql_query_executed = logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
-file_handler = FileHandler("logRecorderalt.txt","w")
+file_handler = FileHandler("logRecorder.log","w")
 
 file_handler.addFilter(FiltroSenha())
