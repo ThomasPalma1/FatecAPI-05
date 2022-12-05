@@ -25,5 +25,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         marginTop: hp(0.5),
         marginLeft: hp(1),
+        width: 50,
     },
 })
